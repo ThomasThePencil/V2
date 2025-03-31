@@ -15,7 +15,7 @@ namespace V2.Items.Vanilla.Placeables.Paintings
         public override bool AppliesToEntity(Item entity, bool lateInstantiation) => entity.type == ItemID.Dryadisque;
         public override void SetDefaults(Item entity)
         {
-            entity.DefaultToPlaceableTile(ModContent.TileType<Tiles.Paintings.Dryadisque>());
+            entity.DefaultToPlaceableTile(ModContent.TileType<Tiles.Vanilla.Paintings.Dryadisque>());
         }
 
     }
