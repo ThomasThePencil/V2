@@ -852,17 +852,7 @@ namespace V2.PlayerHandling
 			}
 		}
 
-		public override void ProcessTriggers(TriggersSet triggersSet)
-		{
-			// Only available in debug - not finished
-#if DEBUG
-			if (V2.LayOnBellyHotkey.JustPressed && this.Venomizeous)
-			{
-				this.IsLayingOnTum = !this.IsLayingOnTum;
-			}
-#endif
-		}
-        public override void ModifyHitByProjectile(Projectile proj, ref Player.HurtModifiers modifiers)
+		public override void ModifyHitByProjectile(Projectile proj, ref Player.HurtModifiers modifiers)
         {
             if (Player.AsPred().FungalFairySetBonus)
             {

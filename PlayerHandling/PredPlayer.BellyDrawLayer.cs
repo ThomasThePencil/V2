@@ -14,66 +14,6 @@ using V2.Core;
 using V2.NPCs;
 
 namespace V2.PlayerHandling;
-
-public class LayFlatHeadLayer : PlayerDrawLayer
-{
-    public override Position GetDefaultPosition() => new BeforeParent(PlayerDrawLayers.Head);
-
-    protected override void Draw(ref PlayerDrawSet drawInfo)
-    {
-        if (drawInfo.drawPlayer.AsPred().IsLayingOnTum)
-        {
-            // (drawInfo.drawPlayer.headPosition);
-            drawInfo.drawPlayer.headRotation =
-                -drawInfo.rotation + (drawInfo.Position - Main.screenPosition).AngleTo(Main.MouseScreen);
-
-            drawInfo.drawPlayer.headPosition.X = -4;
-            drawInfo.drawPlayer.headPosition.Y = -2;
-
-            drawInfo.compositeFrontArmRotation = -MathHelper.ToRadians(75);
-
-            drawInfo.drawPlayer.legRotation = -MathHelper.ToRadians(15);
-            // drawInfo.drawPlayer.headPosition.AngleTo(Main.MouseScreen);
-        }
-        else
-        {
-        }
-    }
-}
-public class LayFlatDrawLayer : PlayerDrawLayer
-{
-    public override Position GetDefaultPosition() => PlayerDrawLayers.BeforeFirstVanillaLayer;
-
-    
-    protected override void Draw(ref PlayerDrawSet drawInfo)
-    {
-        if (drawInfo.drawPlayer.AsPred().IsLayingOnTum && drawInfo.drawPlayer.AsPred().Venomizeous)
-        {
-            drawInfo.Position.X += 20;
-            drawInfo.rotationOrigin = drawInfo.drawPlayer.Size / 2;
-            drawInfo.rotation += drawInfo.drawPlayer.direction * MathHelper.PiOver2;
-            // drawInfo.drawPlayer.fullRotation = drawInfo.drawPlayer.direction * MathHelper.PiOver2;
-            drawInfo.Position.Y += 4;
-            if (drawInfo.drawPlayer.direction == 1)
-            {
-                drawInfo.Position.X -= drawInfo.drawPlayer.height / 2f;
-            }
-            else
-            {
-                drawInfo.Position.X -= drawInfo.drawPlayer.height;
-                drawInfo.Position.X += drawInfo.drawPlayer.height / 2f;
-            }
-            
-            drawInfo.Position.Y -= BellyDrawLayer.LayingBelly.RestingHeight;
-            drawInfo.Position.Y += (BellyDrawLayer.LayingBelly.RestingHeight - BellyDrawLayer.LayingBelly.OffsetHeight) * 2;
-			drawInfo.Position.Y -= 1;
-			drawInfo.Position.X -= 1;
-            
-            V2Utils.DebugPointMarker(drawInfo.Position - Main.screenPosition);
-        }
-    }
-}
-
 public class BellyDrawLayer : PlayerDrawLayer
 {
     // Internal cache
@@ -145,8 +85,7 @@ public class BellyDrawLayer : PlayerDrawLayer
     public static readonly List<BellyDrawer> BellyDrawers =
     [
         new RegularBelly(),
-        new TorsoClothedBelly(),
-        new LayingBelly() 
+        new TorsoClothedBelly()
     ];
 
     private static void DrawPlayerBelly(ref PlayerDrawSet drawInfo, int size, int frame)
@@ -430,74 +369,6 @@ public class BellyDrawLayer : PlayerDrawLayer
                 tumCover = GetTummyCoverFromEquips(player.armor[2], size);
 
             return tumCover != "Bare";
-        }
-    }
-    
-    public class LayingBelly : RegularBelly
-    {
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="bellyHeight">Entire height of belly until "belly floor"</param>
-        /// <param name="x">x (from left to right) position where the gut is attached to</param>
-        /// <param name="y">y (from floor and up) to the position where the gut is attached to</param>
-        public readonly struct LayingBellyConfiguration(int bellyHeight, int x, int y)
-        {
-            public int BellyHeight => bellyHeight;
-
-            public int X => x;
-
-            public int Y => y;
-        }
-
-        public static IDictionary<int, LayingBellyConfiguration> Configurations =
-            new Dictionary<int, LayingBellyConfiguration>()
-            {
-                { 19, new LayingBellyConfiguration(27, 26, 20) }
-            };
-
-        public static int RestingHeight;
-        public static int OffsetHeight; 
-
-        public override bool ShouldDraw(ref PlayerDrawSet drawInfo, int size, int frame)
-        {
-            // return false;
-            return base.ShouldDraw(ref drawInfo, size, frame) && drawInfo.drawPlayer.AsPred().IsLayingOnTum;
-        }
-
-        public override DrawData BuildDrawData(ref PlayerDrawSet drawInfo, int size, int frame)
-        {
-            string layingBellyPath = V2TumSpritesRoot + $"Tum{size}/BareLaying";
-            if (ModContent.HasAsset(layingBellyPath) &&
-                Configurations.TryGetValue(size, out LayingBellyConfiguration config))
-            {
-                RestingHeight = config.BellyHeight * 2;
-                OffsetHeight = config.Y * 2;
-                
-                Texture2D bellyTexture = ModContent.Request<Texture2D>(layingBellyPath).Value;
-
-                Vector2 tumPosition = getPositionAtFeetOfPlayer(ref drawInfo);
-
-                // .Y -= 6;
-                
-                float xOffset = -config.X * 2f;
-                float yOffset = 0;
-
-                tumPosition.Y -= (RestingHeight - OffsetHeight) * 2;
-
-                tumPosition = getPositionForTumRender(tumPosition, ref drawInfo, xOffset, yOffset, bellyTexture);
-
-                tumPosition.X = (int)tumPosition.X - drawInfo.drawPlayer.direction;
-                tumPosition.Y = (int)tumPosition.Y - 1;
-
-                
-                V2Utils.DebugPointMarker(tumPosition);
-                
-                return new DrawData(bellyTexture, tumPosition, drawInfo.colorBodySkin)
-                    { effect = drawInfo.playerEffect, ignorePlayerRotation = true }; // , ignorePlayerRotation = true };
-            }
-
-            return default;
         }
     }
 

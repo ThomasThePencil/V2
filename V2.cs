@@ -30,8 +30,6 @@ namespace V2
 		public static ModKeybind StruggleDownHotkey { get; set; }
 		public static ModKeybind StruggleSpecialHotkey { get; set; }
 
-		public static ModKeybind LayOnBellyHotkey { get; set; }
-
 		public static ModKeybind RespawnAfterDigestionHotkey { get; set; }
 
 		/// <summary>
@@ -85,8 +83,6 @@ namespace V2
 			StruggleRightHotkey = KeybindLoader.RegisterKeybind(this, "StruggleRight", "Right");
 			StruggleDownHotkey = KeybindLoader.RegisterKeybind(this, "StruggleDown", "Down");
 			StruggleSpecialHotkey = KeybindLoader.RegisterKeybind(this, "StruggleSpecial", "Space");
-
-			LayOnBellyHotkey = KeybindLoader.RegisterKeybind(this, "LayOnBelly", "L");
 
 			RespawnAfterDigestionHotkey = KeybindLoader.RegisterKeybind(this, "RespawnAfterDigestion", "LeftShift");
 
