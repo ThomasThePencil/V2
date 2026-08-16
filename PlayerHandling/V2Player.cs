@@ -68,9 +68,10 @@ namespace V2.PlayerHandling
 		public float ManaRegenOverallMod { get; set; }
 		public float ManaRegenStillMod { get; set; }
 		public float ManaRegenMovingMod { get; set; }
-
-		public int lastWidth = 20;
+		
 		public Dictionary<string, bool> LocationsVisited { get; set; }
+
+		bool resetWidthOnce;
 
 		public override void Initialize()
 		{
@@ -335,6 +336,7 @@ namespace V2.PlayerHandling
 
 			}
 
+			int lastWidth = Player.width;
 			if (Player.AsV2Player().BaeTransformation == true)
 			{
 				switch (BaelzInfo.GetVisualWeightStage(Player))
@@ -361,14 +363,18 @@ namespace V2.PlayerHandling
 						Player.width = 48;
 						break;
 				}
+				resetWidthOnce = true;
 			}
-			else Player.width = 20;
+			else if (resetWidthOnce) // Vanilla resets hitbox changes only once.
+			{
+				Player.width = Player.defaultWidth;
+				resetWidthOnce = false;
+			}
 			if (Player.width != lastWidth)
 			{
 				int difference = Player.width - lastWidth;
 				Player.position.X -= difference / 2;
 			}
-			lastWidth = Player.width;
 		}
 		public override void PostUpdateMiscEffects()
 		{
