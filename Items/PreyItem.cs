@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -524,6 +525,18 @@ namespace V2.Items
 		public override void LoadData(Item item, TagCompound tag)
 		{
 			Health = tag.GetInt("VDura");
+		}
+
+		public override void NetSend(Item item, BinaryWriter writer)
+		{
+			writer.Write(Health);
+			writer.Write(MaxHealth);
+		}
+
+		public override void NetReceive(Item item, BinaryReader reader)
+		{
+			Health = reader.ReadInt32();
+			MaxHealth = reader.ReadInt32();
 		}
 	}
 }

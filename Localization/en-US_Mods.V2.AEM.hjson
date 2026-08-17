@@ -24,6 +24,22 @@ Items: {
 			}
 		}
 	}
+	Tools: {
+		PredToggleRod: {
+			Name: Rod of Objectum
+			Overview:
+				'''
+				Can be used in the hotbar or as a cursor item.
+				[c/{$Mods.V2.Colors.Action}:Left-click] to select the placeable item closest to the cursor, outlining it in [c/{$Mods.V2.Colors.Green}:green].
+				[c/{$Mods.V2.Colors.Action}:Right-click] with a placeable item selected to [c/{$Mods.V2.Colors.Action}:cycle that item between the following appetite tunings:]
+				- Reserved (will not eat anything)
+				- Friendly (will not eat you or townsfolk, but will randomly eat others)
+				- Indiscriminate (will randomly eat anything that comes near)
+				Most placeable items default to Reserved. Some do not; make sure you take note of which ones default to which.
+				'''
+			Flavor: A- all sorts of objects that you might not think are animate are- ...are still r- really hungry! They know to k- keep their appetites to themselves, usually, b- but sometimes, they get a bit...uncooperative or overenthusiastic. S- so! To alleviate that...concern, this scepter was first made in the golden age of Avarsici by combining shimmer, r- royal...h- heft, and imported sugarsteel! The result can easily 'tune' an object's a- appetite to your liking!
+		}
+	}
 }
 NPCs: {
 	Generic: {
@@ -54,7 +70,7 @@ NPCs: {
 				HostileInWater: {
 					Unlock: Dive into water near a Piranha
 					Function: Entering water while a Piranha is nearby will [c/{$Mods.V2.Colors.Action}:cause it to target you]; it will give chase for as long as you remain in the water.
-					Flavor: You won't want to dip your feet into the water when a piranha's around, u- unless you're looking to end up as f- fish food; th- they'll see you, recognize you as a potential m- meal, and swim towards you super fast to try and get their fill of a- adventurer meat.
+					Flavor: You won't want to dip your feet into the water when a piranha's around, u- unless you're looking to end up as f- fish food; th- they'll see you, recognize you as a potential m- meal, and swim towards you super fast to try and get their fill of ange- ...a- adventurer meat.
 				}
 
 				HostileOutOfWater: {
@@ -70,7 +86,7 @@ NPCs: {
 						Piranhas will form schools when many are nearby.
 						Swallowing a Piranha which is part of a school will [c/{$Mods.V2.Colors.BadThing}:cause all other Piranhas in that school to immediately aggro onto you]. Piranhas which are aggro'd this way will not try to eat you, but will deal damage via biting more often once latched on.
 						'''
-					Flavor: While they have a very p- particular 'first come, first served' rule on their food, piranhas are very communal by nature; they often school for a sense of protection from p- predators! If you g- gobble up a piranha near its schoolmates, the others will r- really aggressively chase you down to s- save their friend, even leaping out from the water r- right towards you!
+					Flavor: While they have a very p- particular 'first come, first served' rule on their f- food, piranhas are very communal by nature; they often school for a sense of protection from p- predators! If you g- gobble up a piranha near its schoolmates, the others will r- really aggressively chase you down to s- save their friend, even leaping out from the water r- right towards you!
 				}
 
 				CatchAndRelease: {
@@ -82,7 +98,7 @@ NPCs: {
 						The first entity the Piranha contacts will take damage, scaling with your throwing damage bonuses.
 						If the entity is [c/{$Mods.V2.Colors.Red}:Bleeding], they will be [c/{$Mods.V2.Colors.GoodThingVore}:instantly swallowed] by the Piranha.
 						'''
-					Flavor: Piranhas...don't like being caught. At all. Even when being carried around, they'll often do their best to chomp on you and get a meal!
+					Flavor: Piranhas...don't like being caught. At all. Even when being carried around, they'll often do their best to ch- chomp on you and get a m- meal out of it!
 				}
 
 				ExpertLifesteal: {

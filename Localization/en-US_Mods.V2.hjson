@@ -4979,6 +4979,16 @@ ItemTooltip: {
 			}
 		}
 
+		Tools: {
+			PredToggleRod: {
+				Short:
+					'''
+					Can be used to fine-tune inanimate objects' appetites
+					{$Mods.V2.ItemTooltip.Generic.CheckTheAEM}
+					'''
+			}
+		}
+
 		TransformationItems: {
 			BaelzTransformationItem: {
 				Short:
@@ -6633,11 +6643,6 @@ Items: {
 
 	ThrowingDice: {
 		DisplayName: Throwing Dice
-		Tooltip: ""
-	}
-
-	PredToggleRod: {
-		DisplayName: Pred Toggle Rod
 		Tooltip: ""
 	}
 
