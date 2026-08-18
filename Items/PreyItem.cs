@@ -1,11 +1,12 @@
-﻿using System;
+﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.Audio;
 using Terraria.DataStructures;
@@ -296,12 +297,14 @@ namespace V2.Items
 			}
 			bool gulpOnUseAttempt = item != player.inventory[58] && player.whoAmI == Main.myPlayer && V2.ItemGulpHotkey.Current;
 			gulpOnUseAttempt |= item.AsFood().AlwaysEatenByUse;
-			bool attemptingToUse = Main.mouseLeft;
-			if (!item.autoReuse)
-				attemptingToUse &= Main.mouseLeftRelease;
+
+            bool attemptingToUse = Main.mouseLeft;
+			 if (!Main.keyState.IsKeyDown(Keys.LeftShift))
+                attemptingToUse &= Main.mouseLeftRelease;
+
 			attemptingToUse &= item == player.HeldItem;
 			attemptingToUse &= !player.mouseInterface;
-			if (item.AsFood().EdibleOnUse && gulpOnUseAttempt && attemptingToUse)
+			if (/*item.AsFood().EdibleOnUse && */ gulpOnUseAttempt && attemptingToUse)
 			{
 				Main.mouseLeftRelease = false;
 				int origStack = item.stack;
@@ -336,7 +339,8 @@ namespace V2.Items
 
 				return false;
 			}
-			return true;
+			//prevents the player from eating an item simultaneously to placing said item, consuming two stacks
+			return !(player.whoAmI == Main.myPlayer && V2.ItemGulpHotkey.Current);
 		}
 
 		public override bool CanStack(Item destination, Item source)
