@@ -1889,7 +1889,7 @@ namespace V2.PlayerHandling
 						flag7 = false;
 
 					if (flag7 && player.whoAmI == Main.myPlayer)
-						Projectile.NewProjectile(player.GetSource_Buff(j), player.position.X + (float)(player.width / 2), player.position.Y + (float)(player.height / 2), 0f, 0f, 111, 0, 0f, player.whoAmI);
+						Projectile.NewProjectile(player.GetSource_Buff(j), player.position.X + (float)(player.width / 2), player.position.Y + (float)(player.height / 2), 0f, 0f, ProjectileID.Bunny, 0, 0f, player.whoAmI);
 				}
 				else if (player.buffType[j] == 148)
 				{
@@ -1901,266 +1901,50 @@ namespace V2.PlayerHandling
 						switch (num22)
 						{
 							case 0:
-								player.AddBuff(22, (int)(60f * num23 * 3f));
+								player.AddBuff(BuffID.Darkness, (int)(60f * num23 * 3f));
 								break;
 							case 1:
-								player.AddBuff(23, (int)(60f * num23 * 0.75f));
+								player.AddBuff(BuffID.Cursed, (int)(60f * num23 * 0.75f));
 								break;
 							case 2:
-								player.AddBuff(31, (int)(60f * num23 * 1.5f));
+								player.AddBuff(BuffID.Confused, (int)(60f * num23 * 1.5f));
 								break;
 							case 3:
-								player.AddBuff(32, (int)(60f * num23 * 3.5f));
+								player.AddBuff(BuffID.Slow, (int)(60f * num23 * 3.5f));
 								break;
 							case 4:
-								player.AddBuff(33, (int)(60f * num23 * 5f));
+								player.AddBuff(BuffID.Weak, (int)(60f * num23 * 5f));
 								break;
 							case 5:
-								player.AddBuff(35, (int)(60f * num23 * 1f));
+								player.AddBuff(BuffID.Silenced, (int)(60f * num23 * 1f));
 								break;
 						}
 					}
 
 					player.GetDamage(DamageClass.Generic) += 0.2f;
 				}
-				else if (player.buffType[j] == 41)
-				{
-					player.buffTime[j] = 18000;
-					player.penguin = true;
-					bool flag8 = true;
-					if (player.ownedProjectileCounts[112] > 0)
-						flag8 = false;
-
-					if (flag8 && player.whoAmI == Main.myPlayer)
-						Projectile.NewProjectile(player.GetSource_Buff(j), player.position.X + (float)(player.width / 2), player.position.Y + (float)(player.height / 2), 0f, 0f, 112, 0, 0f, player.whoAmI);
-				}
-				else if (player.buffType[j] == 152)
-				{
-					player.buffTime[j] = 18000;
-					player.magicLantern = true;
-					if (player.ownedProjectileCounts[492] == 0 && player.whoAmI == Main.myPlayer)
-						Projectile.NewProjectile(player.GetSource_Buff(j), player.position.X + (float)(player.width / 2), player.position.Y + (float)(player.height / 2), 0f, 0f, 492, 0, 0f, player.whoAmI);
-				}
-				else if (player.buffType[j] == 91)
-				{
-					player.buffTime[j] = 18000;
-					player.puppy = true;
-					bool flag9 = true;
-					if (player.ownedProjectileCounts[334] > 0)
-						flag9 = false;
-
-					if (flag9 && player.whoAmI == Main.myPlayer)
-						Projectile.NewProjectile(player.GetSource_Buff(j), player.position.X + (float)(player.width / 2), player.position.Y + (float)(player.height / 2), 0f, 0f, 334, 0, 0f, player.whoAmI);
-				}
-				else if (player.buffType[j] == 92)
-				{
-					player.buffTime[j] = 18000;
-					player.grinch = true;
-					bool flag10 = true;
-					if (player.ownedProjectileCounts[353] > 0)
-						flag10 = false;
-
-					if (flag10 && player.whoAmI == Main.myPlayer)
-						Projectile.NewProjectile(player.GetSource_Buff(j), player.position.X + (float)(player.width / 2), player.position.Y + (float)(player.height / 2), 0f, 0f, 353, 0, 0f, player.whoAmI);
-				}
-				else if (player.buffType[j] == 84)
-				{
-					player.buffTime[j] = 18000;
-					player.blackCat = true;
-					bool flag11 = true;
-					if (player.ownedProjectileCounts[319] > 0)
-						flag11 = false;
-
-					if (flag11 && player.whoAmI == Main.myPlayer)
-						Projectile.NewProjectile(player.GetSource_Buff(j), player.position.X + (float)(player.width / 2), player.position.Y + (float)(player.height / 2), 0f, 0f, 319, 0, 0f, player.whoAmI);
-				}
-				else if (player.buffType[j] == 61)
-				{
-					player.buffTime[j] = 18000;
-					player.dino = true;
-					bool flag12 = true;
-					if (player.ownedProjectileCounts[236] > 0)
-						flag12 = false;
-
-					if (flag12 && player.whoAmI == Main.myPlayer)
-						Projectile.NewProjectile(player.GetSource_Buff(j), player.position.X + (float)(player.width / 2), player.position.Y + (float)(player.height / 2), 0f, 0f, 236, 0, 0f, player.whoAmI);
-				}
-				else if (player.buffType[j] == 154)
-				{
-					player.buffTime[j] = 18000;
-					player.babyFaceMonster = true;
-					bool flag13 = true;
-					if (player.ownedProjectileCounts[499] > 0)
-						flag13 = false;
-
-					if (flag13 && player.whoAmI == Main.myPlayer)
-						Projectile.NewProjectile(player.GetSource_Buff(j), player.position.X + (float)(player.width / 2), player.position.Y + (float)(player.height / 2), 0f, 0f, 499, 0, 0f, player.whoAmI);
-				}
-				else if (player.buffType[j] == 65)
-				{
-					player.buffTime[j] = 18000;
-					player.eyeSpring = true;
-					bool flag14 = true;
-					if (player.ownedProjectileCounts[268] > 0)
-						flag14 = false;
-
-					if (flag14 && player.whoAmI == Main.myPlayer)
-						Projectile.NewProjectile(player.GetSource_Buff(j), player.position.X + (float)(player.width / 2), player.position.Y + (float)(player.height / 2), 0f, 0f, 268, 0, 0f, player.whoAmI);
-				}
-				else if (player.buffType[j] == 66)
-				{
-					player.buffTime[j] = 18000;
-					player.snowman = true;
-					bool flag15 = true;
-					if (player.ownedProjectileCounts[269] > 0)
-						flag15 = false;
-
-					if (flag15 && player.whoAmI == Main.myPlayer)
-						Projectile.NewProjectile(player.GetSource_Buff(j), player.position.X + (float)(player.width / 2), player.position.Y + (float)(player.height / 2), 0f, 0f, 269, 0, 0f, player.whoAmI);
-				}
-				else if (player.buffType[j] == 42)
-				{
-					player.buffTime[j] = 18000;
-					player.turtle = true;
-					bool flag16 = true;
-					if (player.ownedProjectileCounts[127] > 0)
-						flag16 = false;
-
-					if (flag16 && player.whoAmI == Main.myPlayer)
-						Projectile.NewProjectile(player.GetSource_Buff(j), player.position.X + (float)(player.width / 2), player.position.Y + (float)(player.height / 2), 0f, 0f, 127, 0, 0f, player.whoAmI);
-				}
-				else if (player.buffType[j] == 45)
-				{
-					player.buffTime[j] = 18000;
-					player.eater = true;
-					bool flag17 = true;
-					if (player.ownedProjectileCounts[175] > 0)
-						flag17 = false;
-
-					if (flag17 && player.whoAmI == Main.myPlayer)
-						Projectile.NewProjectile(player.GetSource_Buff(j), player.position.X + (float)(player.width / 2), player.position.Y + (float)(player.height / 2), 0f, 0f, 175, 0, 0f, player.whoAmI);
-				}
-				else if (player.buffType[j] == 50)
-				{
-					player.buffTime[j] = 18000;
-					player.skeletron = true;
-					bool flag18 = true;
-					if (player.ownedProjectileCounts[197] > 0)
-						flag18 = false;
-
-					if (flag18 && player.whoAmI == Main.myPlayer)
-						Projectile.NewProjectile(player.GetSource_Buff(j), player.position.X + (float)(player.width / 2), player.position.Y + (float)(player.height / 2), 0f, 0f, 197, 0, 0f, player.whoAmI);
-				}
-				else if (player.buffType[j] == 51)
-				{
-					player.buffTime[j] = 18000;
-					player.hornet = true;
-					bool flag19 = true;
-					if (player.ownedProjectileCounts[198] > 0)
-						flag19 = false;
-
-					if (flag19 && player.whoAmI == Main.myPlayer)
-						Projectile.NewProjectile(player.GetSource_Buff(j), player.position.X + (float)(player.width / 2), player.position.Y + (float)(player.height / 2), 0f, 0f, 198, 0, 0f, player.whoAmI);
-				}
-				else if (player.buffType[j] == 52)
-				{
-					player.buffTime[j] = 18000;
-					player.tiki = true;
-					bool flag20 = true;
-					if (player.ownedProjectileCounts[199] > 0)
-						flag20 = false;
-
-					if (flag20 && player.whoAmI == Main.myPlayer)
-						Projectile.NewProjectile(player.GetSource_Buff(j), player.position.X + (float)(player.width / 2), player.position.Y + (float)(player.height / 2), 0f, 0f, 199, 0, 0f, player.whoAmI);
-				}
-				else if (player.buffType[j] == 53)
-				{
-					player.buffTime[j] = 18000;
-					player.lizard = true;
-					bool flag21 = true;
-					if (player.ownedProjectileCounts[200] > 0)
-						flag21 = false;
-
-					if (flag21 && player.whoAmI == Main.myPlayer)
-						Projectile.NewProjectile(player.GetSource_Buff(j), player.position.X + (float)(player.width / 2), player.position.Y + (float)(player.height / 2), 0f, 0f, 200, 0, 0f, player.whoAmI);
-				}
-				else if (player.buffType[j] == 54)
-				{
-					player.buffTime[j] = 18000;
-					player.parrot = true;
-					bool flag22 = true;
-					if (player.ownedProjectileCounts[208] > 0)
-						flag22 = false;
-
-					if (flag22 && player.whoAmI == Main.myPlayer)
-						Projectile.NewProjectile(player.GetSource_Buff(j), player.position.X + (float)(player.width / 2), player.position.Y + (float)(player.height / 2), 0f, 0f, 208, 0, 0f, player.whoAmI);
-				}
-				else if (player.buffType[j] == 55)
-				{
-					player.buffTime[j] = 18000;
-					player.truffle = true;
-					bool flag23 = true;
-					if (player.ownedProjectileCounts[209] > 0)
-						flag23 = false;
-
-					if (flag23 && player.whoAmI == Main.myPlayer)
-						Projectile.NewProjectile(player.GetSource_Buff(j), player.position.X + (float)(player.width / 2), player.position.Y + (float)(player.height / 2), 0f, 0f, 209, 0, 0f, player.whoAmI);
-				}
-				else if (player.buffType[j] == 56)
-				{
-					player.buffTime[j] = 18000;
-					player.sapling = true;
-					bool flag24 = true;
-					if (player.ownedProjectileCounts[210] > 0)
-						flag24 = false;
-
-					if (flag24 && player.whoAmI == Main.myPlayer)
-						Projectile.NewProjectile(player.GetSource_Buff(j), player.position.X + (float)(player.width / 2), player.position.Y + (float)(player.height / 2), 0f, 0f, 210, 0, 0f, player.whoAmI);
-				}
-				else if (player.buffType[j] == 85)
-				{
-					player.buffTime[j] = 18000;
-					player.cSapling = true;
-					bool flag25 = true;
-					if (player.ownedProjectileCounts[324] > 0)
-						flag25 = false;
-
-					if (flag25 && player.whoAmI == Main.myPlayer)
-						Projectile.NewProjectile(player.GetSource_Buff(j), player.position.X + (float)(player.width / 2), player.position.Y + (float)(player.height / 2), 0f, 0f, 324, 0, 0f, player.whoAmI);
-				}
-				else if (player.buffType[j] == 81)
-				{
-					player.buffTime[j] = 18000;
-					player.spider = true;
-					bool flag26 = true;
-					if (player.ownedProjectileCounts[313] > 0)
-						flag26 = false;
-
-					if (flag26 && player.whoAmI == Main.myPlayer)
-						Projectile.NewProjectile(player.GetSource_Buff(j), player.position.X + (float)(player.width / 2), player.position.Y + (float)(player.height / 2), 0f, 0f, 313, 0, 0f, player.whoAmI);
-				}
-				else if (player.buffType[j] == 82)
-				{
-					player.buffTime[j] = 18000;
-					player.squashling = true;
-					bool flag27 = true;
-					if (player.ownedProjectileCounts[314] > 0)
-						flag27 = false;
-
-					if (flag27 && player.whoAmI == Main.myPlayer)
-						Projectile.NewProjectile(player.GetSource_Buff(j), player.position.X + (float)(player.width / 2), player.position.Y + (float)(player.height / 2), 0f, 0f, 314, 0, 0f, player.whoAmI);
-				}
-				else if (player.buffType[j] == 57)
-				{
-					player.buffTime[j] = 18000;
-					player.wisp = true;
-					bool flag28 = true;
-					if (player.ownedProjectileCounts[211] > 0)
-						flag28 = false;
-
-					if (flag28 && player.whoAmI == Main.myPlayer)
-						Projectile.NewProjectile(player.GetSource_Buff(j), player.position.X + (float)(player.width / 2), player.position.Y + (float)(player.height / 2), 0f, 0f, 211, 0, 0f, player.whoAmI);
-				}
+				else if (player.buffType[j] == BuffID.BabyPenguin) player.DoPetHandlerBuff(j, ref player.penguin, ProjectileID.Penguin);
+				else if (player.buffType[j] == BuffID.MagicLantern) player.DoPetHandlerBuff(j, ref player.magicLantern, ProjectileID.MagicLantern);
+				else if (player.buffType[j] == BuffID.Puppy) player.DoPetHandlerBuff(j, ref player.puppy, ProjectileID.Puppy);
+				else if (player.buffType[j] == BuffID.BabyGrinch) player.DoPetHandlerBuff(j, ref player.grinch, ProjectileID.BabyGrinch);
+				else if (player.buffType[j] == BuffID.BlackCat) player.DoPetHandlerBuff(j, ref player.blackCat, ProjectileID.BlackCat);
+				else if (player.buffType[j] == BuffID.BabyDinosaur) player.DoPetHandlerBuff(j, ref player.dino, ProjectileID.BabyDino);
+				else if (player.buffType[j] == BuffID.BabyFaceMonster) player.DoPetHandlerBuff(j, ref player.babyFaceMonster, ProjectileID.BabyFaceMonster);
+				else if (player.buffType[j] == BuffID.EyeballSpring) player.DoPetHandlerBuff(j, ref player.eyeSpring, ProjectileID.EyeSpring);
+				else if (player.buffType[j] == BuffID.BabySnowman) player.DoPetHandlerBuff(j, ref player.snowman, ProjectileID.BabySnowman);
+				else if (player.buffType[j] == BuffID.PetTurtle) player.DoPetHandlerBuff(j, ref player.turtle, ProjectileID.Turtle);
+				else if (player.buffType[j] == BuffID.BabyEater) player.DoPetHandlerBuff(j, ref player.eater, ProjectileID.BabyEater);
+				else if (player.buffType[j] == BuffID.BabySkeletronHead) player.DoPetHandlerBuff(j, ref player.skeletron, ProjectileID.BabySkeletronHead);
+				else if (player.buffType[j] == BuffID.BabyHornet) player.DoPetHandlerBuff(j, ref player.hornet, ProjectileID.BabyHornet);
+				else if (player.buffType[j] == BuffID.TikiSpirit) player.DoPetHandlerBuff(j, ref player.tiki, ProjectileID.TikiSpirit);
+				else if (player.buffType[j] == BuffID.PetLizard) player.DoPetHandlerBuff(j, ref player.lizard, ProjectileID.PetLizard);
+				else if (player.buffType[j] == BuffID.PetParrot) player.DoPetHandlerBuff(j, ref player.parrot, ProjectileID.Parrot);
+				else if (player.buffType[j] == BuffID.BabyTruffle) player.DoPetHandlerBuff(j, ref player.truffle, ProjectileID.Truffle);
+				else if (player.buffType[j] == BuffID.PetSapling) player.DoPetHandlerBuff(j, ref player.sapling, ProjectileID.Sapling);
+				else if (player.buffType[j] == BuffID.CursedSapling) player.DoPetHandlerBuff(j, ref player.cSapling, ProjectileID.CursedSapling);
+				else if (player.buffType[j] == BuffID.PetSpider) player.DoPetHandlerBuff(j, ref player.spider, ProjectileID.Spider);
+				else if (player.buffType[j] == BuffID.Squashling) player.DoPetHandlerBuff(j, ref player.squashling, ProjectileID.Squashling);
+				else if (player.buffType[j] == BuffID.Wisp) player.DoPetHandlerBuff(j, ref player.wisp, ProjectileID.Wisp);
 				else if (player.buffType[j] == 60)
 				{
 					player.buffTime[j] = 18000;
@@ -2168,7 +1952,7 @@ namespace V2.PlayerHandling
 					bool flag29 = true;
 					for (int num24 = 0; num24 < 1000; num24++)
 					{
-						if (Main.projectile[num24].active && Main.projectile[num24].owner == player.whoAmI && Main.projectile[num24].type == 226)
+						if (Main.projectile[num24].active && Main.projectile[num24].owner == player.whoAmI && Main.projectile[num24].type == ProjectileID.CrystalLeaf)
 						{
 							if (!flag29)
 								Main.projectile[num24].Kill();
@@ -2178,30 +1962,10 @@ namespace V2.PlayerHandling
 					}
 
 					if (flag29 && player.whoAmI == Main.myPlayer)
-						Projectile.NewProjectile(player.GetSource_Buff(j), player.position.X + (float)(player.width / 2), player.position.Y + (float)(player.height / 2), 0f, 0f, 226, 0, 0f, player.whoAmI);
+						Projectile.NewProjectile(player.GetSource_Buff(j), player.position.X + (float)(player.width / 2), player.position.Y + (float)(player.height / 2), 0f, 0f, ProjectileID.CrystalLeaf, 0, 0f, player.whoAmI);
 				}
-				else if (player.buffType[j] == 127)
-				{
-					player.buffTime[j] = 18000;
-					player.zephyrfish = true;
-					bool flag30 = true;
-					if (player.ownedProjectileCounts[380] > 0)
-						flag30 = false;
-
-					if (flag30 && player.whoAmI == Main.myPlayer)
-						Projectile.NewProjectile(player.GetSource_Buff(j), player.position.X + (float)(player.width / 2), player.position.Y + (float)(player.height / 2), 0f, 0f, 380, 0, 0f, player.whoAmI);
-				}
-				else if (player.buffType[j] == 136)
-				{
-					player.buffTime[j] = 18000;
-					player.miniMinotaur = true;
-					bool flag31 = true;
-					if (player.ownedProjectileCounts[398] > 0)
-						flag31 = false;
-
-					if (flag31 && player.whoAmI == Main.myPlayer)
-						Projectile.NewProjectile(player.GetSource_Buff(j), player.position.X + (float)(player.width / 2), player.position.Y + (float)(player.height / 2), 0f, 0f, 398, 0, 0f, player.whoAmI);
-				}
+				else if (player.buffType[j] == BuffID.ZephyrFish) player.DoPetHandlerBuff(j, ref player.zephyrfish, ProjectileID.ZephyrFish);
+				else if (player.buffType[j] == BuffID.MiniMinotaur) player.DoPetHandlerBuff(j, ref player.miniMinotaur, ProjectileID.MiniMinotaur);
 				else if (player.buffType[j] == 70)
 				{
 					player.venom = true;
@@ -2626,7 +2390,7 @@ namespace V2.PlayerHandling
 				if (projectile.ai[0] == 2f && !projectile.position.HasNaNs())
 				{
 					int type = projectile.type;
-					bool flag = projectile.ModProjectile != null && projectile.ModProjectile.AIType > 0;
+					bool flag = projectile.ModProjectile != null && projectile.ModProjectile.AIType > ProjectileID.None;
 					if (flag)
 					{
 						projectile.type = projectile.ModProjectile.AIType;
@@ -2751,7 +2515,7 @@ namespace V2.PlayerHandling
 						saidOneHook = projectile.whoAmI;
 						hookCount++;
 						int type = projectile.type;
-						bool flag = projectile.ModProjectile != null && projectile.ModProjectile.AIType > 0;
+						bool flag = projectile.ModProjectile != null && projectile.ModProjectile.AIType > ProjectileID.None;
 						if (flag)
 						{
 							projectile.type = projectile.ModProjectile.AIType;
@@ -2878,7 +2642,7 @@ namespace V2.PlayerHandling
 						Position.Y = projectile.position.Y + (float)(projectile.height / 2) - (float)(self.height / 2);
 						self.RemoveAllGrapplingHooks();
 						int num4 = 13;
-						if (self.miscEquips[2].stack > 0 && self.miscEquips[2].mountType >= 0 && MountID.Sets.Cart[self.miscEquips[2].mountType] && (!self.miscEquips[2].expertOnly || Main.expertMode) && (!self.miscEquips[2].masterOnly || Main.masterMode))
+						if (self.miscEquips[2].stack > 0 && self.miscEquips[2].mountType >= MountID.Rudolph && MountID.Sets.Cart[self.miscEquips[2].mountType] && (!self.miscEquips[2].expertOnly || Main.expertMode) && (!self.miscEquips[2].masterOnly || Main.masterMode))
 						{
 							num4 = self.miscEquips[2].mountType;
 						}
@@ -2942,14 +2706,10 @@ namespace V2.PlayerHandling
 				SoundEngine.PlaySound(SoundID.Grab, new Vector2((int)self.position.X, (int)self.position.Y));
 				int num = itemToPickUp.buffType;
 				itemToPickUp = new Item();
-				if (Main.netMode == 1)
-				{
+				if (Main.netMode == NetmodeID.MultiplayerClient)
 					NetMessage.SendData(MessageID.NebulaLevelupRequest, -1, -1, null, playerIndex, (float)num, self.Center.X, self.Center.Y, 0, 0, 0);
-				}
 				else
-				{
 					self.NebulaLevelup(num);
-				}
 			}
 			if (itemToPickUp.type == ItemID.Heart || itemToPickUp.type == ItemID.CandyApple || itemToPickUp.type == ItemID.CandyCane)
 			{
@@ -3005,10 +2765,8 @@ namespace V2.PlayerHandling
 				itemToPickUp = self.GetItem(playerIndex, itemToPickUp, GetItemSettings.PickupItemFromWorld);
 			}
 			Main.item[worldItemArrayIndex] = itemToPickUp;
-			if (Main.netMode == 1)
-			{
+			if (Main.netMode == NetmodeID.MultiplayerClient)
 				NetMessage.SendData(MessageID.SyncItem, -1, -1, null, worldItemArrayIndex, 0f, 0f, 0f, 0, 0, 0);
-			}
 			return itemToPickUp;
 		}
 

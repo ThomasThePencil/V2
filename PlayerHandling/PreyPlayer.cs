@@ -54,10 +54,11 @@ namespace V2.PlayerHandling
 
 		public double SoftenedDigestionDamageTaken { get; set; }
 		public StatModifier SoftenedDigestionDamageModifier;
+		public StatModifier SoftenedDigestionDamageThresholdModifier;
 		public int SoftenedWearoffDelay { get; set; }
 		public static int SoftenedWearoffMaxDelay => V2Utils.SensibleTime(seconds: 2, frames: 30);
 		public StatModifier SoftenedWearoffRateModifier;
-		public int SoftenedStacks => Math.Min(Softened.MaxStacks, (int)Math.Floor((double)SoftenedDigestionDamageTaken / (Player.statLifeMax * Softened.MaxHealthDigestedForOneStack)));
+		public int SoftenedStacks => Math.Min(Softened.MaxStacks, (int)Math.Floor((double)SoftenedDigestionDamageTaken / (Player.statLifeMax * Softened.MaxHealthDigestedForOneStack(Player))));
 
 		public bool PredScanner { get; set; }
 		public bool PerfectMeal { get; set; }

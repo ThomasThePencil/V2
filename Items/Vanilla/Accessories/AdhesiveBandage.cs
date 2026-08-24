@@ -25,7 +25,6 @@ namespace V2.Items.Vanilla.Accessories
 
 		public static void UpdateAdhesiveBandage(Item item, Player player, bool hideVisual)
 		{
-			player.buffImmune[BuffID.Bleeding] = true;
 			player.AsFood().SoftenedDigestionDamageModifier *= 1f - SoftenedBuildupReduction;
 		}
 

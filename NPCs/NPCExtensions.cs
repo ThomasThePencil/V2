@@ -636,7 +636,10 @@ namespace V2.NPCs
 			}
 		}
 
-		public static int SoftenedStacks(this NPC npc) => Math.Min(Softened.MaxStacks, (int)Math.Floor((double)npc.AsFood().SoftenedDigestionDamageTaken / (npc.lifeMax * Softened.MaxHealthDigestedForOneStack)));
+		public static int SoftenedStacks(this NPC npc) => Math.Min(
+			Softened.MaxStacks,
+			(int)Math.Floor((double)npc.AsFood().SoftenedDigestionDamageTaken / (npc.lifeMax * Softened.MaxHealthDigestedForOneStack(npc)))
+		);
 
 		public static bool CanItemsBeThievedBy(this NPC npc, Entity pred)
 		{

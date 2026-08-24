@@ -17,7 +17,17 @@ namespace V2.StatusEffects.Voraria.Debuffs
 {
 	public class Softened : ModBuff
 	{
-		public static double MaxHealthDigestedForOneStack => 0.05;
+		public static double MaxHealthDigestedForOneStack(Player player)
+		{
+			double threshold = 0.05;
+			threshold = player.AsFood().SoftenedDigestionDamageThresholdModifier.ApplyTo((float)threshold);
+			return threshold;
+		}
+		public static double MaxHealthDigestedForOneStack(NPC npc)
+		{
+			double threshold = 0.05;
+			return threshold;
+		}
 		public static double DefenseReductionPerStack => 0.075;
 		public static float DigestionDamageIncreasePerStack => 0.15f;
 		public static int MaxStacks => 10;
@@ -40,7 +50,7 @@ namespace V2.StatusEffects.Voraria.Debuffs
 				"Mods.V2.StatusEffects.Voraria.Debuffs.Softened.Description.Base",
 				new
 				{
-					SoftenedMaxHealthThreshold = MaxHealthDigestedForOneStack.ToPercentage(1),
+					SoftenedMaxHealthThreshold = MaxHealthDigestedForOneStack(Main.LocalPlayer).ToPercentage(1),
 					SoftenedMaxStacks = MaxStacks,
 					Main.LocalPlayer.AsFood().SoftenedStacks,
 					SoftenedDefReduction = DefenseReductionPerStack.ToPercentage(1),
@@ -83,8 +93,8 @@ namespace V2.StatusEffects.Voraria.Debuffs
 				0f
 			);
 
-			double damageTowardsNextStack = Main.LocalPlayer.AsFood().SoftenedDigestionDamageTaken % (Main.LocalPlayer.statLifeMax * MaxHealthDigestedForOneStack);
-			double barFillRatio = damageTowardsNextStack / (Main.LocalPlayer.statLifeMax * MaxHealthDigestedForOneStack);
+			double damageTowardsNextStack = Main.LocalPlayer.AsFood().SoftenedDigestionDamageTaken % (Main.LocalPlayer.statLifeMax * MaxHealthDigestedForOneStack(Main.LocalPlayer));
+			double barFillRatio = damageTowardsNextStack / (Main.LocalPlayer.statLifeMax * MaxHealthDigestedForOneStack(Main.LocalPlayer));
 			if (Main.LocalPlayer.AsFood().SoftenedStacks == MaxStacks)
 				barFillRatio = 0.0;
 			spriteBatch.Draw(

@@ -125,5 +125,13 @@ namespace V2.PlayerHandling
 
 			item.TurnToAir();
 		}
+
+		public static void DoPetHandlerBuff(this Player player, int buffIndex, ref bool petFlag, int petProjID)
+		{
+			player.buffTime[buffIndex] = 18000;
+			petFlag = true;
+			if (player.ownedProjectileCounts[petProjID] <= 0 && player.whoAmI == Main.myPlayer)
+				Projectile.NewProjectile(player.GetSource_Buff(buffIndex), player.position.X + (float)(player.width / 2), player.position.Y + (float)(player.height / 2), 0f, 0f, petProjID, 0, 0f, player.whoAmI);
+		}
 	}
 }
