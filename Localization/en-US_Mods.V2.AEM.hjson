@@ -23,6 +23,19 @@ Items: {
 					'''
 			}
 		}
+		Defensive: {
+			AdhesiveBandage: {
+				Name: Adhesive Bandage
+				Overview:
+					'''
+					Can be worn in accessory slots.
+					While worn, confers the following effects:
+					> The health regeneration reductions from [c/{$Mods.V2.Colors.DarkRed}:Bleeding], [c/{$Mods.V2.Colors.DarkRed}:Heavy Bleeding], and [c/{$Mods.V2.Colors.DarkRed}:Fatal Bleeding] are [c/{$Mods.V2.Colors.Green}:reduced by {AdhesiveBandageBleedRegenReducReduc].
+					> The health loss per attack from [c/{$Mods.V2.Colors.DarkRed}:Bleeding], [c/{$Mods.V2.Colors.DarkRed}:Heavy Bleeding], and [c/{$Mods.V2.Colors.DarkRed}:Fatal Bleeding] is [c/{$Mods.V2.Colors.Green}:reduced by {AdhesiveBandageBleedAttackHealthLossReduc}]. [c/{$Mods.V2.Colors.DarkGrey}:(Rounds down.)]
+					> [c/{$Mods.V2.Colors.DarkGreen}:Softened] requires [c/{$Mods.V2.Colors.Yellow}:+{AdhesiveBandageSoftenedDMG} more digestion damage taken] to gain a stack.
+					'''
+			}
+		}
 	}
 	Tools: {
 		PredToggleRod: {
@@ -32,9 +45,9 @@ Items: {
 				Can be used in the hotbar or as a cursor item.
 				[c/{$Mods.V2.Colors.Action}:Left-click] to select the placeable item closest to the cursor, outlining it in [c/{$Mods.V2.Colors.Green}:green].
 				[c/{$Mods.V2.Colors.Action}:Right-click] with a placeable item selected to [c/{$Mods.V2.Colors.Action}:cycle that item between the following appetite tunings:]
-				- Reserved (will not eat anything)
-				- Friendly (will not eat you or townsfolk, but will randomly eat others)
-				- Indiscriminate (will randomly eat anything that comes near)
+				> Reserved (will not eat anything)
+				> Friendly (will not eat you or townsfolk, but will randomly eat others)
+				> Indiscriminate (will randomly eat anything that comes near)
 				Most placeable items default to Reserved. Some do not; make sure you take note of which ones default to which.
 				'''
 			Flavor: A- all sorts of objects that you might not think are animate are- ...are still r- really hungry! They know to k- keep their appetites to themselves, usually, b- but sometimes, they get a bit...uncooperative or overenthusiastic. S- so! To alleviate that...concern, this scepter was first made in the golden age of Avarsici by combining shimmer, r- royal...h- heft, and imported sugarsteel! The result can easily 'tune' an object's a- appetite to your liking!

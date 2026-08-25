@@ -27,16 +27,17 @@ namespace V2.Core
 		public static void AddStatus(this Entity entity, int statusID, int intendedTime, bool fromDigestingSomething = false)
 		{
 			intendedTime += 1;
-			if (entity is Player playerPred)
+			if (entity is Player player)
 			{
 				if (fromDigestingSomething)
 				{
 					if (Main.debuff[statusID])
-						intendedTime = (int)Math.Round((double)intendedTime / playerPred.AsPred().DebuffDisextensionFactor);
+						intendedTime = (int)Math.Round((double)intendedTime / player.AsPred().DebuffDisextensionFactor);
 					else
-						intendedTime = (int)Math.Round((double)intendedTime * playerPred.AsPred().BuffExtensionFactor);
+						intendedTime = (int)Math.Round((double)intendedTime * player.AsPred().BuffExtensionFactor);
 				}
-				playerPred.AddBuff(statusID, intendedTime);
+				intendedTime = (int)Math.Round((double)intendedTime * player.AsV2Player().StatusDurationResistance[statusID]);
+				player.AddBuff(statusID, intendedTime);
 			}
 			else if (entity is NPC NPCPred)
 				NPCPred.AddBuff(statusID, intendedTime);

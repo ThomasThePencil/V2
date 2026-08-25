@@ -71,6 +71,8 @@ namespace V2.PlayerHandling
 		
 		public Dictionary<string, bool> LocationsVisited { get; set; }
 
+		public Dictionary<int, double> StatusDurationResistance { get; set; }
+
 		bool resetWidthOnce;
 
 		public override void Initialize()
@@ -83,8 +85,24 @@ namespace V2.PlayerHandling
 			GrappleLastSpeed = Vector2.Zero;
 
 			LocationsVisited = [];
+			StatusDurationResistance = [];
+			for (int i = 0; i < BuffLoader.BuffCount; i++)
+			{
+				if (!StatusDurationResistance.ContainsKey(i))
+					StatusDurationResistance.TryAdd(i, 1.0);
+			}
 		}
 
+		public void ResetStatusResistances()
+		{
+			for (int i = 0; i < BuffLoader.BuffCount; i++)
+			{
+				if (!StatusDurationResistance.ContainsKey(i))
+					StatusDurationResistance.TryAdd(i, 1.0);
+
+				StatusDurationResistance[i] = 1.0;
+			}
+		}
 		public override void ResetEffects()
 		{
 			generalItemUIDrawMethods = [];
@@ -172,6 +190,7 @@ namespace V2.PlayerHandling
 			ResetHealthRegenEffectList();
 			ResetManaRegenEffectList();
 			ResetEnvironmentEffects();
+			ResetStatusResistances();
 		}
 
 		public override void ModifyLuck(ref float luck)
@@ -240,7 +259,7 @@ namespace V2.PlayerHandling
 				};
 			}
 		}
-		public int GetStunTimeForNPC(NPC npc)
+		public static int GetStunTimeForNPC(NPC npc)
 		{
 			int StunTime = 120;
 			int ReduceAmount = Math.Max(npc.AsV2NPC().TimeStunCounter - 2, 0);

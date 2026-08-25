@@ -25,7 +25,13 @@ namespace V2.Items.Vanilla.Accessories
 
 		public static void UpdateAdhesiveBandage(Item item, Player player, bool hideVisual)
 		{
+			player.AsV2Player().StatusDurationResistance[BuffID.Bleeding] *= 0.5;
 			player.AsFood().SoftenedDigestionDamageModifier *= 1f - SoftenedBuildupReduction;
+		}
+
+		public override bool CanAccessoryBeEquippedWith(Item equippedItem, Item incomingItem, Player player)
+		{
+			return true;
 		}
 
 		public static bool OnBreak(Item item, Entity pred, bool direct) => true;
