@@ -33,6 +33,20 @@ Items: {
 					> The health regeneration reductions from [c/{$Mods.V2.Colors.DarkRed}:Bleeding], [c/{$Mods.V2.Colors.DarkRed}:Heavy Bleeding], and [c/{$Mods.V2.Colors.DarkRed}:Fatal Bleeding] are [c/{$Mods.V2.Colors.Green}:reduced by {AdhesiveBandageBleedRegenReducReduc].
 					> The health loss per attack from [c/{$Mods.V2.Colors.DarkRed}:Bleeding], [c/{$Mods.V2.Colors.DarkRed}:Heavy Bleeding], and [c/{$Mods.V2.Colors.DarkRed}:Fatal Bleeding] is [c/{$Mods.V2.Colors.Green}:reduced by {AdhesiveBandageBleedAttackHealthLossReduc}]. [c/{$Mods.V2.Colors.DarkGrey}:(Rounds down.)]
 					> [c/{$Mods.V2.Colors.DarkGreen}:Softened] requires [c/{$Mods.V2.Colors.Yellow}:+{AdhesiveBandageSoftenedDMG} more digestion damage taken] to gain a stack.
+					[c/{$Mods.V2.Colors.Red}:Destroyed] when durability is depleted by digestion damage.
+					'''
+			}
+			MedicatedBandage: {
+				Name: Medicated Bandage
+				Overview:
+					'''
+					Can be worn in accessory slots.
+					While worn, confers the following effects:
+					> The health regeneration reductions from [c/{$Mods.V2.Colors.DarkRed}:Bleeding], [c/{$Mods.V2.Colors.DarkRed}:Heavy Bleeding], and [c/{$Mods.V2.Colors.DarkRed}:Fatal Bleeding] are [c/{$Mods.V2.Colors.Green}:reduced by {MedicatedBandageBleedRegenReducReduc].
+					> The health loss per attack from [c/{$Mods.V2.Colors.DarkRed}:Bleeding], [c/{$Mods.V2.Colors.DarkRed}:Heavy Bleeding], and [c/{$Mods.V2.Colors.DarkRed}:Fatal Bleeding] is [c/{$Mods.V2.Colors.Green}:reduced by {MedicatedBandageBleedAttackHealthLossReduc}]. [c/{$Mods.V2.Colors.DarkGrey}:(Rounds down.)]
+					> [c/{$Mods.V2.Colors.DarkGreen}:Softened] requires [c/{$Mods.V2.Colors.Yellow}:+{MedicatedBandageSoftenedDMG} more digestion damage taken] to gain a stack.
+					> Grants [c/{$Mods.V2.Colors.Green}:immunity] to [c/{$Mods.V2.Colors.Green}:Poisoned].
+					[c/{$Mods.V2.Colors.Red}:Destroyed] when durability is depleted by digestion damage.
 					'''
 			}
 		}
