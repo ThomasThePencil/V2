@@ -1,35 +1,36 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
 using ReLogic.Content;
 using ReLogic.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Microsoft.Xna.Framework.Input;
 using Terraria;
 using Terraria.Audio;
 using Terraria.Chat;
 using Terraria.DataStructures;
+using Terraria.GameInput;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ModLoader.IO;
 using V2.Core;
 using V2.Items;
-using V2.Items.Voraria.Consumables.PermanentUpgrades;
 using V2.Items.Voraria.Accessories.Thingymajigs;
+using V2.Items.Voraria.Consumables.PermanentUpgrades;
 using V2.NPCs;
 using V2.PlayerHandling.PredPlayerGoals;
 using V2.PlayerHandling.PredPlayerGoals.Amateur;
 using V2.PlayerHandling.PredPlayerGoals.Beginner;
+using V2.PlayerHandling.PredPlayerGoals.Intermediate;
+using V2.PlayerHandling.PredPlayerGoals.Skilled;
 using V2.PlayerHandling.PredPlayerGoals.Starter;
 using V2.Projectiles;
+using V2.Projectiles.Voraria.Other;
 using V2.Sounds.Vore;
 using V2.StatusEffects.Voraria.Buffs;
 using V2.StatusEffects.Voraria.Debuffs;
-using V2.PlayerHandling.PredPlayerGoals.Skilled;
-using V2.Projectiles.Voraria.Other;
-using V2.PlayerHandling.PredPlayerGoals.Intermediate;
 
 namespace V2.PlayerHandling
 {
@@ -894,13 +895,15 @@ namespace V2.PlayerHandling
 		{
 			if (inventory.Length == 59)
 			{
-				if (Player.whoAmI == Main.myPlayer && (V2.ItemGulpHotkey.JustPressed || (Main.keyState.IsKeyDown(Keys.LeftShift) && V2.ItemGulpHotkey.Current && Main.GameUpdateCount % 2 == 0)))
+				if (Player.whoAmI == Main.myPlayer && (V2.ItemGulpHotkey.JustPressed || (Main.keyState.IsKeyDown(Keys.LeftShift) && V2.ItemGulpHotkey.Current)))
 				{
 					if (inventory[slot].IsAir)
 						return true;
 
 					int origStack = inventory[slot].stack;
-					if (inventory[slot].AsFood().PreSwallow is not null && !inventory[slot].AsFood().PreSwallow.Invoke(inventory[slot], Player))
+                    if (!(Main.keyState.IsKeyDown(Keys.LeftShift) && V2.ItemGulpHotkey.Current))
+                        PlayerInput.Triggers.JustPressed.KeyStatus[$"{Mod.Name}/EatItems"] = false;
+                    if (inventory[slot].AsFood().PreSwallow is not null && !inventory[slot].AsFood().PreSwallow.Invoke(inventory[slot], Player))
 					{
 						return false;
 					}
