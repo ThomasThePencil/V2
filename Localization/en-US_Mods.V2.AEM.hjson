@@ -67,6 +67,22 @@ Items: {
 			Flavor: A- all sorts of objects that you might not think are animate are- ...are still r- really hungry! They know to k- keep their appetites to themselves, usually, b- but sometimes, they get a bit...uncooperative or overenthusiastic. S- so! To alleviate that...concern, this scepter was first made in the golden age of Avarsici by combining shimmer, r- royal...h- heft, and imported sugarsteel! The result can easily 'tune' an object's a- appetite to your liking!
 		}
 	}
+	Misc: {
+		AEM: {
+			Name: All-Encompassing Menu
+			Overview:
+				'''
+				The item you're reading this entry from the contents of.
+				[c/{$Mods.V2.Colors.Action}:Left-click] on it while held to open it up and look through it!
+				Can show you [c/{$Mods.V2.Colors.Action}:detailed information] about items, projectiles, NPCs, and anything else you happen to encounter on your journey.
+				Items with entries allow you to [c/{$Mods.V2.Colors.Action}:press {AEMQuickOpenToItemBind} while hovering over them] to quick-nav to their entry.
+
+				[c/{$Mods.V2.Colors.Red}:Cannot be eaten until you have met St. Promethia and had her remove its consumption lock.]
+				Afterwards, if you ate yours or need another, you can [c/{$Mods.V2.Colors.Action}:buy more from her] for 15 Concertissimo Tickets a piece.
+				'''
+			Flavor: The main menu itself! E- everyone at the Gluttony Gallery gets one for their f- first visit, and can take as many as they want afterwards! O- of course, I usually go there to s- see everyone e- else stuff themselves...a- and be o- on the menu...but! You can use it to learn all about your f- future meals!
+		}
+	}
 }
 NPCs: {
 	Generic: {
@@ -149,3 +165,79 @@ NPCs: {
 		}
 	}
 }
+DivineIntervention: {
+	Title: Divine Intergestion
+	Overview:
+		'''
+		Are you mortally terrified by the idea of specific sorts of preds eating you? Mortified at the idea they so much as exist?
+
+		...well, the divines won't help you with that second part. It would disrupt the delicate balances of the ecosystem too greatly for the Timekeeper's tastes. But they CAN keep you from having to engage with them as much!
+		This menu allows you to [c/{$Mods.V2.Colors.Action}:ask the divines] to [c/{$Mods.V2.Colors.Green}:prevent certain categories of entity from eating you].
+		Note that it will [c/{$Mods.V2.Colors.Red}:not prevent them from eating other people or things}; only you.
+		'''
+	ToggleState: This type of pred currently {ToggleStatus} eat you.
+	GenderRelated: {
+		Male: {
+			Title: Male
+			Description: Covers all male preds. Normal guys, femboys, twinks, hunks...all those fun folks.
+		}
+		Female: {
+			Title: Female
+			Description: Covers all female preds. Goths, tomboys, werefoxes, plants, and more are all under this umbrella.
+		}
+		Genderless: {
+			Title: Other
+			Description: Covers all preds whose gender isn't necessarily one way or the other for our purposes. Most slimes, Captain Morgan, most fish, etc. all file under this.
+		}
+	}
+	TypeRelated: {
+		Bat: {
+			Title: Bat
+			Description: Covers all species of bats...which Terraria has a lot of. S- seriously, why does this world have so many bats...? Also covers v- vampires by technicality...h- handsome v- vampires, ehehe...
+		}
+		Bird: {
+			Title: Bird
+			Description: Covers all species of bird, i- including harpies...oh, that reminds me! Did you know there are over 260 d- discovered and f- fed species of harpy that demivolved l- largely independent of one another?
+		}
+		Bug: {
+			Title: Bug
+			Description: Covers all insectoid creatures, of all shapes and s- sizes! Wouldn't cover any h- hungry video game b- bugs if you were playing one, though...
+		}
+		Canine: {
+			Title: Canine
+			Description: Covers all dogs and dog-adjacent creatures --- all part of the order Canidae! That includes dogs themselves, wolves, foxes, coyotes, jackals, dingoes...o- oh, I'm sorry. I- I usually forget some of those aren't animals you'd f- find around here...
+		}
+		Fish: {
+			Title: Fish
+			Description: Covers all fish, and fish-adjacent sea life. Also includes m- mermaids...s- sexy, s- starving mermaids...b- but! You don't look like you'd f- find many of those.
+		}
+		Object: {
+			Title: Object
+			Description: Covers all object/inanimate preds...b- but, if you don't mind, c- can I be l- lunch for your w- weapon? F- for science? I- I promise it'll belch up some tickets!
+		}
+		Plant: {
+			Title: Plant
+			Description: Covers all flowers, fruits, vegetables, trees, and other plants! J- just be sure you f- feed them lots of yummy f- fertilizer, sunlight, and a- angelmeat! That way, they g- grow up b- big and strong, and great for h- harvests!
+		}
+		Slime: {
+			Title: Slime
+			Description: Covers all slimes. ALL of them. And they're all lame, except one that YOU can't even meet here. Gosh, I hate slimes.
+		}
+		Spider: {
+			Title: Spider
+			Description: Covers all arachnids, not just spiders! Th- these aren't bundled in with the B- Bug category because arachnids universally have 8 legs in m- maturity, whereas insectoids have 6!
+		}
+		Townsfolk: {
+			Title: Townsfolk
+			Description:
+				'''
+				Covers all the various townsfolk that you can invite to your little corner of the world!...i- including me, if you s- squint a little!
+				...I- I mean, it's a formality for angels like me, a- and it'd n- never be relevant FOR me wh- when I'd m- much rather be b- broiling inside y- your s- s- stomach...b- but!! It's polite to give the option!!
+				'''
+		}
+		Undead: {
+			Title: Undead
+			Description: Covers all forms of the undead. I- I don't mind being zombie f- food in your place, i- if that's your worry!
+		}
+	}
+}	
