@@ -38,7 +38,7 @@ namespace V2.Items.Voraria.Charms
 
 		public override void ModifyTooltips(List<TooltipLine> tooltips)
 		{
-			tooltips.AddVorariaDynamicItemTooltip(
+			tooltips.AddVorariaItemTooltip(
 				"Voraria.Charms.Fatass",
 				new
 				{

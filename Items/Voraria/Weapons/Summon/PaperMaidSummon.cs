@@ -63,7 +63,7 @@ namespace V2.Items.Voraria.Weapons.Summon
 
 		public override void ModifyTooltips(List<TooltipLine> tooltips)
 		{
-			tooltips.AddVorariaDynamicItemTooltip(
+			tooltips.AddVorariaItemTooltip(
 				"Voraria.Weapons.Summon.PaperMaidSummon",
 				new
 				{

@@ -165,7 +165,7 @@ namespace V2.Items.Voraria.Accessories.Thingymajigs
 		public override void ModifyTooltips(List<TooltipLine> tooltips)
 		{
 			Player player = Main.LocalPlayer;
-			tooltips.AddVorariaDynamicItemTooltip(
+			tooltips.AddVorariaItemTooltip(
 				"Voraria.Accessories.Thingymajigs.Sky",
 				new
 				{

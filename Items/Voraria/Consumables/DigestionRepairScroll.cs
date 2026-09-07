@@ -91,7 +91,7 @@ namespace V2.Items.Voraria.Consumables
 			{
 				remainingCooldownText = "[c/FFFF00:On cooldown for " + seconds + "s]";
 			}
-			tooltips.AddVorariaDynamicItemTooltip(
+			tooltips.AddVorariaItemTooltip(
 				"Voraria.Consumables.DigestionRepairScroll",
 				new
 				{

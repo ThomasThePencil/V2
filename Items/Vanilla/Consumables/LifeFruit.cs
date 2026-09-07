@@ -75,7 +75,7 @@ namespace V2.Items.Vanilla.Consumables
 		{
 			Player player = Main.LocalPlayer;
 			Color lifeFruitUsedColor = Color.Lerp(Color.DarkGoldenrod, Color.Goldenrod, (float)player.ConsumedLifeFruit / (float)Player.LifeFruitMax);
-			tooltips.AddVorariaDynamicItemTooltip(
+			tooltips.AddVorariaItemTooltip(
 				"Vanilla.Consumables.LifeFruit",
 				new
 				{

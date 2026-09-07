@@ -54,7 +54,7 @@ namespace V2.Items.Vanilla.Armor
 
 		public override void ModifyTooltips(Item item, List<TooltipLine> tooltips)
 		{
-			tooltips.AddVorariaDynamicItemTooltip(
+			tooltips.AddVorariaItemTooltip(
 				"Vanilla.Armor.Gold.Legs",
 				new
 				{

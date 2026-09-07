@@ -21,7 +21,7 @@ namespace V2.Items.Vanilla.Weapons.Ranged
 
 		public override void ModifyTooltips(Item item, List<TooltipLine> tooltips)
 		{
-			tooltips.AddVorariaDynamicItemTooltip(
+			tooltips.AddVorariaItemTooltip(
 				"Vanilla.Weapons.Ranged.OakWoodBow",
 				new
 				{
@@ -45,7 +45,7 @@ namespace V2.Items.Vanilla.Weapons.Ranged
 
 		public override void ModifyTooltips(Item item, List<TooltipLine> tooltips)
 		{
-			tooltips.AddVorariaDynamicItemTooltip(
+			tooltips.AddVorariaItemTooltip(
 				"Vanilla.Weapons.Ranged.BorealWoodBow",
 				new
 				{
@@ -93,7 +93,7 @@ namespace V2.Items.Vanilla.Weapons.Ranged
 
 		public override void ModifyTooltips(Item item, List<TooltipLine> tooltips)
 		{
-			tooltips.AddVorariaDynamicItemTooltip(
+			tooltips.AddVorariaItemTooltip(
 				"Vanilla.Weapons.Melee.RichMahoganyBow",
 				new
 				{

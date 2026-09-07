@@ -26,7 +26,7 @@ namespace V2.Items.Vanilla.Consumables.Food
 		public override void ModifyTooltips(Item item, List<TooltipLine> tooltips)
 		{
 			Player player = Main.LocalPlayer;
-			tooltips.AddVorariaDynamicItemTooltip(
+			tooltips.AddVorariaItemTooltip(
 				"Vanilla.Consumables.Food.ChickenNugget",
 				new
 				{

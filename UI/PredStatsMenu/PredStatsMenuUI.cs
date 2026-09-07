@@ -119,7 +119,7 @@ namespace V2.UI.PredStatsMenu
 
 			if (GoalsMenuOpen)
 			{
-				List<PredPlayerGoal> selectedStageGoals = ModContent.GetContent<PredPlayerGoal>().ToList();
+				List<PredPlayerGoal> selectedStageGoals = [.. ModContent.GetContent<PredPlayerGoal>()];
 				List<ProgressionStage> stagesOrdered = [.. PredPlayerGoalLoader.ProgressionStages.OrderBy(x => x.Order)];
 
 				selectedStageGoals.RemoveAll(x => x.Stage != SelectedProgressionStage || !x.Available(Main.LocalPlayer));
@@ -233,7 +233,7 @@ namespace V2.UI.PredStatsMenu
 				for (int i = 0; i < stagesOrdered.Count; i++)
 				{
 					ProgressionStage stageToDraw = stagesOrdered[i];
-					List<PredPlayerGoal> stageGoals = ModContent.GetContent<PredPlayerGoal>().ToList();
+					List<PredPlayerGoal> stageGoals = [.. ModContent.GetContent<PredPlayerGoal>()];
 					stageGoals.RemoveAll(x => x.Stage != stageToDraw);
 					List<PredPlayerGoal> stageGoalsCompleted = stageGoals.FindAll(x => x.Complete(Main.LocalPlayer));
 					float goalCompletionRatio = (float)stageGoalsCompleted.Count / (float)stageGoals.Count;

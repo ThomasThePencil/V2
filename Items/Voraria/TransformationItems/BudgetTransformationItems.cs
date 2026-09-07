@@ -71,7 +71,7 @@ namespace V2.Items.Voraria.TransformationItems
 			}
 			public override void ModifyTooltips(List<TooltipLine> tooltips)
 			{
-				tooltips.AddVorariaDynamicItemTooltip(
+				tooltips.AddVorariaItemTooltip(
 					"Voraria.TransformationItems.KroniiTransformationItem",
 					new
 					{
@@ -107,7 +107,7 @@ namespace V2.Items.Voraria.TransformationItems
 			}
 			public override void ModifyTooltips(List<TooltipLine> tooltips)
 			{
-				tooltips.AddVorariaDynamicItemTooltip(
+				tooltips.AddVorariaItemTooltip(
 					"Voraria.TransformationItems.KroniiTransformationItem",
 					new
 					{
@@ -164,7 +164,7 @@ namespace V2.Items.Voraria.TransformationItems
 			}
 			public override void ModifyTooltips(List<TooltipLine> tooltips)
 			{
-				tooltips.AddVorariaDynamicItemTooltip(
+				tooltips.AddVorariaItemTooltip(
 					"Voraria.TransformationItems.OllieTransformationItem",
 					new
 					{
@@ -200,7 +200,7 @@ namespace V2.Items.Voraria.TransformationItems
 			}
 			public override void ModifyTooltips(List<TooltipLine> tooltips)
 			{
-				tooltips.AddVorariaDynamicItemTooltip(
+				tooltips.AddVorariaItemTooltip(
 					"Voraria.TransformationItems.OllieTransformationItem",
 					new
 					{
@@ -257,7 +257,7 @@ namespace V2.Items.Voraria.TransformationItems
 			}
 			public override void ModifyTooltips(List<TooltipLine> tooltips)
 			{
-				tooltips.AddVorariaDynamicItemTooltip(
+				tooltips.AddVorariaItemTooltip(
 					"Voraria.TransformationItems.SoraTransformationItem",
 					new
 					{
@@ -293,7 +293,7 @@ namespace V2.Items.Voraria.TransformationItems
 			}
 			public override void ModifyTooltips(List<TooltipLine> tooltips)
 			{
-				tooltips.AddVorariaDynamicItemTooltip(
+				tooltips.AddVorariaItemTooltip(
 					"Voraria.TransformationItems.SoraTransformationItem",
 					new
 					{
@@ -350,7 +350,7 @@ namespace V2.Items.Voraria.TransformationItems
 			}
 			public override void ModifyTooltips(List<TooltipLine> tooltips)
 			{
-				tooltips.AddVorariaDynamicItemTooltip(
+				tooltips.AddVorariaItemTooltip(
 					"Voraria.TransformationItems.MintTransformationItem",
 					new
 					{
@@ -386,7 +386,7 @@ namespace V2.Items.Voraria.TransformationItems
 			}
 			public override void ModifyTooltips(List<TooltipLine> tooltips)
 			{
-				tooltips.AddVorariaDynamicItemTooltip(
+				tooltips.AddVorariaItemTooltip(
 					"Voraria.TransformationItems.MintTransformationItem",
 					new
 					{

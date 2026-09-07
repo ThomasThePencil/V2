@@ -94,7 +94,7 @@ namespace V2.Items.Voraria.Consumables.Potions
 		public override void ModifyTooltips(List<TooltipLine> tooltips)
 		{
 			Player player = Main.LocalPlayer;
-			tooltips.AddVorariaDynamicItemTooltip(
+			tooltips.AddVorariaItemTooltip(
 				"Voraria.Consumables.Potions.FastDigestionPotion",
 				new
 				{

@@ -97,6 +97,7 @@ namespace V2.PlayerHandling
 				Player.AddBuff(ModContent.BuffType<Softened>(), 3);
 			SoftenedDigestionDamageModifier = StatModifier.Default;
 			SoftenedWearoffRateModifier = StatModifier.Default;
+			SoftenedDigestionDamageThresholdModifier = StatModifier.Default;
 			if (SoftenedWearoffDelay > 0)
 				SoftenedWearoffDelay--;
 

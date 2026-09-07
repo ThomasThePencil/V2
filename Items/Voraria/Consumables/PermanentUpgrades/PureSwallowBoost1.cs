@@ -86,7 +86,7 @@ namespace V2.Items.Voraria.Consumables.PermanentUpgrades
 		public override void ModifyTooltips(List<TooltipLine> tooltips)
 		{
 			Player player = Main.LocalPlayer;
-			tooltips.AddVorariaDynamicItemTooltip(
+			tooltips.AddVorariaItemTooltip(
 				"Voraria.Consumables.PermanentUpgrades.PureSwallowBoost1",
 				new
 				{

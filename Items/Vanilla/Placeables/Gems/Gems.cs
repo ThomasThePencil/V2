@@ -21,7 +21,7 @@ namespace V2.Items.Vanilla.Placeables.Gems
 		public override void ModifyTooltips(Item item, List<TooltipLine> tooltips)
 		{
 			Player player = Main.LocalPlayer;
-			tooltips.AddVorariaDynamicItemTooltip(
+			tooltips.AddVorariaItemTooltip(
 				"Vanilla.Placeables.Gems.Amethyst",
 				new
 				{
@@ -45,7 +45,7 @@ namespace V2.Items.Vanilla.Placeables.Gems
 		public override void ModifyTooltips(Item item, List<TooltipLine> tooltips)
 		{
 			Player player = Main.LocalPlayer;
-			tooltips.AddVorariaDynamicItemTooltip(
+			tooltips.AddVorariaItemTooltip(
 				"Vanilla.Placeables.Gems.Topaz",
 				new
 				{
@@ -69,7 +69,7 @@ namespace V2.Items.Vanilla.Placeables.Gems
 		public override void ModifyTooltips(Item item, List<TooltipLine> tooltips)
 		{
 			Player player = Main.LocalPlayer;
-			tooltips.AddVorariaDynamicItemTooltip(
+			tooltips.AddVorariaItemTooltip(
 				"Vanilla.Placeables.Gems.Sapphire",
 				new
 				{
@@ -93,7 +93,7 @@ namespace V2.Items.Vanilla.Placeables.Gems
 		public override void ModifyTooltips(Item item, List<TooltipLine> tooltips)
 		{
 			Player player = Main.LocalPlayer;
-			tooltips.AddVorariaDynamicItemTooltip(
+			tooltips.AddVorariaItemTooltip(
 				"Vanilla.Placeables.Gems.Emerald",
 				new
 				{
@@ -117,7 +117,7 @@ namespace V2.Items.Vanilla.Placeables.Gems
 		public override void ModifyTooltips(Item item, List<TooltipLine> tooltips)
 		{
 			Player player = Main.LocalPlayer;
-			tooltips.AddVorariaDynamicItemTooltip(
+			tooltips.AddVorariaItemTooltip(
 				"Vanilla.Placeables.Gems.Amber",
 				new
 				{
@@ -142,7 +142,7 @@ namespace V2.Items.Vanilla.Placeables.Gems
 		public override void ModifyTooltips(Item item, List<TooltipLine> tooltips)
 		{
 			Player player = Main.LocalPlayer;
-			tooltips.AddVorariaDynamicItemTooltip(
+			tooltips.AddVorariaItemTooltip(
 				"Vanilla.Placeables.Gems.Ruby",
 				new
 				{
@@ -167,7 +167,7 @@ namespace V2.Items.Vanilla.Placeables.Gems
 		public override void ModifyTooltips(Item item, List<TooltipLine> tooltips)
 		{
 			Player player = Main.LocalPlayer;
-			tooltips.AddVorariaDynamicItemTooltip(
+			tooltips.AddVorariaItemTooltip(
 				"Vanilla.Placeables.Gems.Diamond",
 				new
 				{

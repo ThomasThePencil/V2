@@ -54,7 +54,7 @@ namespace V2.Items.Vanilla.Consumables.Potions
 
 		public override void ModifyTooltips(Item item, List<TooltipLine> tooltips)
 		{
-			tooltips.AddVorariaDynamicItemTooltip(
+			tooltips.AddVorariaItemTooltip(
 				"Vanilla.Consumables.Potions.Ale",
 				new
 				{

@@ -39,7 +39,7 @@ namespace V2.Items.Vanilla.Accessories
 		public override void ModifyTooltips(Item item, List<TooltipLine> tooltips)
 		{
 			Player player = Main.player[Main.myPlayer];
-			tooltips.AddVorariaDynamicItemTooltip(
+			tooltips.AddVorariaItemTooltip(
 				"Vanilla.Accessories.AdhesiveBandage",
 				new
 				{

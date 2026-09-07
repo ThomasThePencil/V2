@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
@@ -16,7 +17,9 @@ namespace V2.Items.Voraria.Weapons.Throwing.Knives
 
 		public override void SetStaticDefaults()
 		{
-			
+			DrawAnimationVertical anim = new DrawAnimationVertical(6, 12);
+			Main.RegisterItemAnimation(Type, anim);
+			ItemID.Sets.AnimatesAsSoul[Type] = true;
 		}
 
 		public override void SetDefaults()
@@ -45,7 +48,7 @@ namespace V2.Items.Voraria.Weapons.Throwing.Knives
 
 		public override void ModifyTooltips(List<TooltipLine> tooltips)
 		{
-			tooltips.AddVorariaDynamicItemTooltip(
+			tooltips.AddVorariaItemTooltip(
 				"Voraria.Weapons.Throwing.Knives.PiranhaTooth",
 				new
 				{

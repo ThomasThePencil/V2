@@ -291,7 +291,7 @@ namespace V2.Projectiles.Voraria.Pets
 		}
 		public override void ModifyTooltips(List<TooltipLine> tooltips)
 		{
-			tooltips.AddVorariaDynamicItemTooltip(
+			tooltips.AddVorariaItemTooltip(
 				"Voraria.AstralFairySummon",
 				new
 				{
@@ -374,7 +374,7 @@ namespace V2.Projectiles.Voraria.Pets
 		}
 		public override void ModifyTooltips(List<TooltipLine> tooltips)
 		{
-			tooltips.AddVorariaDynamicItemTooltip(
+			tooltips.AddVorariaItemTooltip(
 				"Voraria.AstralFairyController",
 				new
 				{

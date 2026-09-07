@@ -56,7 +56,7 @@ namespace V2.Items.Voraria.Charms
 			double regenEffectiveness = 0.0;
 			if (player.AsPred().StomachTracker?.Prey.Count > 0)
 				regenEffectiveness = (double)player.AsPred().StomachTracker?.Prey.FindAll(x => x.NoHealth).Count / (double)player.AsPred().StomachTracker?.Prey.Count;
-			tooltips.AddVorariaDynamicItemTooltip(
+			tooltips.AddVorariaItemTooltip(
 				"Voraria.Charms.RegenFromAbsorption",
 				new
 				{

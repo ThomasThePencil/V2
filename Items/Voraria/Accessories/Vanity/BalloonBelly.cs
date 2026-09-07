@@ -150,7 +150,7 @@ namespace V2.Items.Voraria.Accessories.Vanity
 
 		public override void ModifyTooltips(List<TooltipLine> tooltips)
 		{
-			tooltips.AddVorariaDynamicItemTooltip(
+			tooltips.AddVorariaItemTooltip(
 				"Voraria.Accessories.Vanity.BalloonBelly",
 				new
 				{

@@ -20,7 +20,7 @@ namespace V2.Items.Vanilla
 		public override void ModifyTooltips(Item item, List<TooltipLine> tooltips)
 		{
 			Player player = Main.LocalPlayer;
-			tooltips.AddVorariaDynamicItemTooltip(
+			tooltips.AddVorariaItemTooltip(
 				"Vanilla.Feather",
 				new
 				{

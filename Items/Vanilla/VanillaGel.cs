@@ -22,7 +22,7 @@ namespace V2.Items.Vanilla
 
 		public override void ModifyTooltips(Item item, List<TooltipLine> tooltips)
 		{
-			tooltips.AddVorariaDynamicItemTooltip("Vanilla.Gel", new { });
+			tooltips.AddVorariaItemTooltip("Vanilla.Gel", new { });
 		}
 	}
 	public class PinkGel : GlobalItem

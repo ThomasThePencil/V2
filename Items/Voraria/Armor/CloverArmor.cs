@@ -53,7 +53,7 @@ namespace V2.Items.Voraria.Armor
 		}
 		public override void ModifyTooltips(List<TooltipLine> tooltips)
 		{
-			tooltips.AddVorariaDynamicItemTooltip(
+			tooltips.AddVorariaItemTooltip(
 				"Voraria.Armor.CloverHeadAccessories",
 				new
 				{
@@ -87,7 +87,7 @@ namespace V2.Items.Voraria.Armor
 		}
 		public override void ModifyTooltips(List<TooltipLine> tooltips)
 		{
-			tooltips.AddVorariaDynamicItemTooltip(
+			tooltips.AddVorariaItemTooltip(
 				"Voraria.Armor.CloverSweater",
 				new
 				{
@@ -125,7 +125,7 @@ namespace V2.Items.Voraria.Armor
 		}
 		public override void ModifyTooltips(List<TooltipLine> tooltips)
 		{
-			tooltips.AddVorariaDynamicItemTooltip(
+			tooltips.AddVorariaItemTooltip(
 				"Voraria.Armor.CloverStockings",
 				new
 				{

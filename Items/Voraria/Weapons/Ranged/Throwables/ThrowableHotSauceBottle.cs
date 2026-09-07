@@ -55,7 +55,7 @@ namespace V2.Items.Voraria.Weapons.Ranged.Throwables
 
 		public override void ModifyTooltips(List<TooltipLine> tooltips)
 		{
-			tooltips.AddVorariaDynamicItemTooltip(
+			tooltips.AddVorariaItemTooltip(
 				"Voraria.Weapons.Ranged.Throwables.FragileBottles.HotSauce",
 				new
 				{

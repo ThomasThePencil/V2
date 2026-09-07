@@ -646,7 +646,7 @@ namespace V2.Items.Voraria.TransformationItems.Baelz
 		}
 		public override void ModifyTooltips(List<TooltipLine> tooltips)
 		{
-			tooltips.AddVorariaDynamicItemTooltip(
+			tooltips.AddVorariaItemTooltip(
 				"Voraria.TransformationItems.BaelzTransformationItem",
 				new
 				{
@@ -682,7 +682,7 @@ namespace V2.Items.Voraria.TransformationItems.Baelz
 		}
 		public override void ModifyTooltips(List<TooltipLine> tooltips)
 		{
-			tooltips.AddVorariaDynamicItemTooltip(
+			tooltips.AddVorariaItemTooltip(
 				"Voraria.TransformationItems.BaelzTransformationItem",
 				new
 				{

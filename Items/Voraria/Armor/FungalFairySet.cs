@@ -54,7 +54,7 @@ namespace V2.Items.Voraria.Armor
 		}
 		public override void ModifyTooltips(List<TooltipLine> tooltips)
 		{
-			tooltips.AddVorariaDynamicItemTooltip(
+			tooltips.AddVorariaItemTooltip(
 				"Voraria.Armor.MushroomHairpin",
 				new
 				{
@@ -103,7 +103,7 @@ namespace V2.Items.Voraria.Armor
 		}
 		public override void ModifyTooltips(List<TooltipLine> tooltips)
 		{
-			tooltips.AddVorariaDynamicItemTooltip(
+			tooltips.AddVorariaItemTooltip(
 				"Voraria.Armor.FungalDress",
 				new
 				{

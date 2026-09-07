@@ -41,6 +41,8 @@ namespace V2.PlayerHandling
 
 		public Vector2 GrappleLastSpeed { get; set; }
 
+		public bool LookingAtAEM { get; set; }
+
 		public bool HungryCursor { get; set; }
 		public bool ShroomNecklace { get; set; }
 		public bool HoldingPredToggleRod { get; set; }
@@ -81,6 +83,8 @@ namespace V2.PlayerHandling
 			ResetHealthRegenEffectList();
 			ResetManaRegenTime();
 			ResetManaRegenEffectList();
+
+			LookingAtAEM = false;
 
 			GrappleLastSpeed = Vector2.Zero;
 

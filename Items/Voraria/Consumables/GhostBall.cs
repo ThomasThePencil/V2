@@ -49,7 +49,7 @@ namespace V2.Items.Voraria.Consumables
 		public override void ModifyTooltips(List<TooltipLine> tooltips)
 		{
 			Player player = Main.LocalPlayer;
-			tooltips.AddVorariaDynamicItemTooltip(
+			tooltips.AddVorariaItemTooltip(
 				"Voraria.Consumables.GhostBall",
 				new
 				{

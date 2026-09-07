@@ -40,7 +40,7 @@ namespace V2.Items.Voraria.Weapons.Ranged
 		}
 		public override void ModifyTooltips(List<TooltipLine> tooltips)
 		{
-			tooltips.AddVorariaDynamicItemTooltip(
+			tooltips.AddVorariaItemTooltip(
 				"Voraria.DinnerBlaster",
 				new
 				{

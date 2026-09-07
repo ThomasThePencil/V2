@@ -36,7 +36,7 @@ namespace V2.Items.Vanilla.Currency
 		public override void ModifyTooltips(Item item, List<TooltipLine> tooltips)
 		{
 			Player player = Main.LocalPlayer;
-			tooltips.AddVorariaDynamicItemTooltip(
+			tooltips.AddVorariaItemTooltip(
 				"Vanilla.Currency.Coins.GoldCoin",
 				new
 				{

@@ -59,7 +59,7 @@ namespace V2.Items.Voraria.Accessories.Informational
 
 		public override void ModifyTooltips(List<TooltipLine> tooltips)
 		{
-			tooltips.AddVorariaDynamicItemTooltip(
+			tooltips.AddVorariaItemTooltip(
 				"Voraria.Accessories.Informational.PredCapacityScanner",
 				new
 				{

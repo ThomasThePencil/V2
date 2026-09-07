@@ -83,7 +83,7 @@ namespace V2.Items.Voraria.Tools
 		}
 		public override void ModifyTooltips(List<TooltipLine> tooltips)
 		{
-			tooltips.AddVorariaDynamicItemTooltip(
+			tooltips.AddVorariaItemTooltip(
 				"Voraria.Tools.PredToggleRod",
 				new
 				{

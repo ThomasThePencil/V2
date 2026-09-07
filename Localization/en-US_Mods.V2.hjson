@@ -398,7 +398,6 @@ PredStatsMenu: {
 				[c/7F7F7F:| {BaseStruggleGraceTime}sec base.]
 				[c/7F7F7F:| +{StruggleGraceTimePer5Levels}sec per 5 stat points invested.]
 				'''
-
 			RelevantStats:
 				'''
 				Total GLP: [c/{$Mods.V2.Colors.GoodThingVore}:{GLPTotal}]
@@ -425,7 +424,6 @@ PredStatsMenu: {
 				[c/7F7F7F:| {BaseStomachacheMeterCapacity} base.]
 				[c/7F7F7F:| +{StomachacheMeterCapacityPer5Levels} per 5 stat points invested.]
 				'''
-
 			RelevantStats:
 				'''
 				Total TUM: [c/{$Mods.V2.Colors.GoodThingVore}:{TUMTotal}]
@@ -454,7 +452,6 @@ PredStatsMenu: {
 
 				[c/{$Mods.V2.Colors.BadThingVore}:Certain items, such as bones, metals, certain clothing pieces, and plastics, cannot be properly digested by normal stomach acids alone.] In order to digest these items, you will need to either use external digestive aids, or upgrade your stomach acids in a more specialized manner.
 				'''
-
 			RelevantStats:
 				'''
 				Total ACI: [c/{$Mods.V2.Colors.GoodThingVore}:{ACITotal}]
@@ -467,18 +464,15 @@ PredStatsMenu: {
 				Digestion Tick Rate: {DigestionRate} ticks/second
 				{AcidTierWithDescription}
 				'''
+			AcidTiers.Normal:
+				'''
+				Stomach Acid Tier: [c/9F9F9F:Normal (1)]
+				Your stomach acids are just as mundane as the next predator's.
+				[c/{$Mods.V2.Colors.BadThingVore}:Bones, clothing, and various other materials are easily able to survive your hungry tummy, despite its best efforts to melt them down.]
 
-			AcidTiers: {
-				Normal:
-					'''
-					Stomach Acid Tier: [c/9F9F9F:Normal (1)]
-					Your stomach acids are just as mundane as the next predator's.
-					[c/{$Mods.V2.Colors.BadThingVore}:Bones, clothing, and various other materials are easily able to survive your hungry tummy, despite its best efforts to melt them down.]
-
-					[c/601818:The next acid upgrade method has not yet been implemented!]
-					[c/C03030:Please wait until a future update implements the next acid upgrade method.]
-					'''
-			}
+				[c/601818:The next acid upgrade method has not yet been implemented!]
+				[c/C03030:Please wait until a future update implements the next acid upgrade method.]
+				'''
 		}
 
 		ABS: {
@@ -493,7 +487,6 @@ PredStatsMenu: {
 				[c/7F7F7F:| Buff duration is multiplied by +{BuffExtendPer5Levels} per 5 stat points invested.]
 				[c/7F7F7F:| Debuff time is divided by +{DebuffLossPer5Levels} per 5 stat points invested.]
 				'''
-
 			RelevantStats:
 				'''
 				Total ABS: [c/{$Mods.V2.Colors.GoodThingVore}:{ABSTotal}]
@@ -1893,6 +1886,7 @@ ItemName: {
 		AstralFairySummon: Astral Flower
 		DinnerBlaster: Dinner Blaster
 		MushroomToken: Fungal Gift
+		VoreBestiary: All-Encompassing Menu
 	}
 }
 
@@ -1967,14 +1961,12 @@ ItemTooltip: {
 					'''
 			}
 
-			Offensive: {
-				SharkToothNecklace:
-					'''
-					Grants a light amount of armor penetration
-					Slightly improves your throat and acids
-					{$Mods.V2.ItemTooltip.Generic.CheckTheAEM}
-					'''
-			}
+			Offensive.SharkToothNecklace:
+				'''
+				Grants a light amount of armor penetration
+				Slightly improves your throat and acids
+				{$Mods.V2.ItemTooltip.Generic.CheckTheAEM}
+				'''
 
 			Pets: {
 				Light: {
@@ -3728,7 +3720,7 @@ ItemTooltip: {
 					[c/{$Mods.V2.Colors.VenomCommentary}:Venomizous who has devoured a large set of both small and large meals.]
 					[c/{$Mods.V2.Colors.VenomCommentary}:Will still have the belly occasionally groan and gurgle for even more.]
 					[c/{$Mods.V2.Colors.VenomCommentary}:What puts a stop to them is laziness, like any other predator perhaps.]
-					
+
 					[c/{$Mods.V2.Colors.VenomCommentary}:This flower is watered with Venomizeous' own tears.]
 					[c/{$Mods.V2.Colors.VenomCommentary}:Which somehow provides the same predatory capabilities that Venomizeous posses.]
 					'''
@@ -4979,15 +4971,11 @@ ItemTooltip: {
 			}
 		}
 
-		Tools: {
-			PredToggleRod: {
-				Short:
-					'''
-					Can be used to fine-tune inanimate objects' appetites
-					{$Mods.V2.ItemTooltip.Generic.CheckTheAEM}
-					'''
-			}
-		}
+		Tools.PredToggleRod.Short:
+			'''
+			Can be used to fine-tune inanimate objects' appetites
+			{$Mods.V2.ItemTooltip.Generic.CheckTheAEM}
+			'''
 
 		TransformationItems: {
 			BaelzTransformationItem: {
@@ -5224,11 +5212,7 @@ ItemTooltip: {
 		}
 
 		FlyingFishScale: {
-			Short:
-				'''
-				Not very useful, but may sell well
-				{$Mods.V2.ItemTooltip.Generic.CheckTheAEM}
-				'''
+			Short: Not very useful, but may sell well
 			Long:
 				'''
 				Can be obtained by [c/{$Mods.V2.Colors.Action}:killing or digesting a Flying Fish].
@@ -5238,11 +5222,7 @@ ItemTooltip: {
 		}
 
 		NymphHairStrand: {
-			Short:
-				'''
-				Used to make Sky Blue Dye
-				{$Mods.V2.ItemTooltip.Generic.CheckTheAEM}
-				'''
+			Short: Used to make Sky Blue Dye
 			Long:
 				'''
 				Can be obtained by [c/{$Mods.V2.Colors.Action}:digesting a Nymph].
@@ -5252,21 +5232,13 @@ ItemTooltip: {
 		}
 
 		ObserverPupil: {
-			Short:
-				'''
-				'Now I've seen everything.'
-				{$Mods.V2.ItemTooltip.Generic.CheckTheAEM}
-				'''
+			Short: "'Now I've seen everything.'"
 			Long: Can be obtained by [c/{$Mods.V2.Colors.Action}:killing or digesting an Observer].
 			Flavor: A large pupil from a huge yet harmless demon eye.
 		}
 
 		AstralFairyController: {
-			Short:
-				'''
-				Allows you to command your Astral Fairy to consume anything you click on
-				{$Mods.V2.ItemTooltip.Generic.CheckTheAEM}
-				'''
+			Short: Allows you to command your Astral Fairy to consume anything you click on
 			Long:
 				'''
 				You must have the Astral Fairy pet active for this item to function.
@@ -5280,11 +5252,7 @@ ItemTooltip: {
 		}
 
 		AstralFairySummon: {
-			Short:
-				'''
-				Summons a fairy from the edge of the universe
-				{$Mods.V2.ItemTooltip.Generic.CheckTheAEM}
-				'''
+			Short: Summons a fairy from the edge of the universe
 			Long:
 				'''
 				Summons the Astral Fairy to hover above you
@@ -5302,7 +5270,6 @@ ItemTooltip: {
 				'''
 				Shoots burgers that conveniently slip down predators' throats
 				'I wonder what's for dinner'
-				{$Mods.V2.ItemTooltip.Generic.CheckTheAEM}
 				'''
 			Long:
 				'''
@@ -5321,11 +5288,7 @@ ItemTooltip: {
 		}
 
 		MushroomToken: {
-			Short:
-				'''
-				Can be used to craft certain items
-				{$Mods.V2.ItemTooltip.Generic.CheckTheAEM}
-				'''
+			Short: Can be used to craft certain items
 			Long:
 				'''
 				Dropped from fungal fairies once they reach a high enough weight
@@ -5333,6 +5296,12 @@ ItemTooltip: {
 				'''
 			Flavor: A gift from one of your fungal fairies.
 		}
+
+		VoreBestiary:
+			'''
+			Can be used to look at nearly everything that exists (which VSC adjusts)
+			'Have it your way!'
+			'''
 	}
 }
 
@@ -6647,4 +6616,9 @@ Items: {
 	}
 
 	CaughtButterflyZebraSwallowtailWG2.Tooltip: ""
+
+	PredToggleRod: {
+		DisplayName: Pred Toggle Rod
+		Tooltip: ""
+	}
 }

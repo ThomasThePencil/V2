@@ -44,7 +44,7 @@ namespace V2.Items.Voraria.CheatItems
 
 		public override void ModifyTooltips(List<TooltipLine> tooltips)
 		{
-			tooltips.AddVorariaDynamicItemTooltip(
+			tooltips.AddVorariaItemTooltip(
 				"Voraria.CheatItems.VenomDevItem",
 				new
 				{

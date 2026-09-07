@@ -52,7 +52,7 @@ namespace V2.Items.Voraria.Consumables
 
 		public override void ModifyTooltips(List<TooltipLine> tooltips)
 		{
-			tooltips.AddVorariaDynamicItemTooltip(
+			tooltips.AddVorariaItemTooltip(
 				"Voraria.Consumables.HairDyeCapacity",
 				new
 				{

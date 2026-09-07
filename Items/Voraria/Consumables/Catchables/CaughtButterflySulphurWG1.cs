@@ -34,7 +34,7 @@ namespace V2.Items.Voraria.Consumables.Catchables
 
 		public override void ModifyTooltips(List<TooltipLine> tooltips)
 		{
-			tooltips.AddVorariaDynamicItemTooltip(
+			tooltips.AddVorariaItemTooltip(
 				"Voraria.Consumables.Catchables.Butterflies.Sulphur.WeightGain1",
 				new
 				{

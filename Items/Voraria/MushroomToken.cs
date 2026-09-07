@@ -54,7 +54,7 @@ namespace V2.Items.Voraria
 
 		public override void ModifyTooltips(List<TooltipLine> tooltips)
 		{
-			tooltips.AddVorariaDynamicItemTooltip(
+			tooltips.AddVorariaItemTooltip(
 				"Voraria.MushroomToken",
 				new
 				{

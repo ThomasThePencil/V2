@@ -88,7 +88,7 @@ namespace V2.Items.Voraria.Consumables.Potions
 
 		public override void ModifyTooltips(List<TooltipLine> tooltips)
 		{
-			tooltips.AddVorariaDynamicItemTooltip(
+			tooltips.AddVorariaItemTooltip(
 				"Voraria.Consumables.Potions.StomachCapacityPotion",
 				new
 				{

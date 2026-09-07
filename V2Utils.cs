@@ -846,40 +846,16 @@ namespace V2
 			}
 		}
 
-		public static void AddVorariaDynamicItemTooltip(this List<TooltipLine> tooltips, string itemTooltipKey, object tooltipVariables)
+		public static void AddVorariaItemTooltip(this List<TooltipLine> tooltips, string itemTooltipKey, object tooltipVariables)
 		{
 			TooltipLine dynamicTooltip = new TooltipLine(
 				V2.Instance,
 				"V2DynamicTooltip",
-				(Main.keyState.IsKeyDown(Keys.LeftShift) && Main.keyState.IsKeyDown(Keys.LeftControl))
-				? Language.GetTextValue(
-					"Mods.V2.ItemTooltip." + itemTooltipKey + ".Flavor"
-				) : (Main.keyState.IsKeyDown(Keys.LeftShift)
-				? Language.GetTextValueWith(
-					"Mods.V2.ItemTooltip." + itemTooltipKey + ".Long",
+				Language.GetTextValueWith(
+					"Mods.V2.ItemTooltip." + itemTooltipKey,
 					tooltipVariables
-				) : Language.GetTextValueWith(
-					"Mods.V2.ItemTooltip." + itemTooltipKey + ".Short",
-					tooltipVariables
-				))
+				)
 			);
-			if (Main.keyState.IsKeyDown(Keys.LeftShift) && Main.keyState.IsKeyDown(Keys.LeftControl))
-			{
-				string tooltipFlavorText = "";
-				string[] tooltipFlavorTextLines = Utils.WordwrapString(dynamicTooltip.Text, FontAssets.MouseText.Value, 900, 25, out int lineAmount);
-				for (int i = 0; i < tooltipFlavorTextLines.Length; i++)
-				{
-					string line = tooltipFlavorTextLines[i];
-					if (line is not null && line != "")
-					{
-						tooltipFlavorText += line;
-						if (!line.Contains("\n") && i < lineAmount)
-							tooltipFlavorText += "\n";
-					}
-				}
-				dynamicTooltip.Text = tooltipFlavorText;
-				dynamicTooltip.OverrideColor = Color.Gray;
-			}
 
 			if (tooltips.FirstOrDefault(x => x.Mod == "Terraria" && x.Name.Contains("Tooltip")) is TooltipLine tooltipLine)
 			{

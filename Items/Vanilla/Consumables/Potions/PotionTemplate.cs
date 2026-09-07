@@ -74,7 +74,7 @@ public abstract class PotionTemplate : GlobalItem
 	public abstract dynamic TooltipVariables();
 	public override void ModifyTooltips(Item item, List<TooltipLine> tooltips)
 	{
-		tooltips.AddVorariaDynamicItemTooltip(this.TooltipTranslationKey, (object)this.TooltipVariables());
+		tooltips.AddVorariaItemTooltip(this.TooltipTranslationKey, (object)this.TooltipVariables());
 		tooltips.FirstOrDefault(x => x.Name == "BuffTime").Hide();
 	}
 }
