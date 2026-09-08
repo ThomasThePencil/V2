@@ -189,17 +189,17 @@ DivineIntervention: {
 	GenderRelated: {
 		Male: {
 			Title: Male
-			Description: Covers all male preds. Normal guys, femboys, twinks, hunks...all those fun folks. They've all got b- beautiful bellies!
+			Description: Covers all male preds. Normal guys, femboys, h- hunks...all those fun folks. They've all got b- beautiful bellies!
 		}
 
 		Female: {
 			Title: Female
-			Description: Covers all female preds. Goths, tomboys, werefoxes, plants, and more are all under this umbrella.
+			Description: Covers all female preds. R- r- royalty, t- tomboys, werefoxes, plant girls...a- all your favorite ladies and m- more!
 		}
 
-		Genderless: {
+		NonBinary: {
 			Title: Other
-			Description: Covers all preds whose gender isn't necessarily one way or the other for our purposes. Most slimes, Captain Morgan, most fish, etc. all file under this.
+			Description: Covers all preds whose gender...i- isn't really one way or the other! Most slimes, C- Captain Morgan, a lot of sea life, a- and so on...
 		}
 	}
 

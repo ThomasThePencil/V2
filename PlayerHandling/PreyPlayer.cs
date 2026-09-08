@@ -21,6 +21,7 @@ using V2.Items;
 using V2.NPCs;
 using V2.Projectiles;
 using V2.StatusEffects.Voraria.Debuffs;
+using V2.UI.VoreBestiary;
 
 namespace V2.PlayerHandling
 {
@@ -66,6 +67,8 @@ namespace V2.PlayerHandling
 		public bool GuttedGaze { get; set; }
 		public Entity GuttedGazePred { get; set; }
 
+		public Dictionary<string, bool> CanBeEatenBy { get; set; }
+
 		public override void Initialize()
 		{
 			Digested = false;
@@ -75,6 +78,8 @@ namespace V2.PlayerHandling
 
 			SoftenedDigestionDamageTaken = 0;
 			SoftenedWearoffDelay = 0;
+
+			CanBeEatenBy = new Dictionary<string, bool>();
 		}
 
 		public override void OnEnterWorld()
@@ -83,6 +88,8 @@ namespace V2.PlayerHandling
 
 			SoftenedDigestionDamageTaken = 0;
 			SoftenedWearoffDelay = 0;
+
+			CanBeEatenBy = new Dictionary<string, bool>();
 		}
 
 		public override void ResetEffects()
@@ -526,16 +533,19 @@ namespace V2.PlayerHandling
 
 		public override void SaveData(TagCompound tag)
 		{
-			// uncomment once achievements are available so the Ascended Acolyte race is...relatively fair for everyone
-			// tag["hasBeenEatenBy"] = Player.AsPrey().HasBeenDigestedByNPC.ToList();
-			// tag["hasBeenEatenByTotal"] = Player.AsPrey().HasBeenDigestedByNPCTotal.ToList();
+			foreach (DISwitch toggle in DISwitchHandling.Switches)
+			{
+				toggle.SaveToggleData(ref tag);
+			}
 		}
 
 		public override void LoadData(TagCompound tag)
 		{
-			// uncomment once achievements are available so the Ascended Acolyte race is...relatively fair for everyone
-			// Player.AsPrey().HasBeenDigestedByNPC = tag.GetList<int>("hasBeenEatenBy").ToArray();
-			// Player.AsPrey().HasBeenDigestedByNPCTotal = tag.GetList<int>("hasBeenEatenByTotal").ToArray();
+			CanBeEatenBy = [];
+			foreach (DISwitch toggle in DISwitchHandling.Switches)
+			{
+				toggle.LoadToggleData(tag);
+			}
 		}
 	}
 }
