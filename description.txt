@@ -12,9 +12,9 @@ I'm not liable for anything that happens to you otherwise.
 
 ----------------------------------------------------------------------
 
-Voraria: Second Course --- a vore mod designed to make use of and add onto Terraria's gameplay loop with some vorny shenanigans --- is a remake and reimagining of the old Voraria mod for 1.3, with lots of freshened-up mechanics new and old to integrate the mod into the main gameplay loop better and generally improve your QoL (Quality of Lunch). The currently-implemented features are as follows:
-- The ability, of course, to eat just about anything in the game, bosses notwithstanding
-- Pred functionality for several townsfolk and a select few other NPCs, as well as a few other interesting preds
-- Specialized accessories which can increase your capabilities as pred or prey and let you take better control of your vorny life
-- Specialized pred stat and pred progression mechanics designed to intertwine better with Terraria's core progression scheme than the stereotypical XP-and-level pred level scheme would
-- A fairly simple and hopefully not completely unintuitive struggle and counter-struggle system which acts as the backbone of pred and prey gameplay alike
+Voraria: Second Course, a long-term successor to and reimagining of the original Voraria mod by Maroy, is a mod which is best described as 3 mods in a trenchcoat:
+1) A vore mod, intended to add vore to just about everything in the game, sans some obvious exceptions.
+2) A content mod, intended to add large swathes of new vorish and engaging content to the game.
+3) An overhaul mod, intended to remake large portions of the game to be more suitable to add vore to and design vore around.
+
+[REST TO BE WRITTEN CLOSER TO 1.0]

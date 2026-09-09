@@ -23,6 +23,17 @@ namespace V2.UI.VoreBestiary
 		public static DISwitchMale Male => new DISwitchMale();
 		public static DISwitchFemale Female => new DISwitchFemale();
 		public static DISwitchEnby Enby => new DISwitchEnby();
+		public static DISwitchBat Bat => new DISwitchBat();
+		public static DISwitchBird Bird => new DISwitchBird();
+		public static DISwitchBug Bug => new DISwitchBug();
+		public static DISwitchCanine Canine => new DISwitchCanine();
+		public static DISwitchFish Fish => new DISwitchFish();
+		public static DISwitchObject Object => new DISwitchObject();
+		public static DISwitchPlant Plant => new DISwitchPlant();
+		public static DISwitchSlime Slime => new DISwitchSlime();
+		public static DISwitchSpider Spider => new DISwitchSpider();
+		public static DISwitchTownsfolk Townsfolk => new DISwitchTownsfolk();
+		public static DISwitchUndead Undead => new DISwitchUndead();
 		public enum SwitchCategory
 		{
 			Gender,
@@ -105,7 +116,7 @@ namespace V2.UI.VoreBestiary
 	{
 		public override SwitchCategory Category => SwitchCategory.Type;
 		public override string LocalizeKey => "Bat";
-		public override string ToggleStateKey => "batswithbatsthatbatbats";
+		public override string ToggleStateKey => "thatoneshinynoivernIcaughtwhilegettingtheshinycharm";
 	}
 
 	public class DISwitchBird : DISwitch
@@ -119,7 +130,7 @@ namespace V2.UI.VoreBestiary
 	{
 		public override SwitchCategory Category => SwitchCategory.Type;
 		public override string LocalizeKey => "Bat";
-		public override string ToggleStateKey => "nongamebreakingbugs";
+		public override string ToggleStateKey => "10kfireflies";
 	}
 
 	public class DISwitchCanine : DISwitch
@@ -168,7 +179,7 @@ namespace V2.UI.VoreBestiary
 	{
 		public override SwitchCategory Category => SwitchCategory.Type;
 		public override string LocalizeKey => "Townsfolk";
-		public override string ToggleStateKey => "taunieandurbain";
+		public override string ToggleStateKey => "4town";
 	}
 
 	public class DISwitchUndead : DISwitch
