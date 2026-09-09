@@ -182,24 +182,13 @@ namespace V2.PlayerHandling
 					if (potentialPred.CurrentCaptor() is not null)
 						continue;
 
-					switch (ModContent.GetInstance<V2ServerConfig>().GenderBlacklist)
+					bool eligible = true;
+					foreach (DISwitch toggle in DISwitchHandling.Switches)
 					{
-						default:
-							// do absolutely fucking nothing lmao
-							break;
-						case "No Male":
-							if (potentialPred.AsV2NPC().Gender == EntityGender.Male)
-								continue;
-							break;
-						case "No Female":
-							if (potentialPred.AsV2NPC().Gender == EntityGender.Female)
-								continue;
-							break;
-						case "No M or F...but why?":
-							if (potentialPred.AsV2NPC().Gender != EntityGender.Other)
-								continue;
-							break;
+						eligible &= toggle.CompareCanBeEatenBy(Player, potentialPred);
 					}
+					if (!eligible)
+						continue;
 
 					if (!potentialPred.AsPred().CanBeForceFed.Invoke(potentialPred))
 						continue;
@@ -223,22 +212,13 @@ namespace V2.PlayerHandling
 					if (potentialPred.CurrentCaptor() is not null)
 						continue;
 
-					switch (ModContent.GetInstance<V2ServerConfig>().GenderBlacklist)
+					bool eligible = true;
+					foreach (DISwitch toggle in DISwitchHandling.Switches)
 					{
-						default:
-							// do absolutely fucking nothing lmao
-							break;
-						case "No Male":
-							if (potentialPred.Male)
-								continue;
-							break;
-						case "No Female":
-							if (!potentialPred.Male)
-								continue;
-							break;
-						case "No M or F...but why?":
-							continue;
+						eligible &= toggle.CompareCanBeEatenBy(Player, potentialPred);
 					}
+					if (!eligible)
+						continue;
 
 					if (potentialPred.Distance(playerLocation) >= maxDistanceFromPlayer)
 						continue;
@@ -259,24 +239,13 @@ namespace V2.PlayerHandling
 					if (potentialPred.CurrentCaptor() is not null)
 						continue;
 
-					switch (ModContent.GetInstance<V2ServerConfig>().GenderBlacklist)
+					bool eligible = true;
+					foreach (DISwitch toggle in DISwitchHandling.Switches)
 					{
-						default:
-							// do absolutely fucking nothing lmao
-							break;
-						case "No Male":
-							if (potentialPred.AsV2Proj().Gender == EntityGender.Male)
-								continue;
-							break;
-						case "No Female":
-							if (potentialPred.AsV2Proj().Gender == EntityGender.Female)
-								continue;
-							break;
-						case "No M or F...but why?":
-							if (potentialPred.AsV2Proj().Gender != EntityGender.Other)
-								continue;
-							break;
+						eligible &= toggle.CompareCanBeEatenBy(Player, potentialPred);
 					}
+					if (!eligible)
+						continue;
 
 					if (potentialPred.Distance(playerLocation) >= maxDistanceFromPlayer)
 						continue;

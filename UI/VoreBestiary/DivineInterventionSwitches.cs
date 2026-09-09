@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 using Terraria;
 using Terraria.Localization;
 using Terraria.ModLoader.IO;
+using V2.Core;
+using V2.NPCs;
 using V2.PlayerHandling;
+using V2.Projectiles;
 
 namespace V2.UI.VoreBestiary
 {
@@ -89,6 +92,20 @@ namespace V2.UI.VoreBestiary
 		/// </summary>
 		/// <param name="newState"></param>
 		public void LoadToggleData(TagCompound tag) => SetToggleState(tag.GetBool("ediblefor" + ToggleStateKey));
+		public abstract bool ComparisonRule(Player player, Entity entity);
+		/// <summary>
+		/// Determines, using the toggle state key and provided logic, whether or not the given entity can eat the player as per Divine Intergestion toggles.
+		/// </summary>
+		/// <param name="player"></param>
+		/// <param name="entity"></param>
+		/// <returns></returns>
+		public bool CompareCanBeEatenBy(Player player, Entity entity)
+		{
+			if (ComparisonRule(player, entity))
+				return GetToggleState();
+
+			return true;
+		}
 	}
 
 	public class DISwitchMale : DISwitch
@@ -96,6 +113,17 @@ namespace V2.UI.VoreBestiary
 		public override SwitchCategory Category => SwitchCategory.Gender;
 		public override string LocalizeKey => "Male";
 		public override string ToggleStateKey => "blacksapphirecookie";
+		public override bool ComparisonRule(Player player, Entity entity)
+		{
+			if (entity is Player predPlayer)
+				return predPlayer.Male;
+			else if (entity is NPC predNPC)
+				return predNPC.AsV2NPC().Gender == EntityGender.Male;
+			else if (entity is Projectile predProjectile)
+				return predProjectile.AsV2Proj().Gender == EntityGender.Male;
+
+			return false;
+		}
 	}
 
 	public class DISwitchFemale : DISwitch
@@ -103,6 +131,17 @@ namespace V2.UI.VoreBestiary
 		public override SwitchCategory Category => SwitchCategory.Gender;
 		public override string LocalizeKey => "Female";
 		public override string ToggleStateKey => "povidoneiodinecookie";
+		public override bool ComparisonRule(Player player, Entity entity)
+		{
+			if (entity is Player predPlayer)
+				return !predPlayer.Male;
+			else if (entity is NPC predNPC)
+				return predNPC.AsV2NPC().Gender == EntityGender.Female;
+			else if (entity is Projectile predProjectile)
+				return predProjectile.AsV2Proj().Gender == EntityGender.Female;
+
+			return false;
+		}
 	}
 
 	public class DISwitchEnby : DISwitch
@@ -110,6 +149,17 @@ namespace V2.UI.VoreBestiary
 		public override SwitchCategory Category => SwitchCategory.Gender;
 		public override string LocalizeKey => "NonBinary";
 		public override string ToggleStateKey => "rinpenroseifshewasatheysloshthem";
+		public override bool ComparisonRule(Player player, Entity entity)
+		{
+			if (entity is Player)
+				return false;
+			else if (entity is NPC predNPC)
+				return predNPC.AsV2NPC().Gender == EntityGender.Other;
+			else if (entity is Projectile predProjectile)
+				return predProjectile.AsV2Proj().Gender == EntityGender.Other;
+
+			return false;
+		}
 	}
 
 	public class DISwitchBat : DISwitch
@@ -117,6 +167,7 @@ namespace V2.UI.VoreBestiary
 		public override SwitchCategory Category => SwitchCategory.Type;
 		public override string LocalizeKey => "Bat";
 		public override string ToggleStateKey => "thatoneshinynoivernIcaughtwhilegettingtheshinycharm";
+		public override bool ComparisonRule(Player player, Entity entity) => false;
 	}
 
 	public class DISwitchBird : DISwitch
@@ -124,6 +175,7 @@ namespace V2.UI.VoreBestiary
 		public override SwitchCategory Category => SwitchCategory.Type;
 		public override string LocalizeKey => "Bird";
 		public override string ToggleStateKey => "birdup";
+		public override bool ComparisonRule(Player player, Entity entity) => false;
 	}
 
 	public class DISwitchBug : DISwitch
@@ -131,6 +183,7 @@ namespace V2.UI.VoreBestiary
 		public override SwitchCategory Category => SwitchCategory.Type;
 		public override string LocalizeKey => "Bat";
 		public override string ToggleStateKey => "10kfireflies";
+		public override bool ComparisonRule(Player player, Entity entity) => false;
 	}
 
 	public class DISwitchCanine : DISwitch
@@ -138,6 +191,7 @@ namespace V2.UI.VoreBestiary
 		public override SwitchCategory Category => SwitchCategory.Type;
 		public override string LocalizeKey => "Canine";
 		public override string ToggleStateKey => "dogememes";
+		public override bool ComparisonRule(Player player, Entity entity) => false;
 	}
 
 	public class DISwitchFish : DISwitch
@@ -145,6 +199,7 @@ namespace V2.UI.VoreBestiary
 		public override SwitchCategory Category => SwitchCategory.Type;
 		public override string LocalizeKey => "Fish";
 		public override string ToggleStateKey => "fih";
+		public override bool ComparisonRule(Player player, Entity entity) => false;
 	}
 
 	public class DISwitchObject : DISwitch
@@ -152,6 +207,7 @@ namespace V2.UI.VoreBestiary
 		public override SwitchCategory Category => SwitchCategory.Type;
 		public override string LocalizeKey => "Object";
 		public override string ToggleStateKey => "theentirecastofii";
+		public override bool ComparisonRule(Player player, Entity entity) => false;
 	}
 
 	public class DISwitchPlant : DISwitch
@@ -159,6 +215,7 @@ namespace V2.UI.VoreBestiary
 		public override SwitchCategory Category => SwitchCategory.Type;
 		public override string LocalizeKey => "Plant";
 		public override string ToggleStateKey => "jarona";
+		public override bool ComparisonRule(Player player, Entity entity) => false;
 	}
 
 	public class DISwitchSlime : DISwitch
@@ -166,6 +223,7 @@ namespace V2.UI.VoreBestiary
 		public override SwitchCategory Category => SwitchCategory.Type;
 		public override string LocalizeKey => "Slime";
 		public override string ToggleStateKey => "beatrixlebeau";
+		public override bool ComparisonRule(Player player, Entity entity) => false;
 	}
 
 	public class DISwitchSpider : DISwitch
@@ -173,6 +231,7 @@ namespace V2.UI.VoreBestiary
 		public override SwitchCategory Category => SwitchCategory.Type;
 		public override string LocalizeKey => "Spider";
 		public override string ToggleStateKey => "gwenstacy";
+		public override bool ComparisonRule(Player player, Entity entity) => false;
 	}
 
 	public class DISwitchTownsfolk : DISwitch
@@ -180,6 +239,7 @@ namespace V2.UI.VoreBestiary
 		public override SwitchCategory Category => SwitchCategory.Type;
 		public override string LocalizeKey => "Townsfolk";
 		public override string ToggleStateKey => "4town";
+		public override bool ComparisonRule(Player player, Entity entity) => false;
 	}
 
 	public class DISwitchUndead : DISwitch
@@ -187,5 +247,6 @@ namespace V2.UI.VoreBestiary
 		public override SwitchCategory Category => SwitchCategory.Type;
 		public override string LocalizeKey => "Undead";
 		public override string ToggleStateKey => "thezombiesonyourlawn";
+		public override bool ComparisonRule(Player player, Entity entity) => false;
 	}
 }
