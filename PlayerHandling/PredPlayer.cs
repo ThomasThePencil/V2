@@ -1,11 +1,11 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
 using ReLogic.Content;
 using ReLogic.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Microsoft.Xna.Framework.Input;
 using Terraria;
 using Terraria.Audio;
 using Terraria.Chat;
@@ -16,20 +16,21 @@ using Terraria.ModLoader;
 using Terraria.ModLoader.IO;
 using V2.Core;
 using V2.Items;
-using V2.Items.Voraria.Consumables.PermanentUpgrades;
 using V2.Items.Voraria.Accessories.Thingymajigs;
+using V2.Items.Voraria.Consumables.PermanentUpgrades;
 using V2.NPCs;
 using V2.PlayerHandling.PredPlayerGoals;
 using V2.PlayerHandling.PredPlayerGoals.Amateur;
 using V2.PlayerHandling.PredPlayerGoals.Beginner;
+using V2.PlayerHandling.PredPlayerGoals.Intermediate;
+using V2.PlayerHandling.PredPlayerGoals.Skilled;
 using V2.PlayerHandling.PredPlayerGoals.Starter;
 using V2.Projectiles;
+using V2.Projectiles.Voraria.Other;
 using V2.Sounds.Vore;
 using V2.StatusEffects.Voraria.Buffs;
 using V2.StatusEffects.Voraria.Debuffs;
-using V2.PlayerHandling.PredPlayerGoals.Skilled;
-using V2.Projectiles.Voraria.Other;
-using V2.PlayerHandling.PredPlayerGoals.Intermediate;
+using V2.UI.VoreBestiary;
 
 namespace V2.PlayerHandling
 {
@@ -1339,32 +1340,22 @@ namespace V2.PlayerHandling
 			if (pred.AsPred().BlockSwallowAttempts)
 				return false;
 
-			switch (ModContent.GetInstance<V2ServerConfig>().GenderBlacklist)
-			{
-				default:
-					// do absolutely fucking nothing lmao
-					break;
-				case "No Male":
-					if (pred.Male)
-						return false;
-					break;
-				case "No Female":
-					if (!pred.Male)
-						return false;
-					break;
-				case "No M or F...but why?":
-					return false;
-			}
-
 			if (prey.CurrentCaptor() is not null)
 				return false;
 
 			if (prey is Player preyPlayer)
 			{
+				foreach (DISwitch toggle in DISwitchHandling.Switches)
+				{
+					if (toggle.CompareCanBeEatenBy(preyPlayer, pred))
+						return false;
+				}
+
 				if (preyPlayer.AsFood().PerfectMeal)
 					return true;
 
-				if (forced) return true;
+				if (forced)
+					return true;
 			}
 			else if (prey is NPC preyNPC)
 			{
@@ -1373,7 +1364,8 @@ namespace V2.PlayerHandling
 				if (V2.VoreNPCBlacklist is not null && V2.VoreNPCBlacklist.Count > 0 && V2.VoreNPCBlacklist.Contains(preyNPC.type))
 					return false;
 
-				if (forced) return true;
+				if (forced)
+					return true;
 
 				bool tastesLikeSkittles = preyNPC.type == NPCID.HallowBoss && ModContent.GetInstance<V2ServerConfig>().EasilyEdibleEmpress;
 				if (tastesLikeSkittles)
@@ -1390,7 +1382,8 @@ namespace V2.PlayerHandling
 				if (V2.VoreNPCBlacklist is not null && V2.VoreProjectileBlacklist.Count > 0 && V2.VoreProjectileBlacklist.Contains(preyProjectile.type))
 					return false;
 
-				if (forced) return true;
+				if (forced)
+					return true;
 
 				if (preyProjectile.AsFood().MaxHealth == -1 && !pred.AsPred().FungalFairySetBonus && !pred.HasBuff<Trance>())
 					return false;
@@ -1400,7 +1393,8 @@ namespace V2.PlayerHandling
 				if (preyItem.AsFood().MaxHealth == -1)
 					return false;
 
-				if (forced) return true;
+				if (forced)
+					return true;
 
 				if (preyItem.favorited)
 					return false;

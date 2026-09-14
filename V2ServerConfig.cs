@@ -16,6 +16,7 @@ namespace V2
 
 		[LabelKey("$Mods.V2.Configs.Server.ContentLoading.BasicMode.Label")]
 		[TooltipKey("$Mods.V2.Configs.Server.ContentLoading.BasicMode.Tooltip")]
+		[ReloadRequired]
 		[DefaultValue(false)]
 		public bool BasicMode { get; set; }
 
@@ -32,17 +33,6 @@ namespace V2
 		[TooltipKey("$Mods.V2.Configs.Server.Personalization.RandomGulpsAgainstPlayers.Tooltip")]
 		[DefaultValue(false)]
 		public bool RandomGulpsAgainstPlayers { get; set; }
-
-		[LabelKey("$Mods.V2.Configs.Server.Personalization.GenderBlacklist.Label")]
-		[TooltipKey("$Mods.V2.Configs.Server.Personalization.GenderBlacklist.Tooltip")]
-		[OptionStrings([
-			"Default (No Blacklist)",
-			"No Female",
-			"No Male",
-			"No M or F...but why?",
-		])]
-		[DefaultValue("Default (No Blacklist)")]
-		public string GenderBlacklist { get; set; }
 
 		[Header("$Mods.V2.Configs.Server.JustForFun.Header")]
 

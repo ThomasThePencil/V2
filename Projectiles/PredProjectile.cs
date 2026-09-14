@@ -16,6 +16,7 @@ using V2.NPCs;
 using V2.PlayerHandling;
 using V2.Sounds.Vore;
 using V2.StatusEffects.Voraria.Debuffs;
+using V2.UI.VoreBestiary;
 
 namespace V2.Projectiles
 {
@@ -66,10 +67,11 @@ namespace V2.Projectiles
 		public float BurpPitchOffset { get; set; }
 
 		/// <summary>
-		/// If set to true, this projectile can bypass the "Pred Non-Preference" config option, being able to gulp down the player and anything else in-game regardless of what it is set to.<br/>
+		/// If set to true, this projectile can bypass Divine Intergestion.<br/>
+		/// Should only be used for powerful predators that make sense to not give a fuck about your preferences; namely, divine entities themselves.<br/>
 		/// Defaults to false.<br/>
 		/// </summary>
-		public bool NonPreferenceBypass { get; set; }
+		public bool DIBypass { get; set; }
 		public delegate bool DelegateCanBeForceFed(Projectile projectile);
 		public DelegateCanBeForceFed CanBeForceFed { get; set; }
 
@@ -149,7 +151,7 @@ namespace V2.Projectiles
 			GetDigestionTickDamage = null;
 			GetPreyAbsorptionRate = null;
 
-			NonPreferenceBypass = false;
+			DIBypass = false;
 			CanBeForceFed = (Projectile projectile) => false;
 			OnForceFed = null;
 
@@ -197,33 +199,20 @@ namespace V2.Projectiles
 			if (GetCurrentBellyWeight(pred) >= pred.AsPred().MaxStomachCapacity)
 				return false;
 
-			if (!pred.AsPred().NonPreferenceBypass)
-			{
-				switch (ModContent.GetInstance<V2ServerConfig>().GenderBlacklist)
-				{
-					default:
-						// do absolutely fucking nothing lmao
-						break;
-					case "No Male":
-						if (pred.AsV2Proj().Gender == EntityGender.Male)
-							return false;
-						break;
-					case "No Female":
-						if (pred.AsV2Proj().Gender == EntityGender.Female)
-							return false;
-						break;
-					case "No M or F...but why?":
-						if (pred.AsV2Proj().Gender != EntityGender.Other)
-							return false;
-						break;
-				}
-			}
-
 			if (prey.CurrentCaptor() is not null)
 				return false;
 
 			if (prey is Player preyPlayer)
 			{
+				if (!pred.AsPred().DIBypass)
+				{
+					foreach (DISwitch toggle in DISwitchHandling.Switches)
+					{
+						if (toggle.CompareCanBeEatenBy(preyPlayer, pred))
+							return false;
+					}
+				}
+
 				if (preyPlayer.AsFood().PerfectMeal)
 					return true;
 			}

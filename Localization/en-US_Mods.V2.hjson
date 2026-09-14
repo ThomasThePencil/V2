@@ -30,6 +30,7 @@ Configs: {
 				The Content Loading Controller
 				[c/7F0000:(don't touch this without reading.)]
 				'''
+
 			BasicMode: {
 				Label: Design-Mode [Fundamentals]
 				Tooltip:
@@ -42,10 +43,11 @@ Configs: {
 					[c/FF7F00:This is liable to Bug The Fuck Out if your setting here does not match the host in multiplayer.]
 					[c/FF7F00:The balancing of the vore system at large also assumes this is false.]
 					[c/FF7F00:As such, NO balance suggestions for this Design-Mode whatsoever shall be taken into account.]
-					[c/FF0000:Only turn this off if you are absolutely certain you understand the ramifications.]
+					[c/FF0000:Only turn this on if you are absolutely certain you understand the ramifications.]
 					'''
 			}
 		}
+
 		Insight: {
 			Header:
 				'''
@@ -79,19 +81,6 @@ Configs: {
 					Allows townsfolk to randomly eat nearby players.
 					Does not affect townsfolk randomly eating each other.
 					Defaults to false.
-					'''
-			}
-
-			GenderBlacklist: {
-				Label: Pred Non-Preference
-				Tooltip:
-					'''
-					Allows you to prevent preds of a certain gender from actively eating others in-game.
-					Generally applies to all entities, players included. However:
-					- Will not affect any in-universe establishments about predators of the blacklisted gender.
-					- Does not work for hermaphrodites, androgynous menaces, or otherwise functionally-genderless individuals.
-					- Certain powerful entities reserve the right and ability to completely bypass any blacklist set by this option.
-					By default, does not blacklist any gender.
 					'''
 			}
 		}

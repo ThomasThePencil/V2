@@ -2,5 +2,5 @@ displayName = [18+] Voraria: Second Course
 author = the pixelated Sign Painter and friends
 modReferences = BetterDialogue
 weakReferences = Munchies, WeaponDisplay
-version = 0.4.6
+version = 1.0
 buildIgnore=.build/*

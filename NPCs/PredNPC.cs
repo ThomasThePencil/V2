@@ -17,6 +17,7 @@ using V2.PlayerHandling;
 using V2.Projectiles;
 using V2.Sounds.Vore;
 using V2.StatusEffects.Voraria.Debuffs;
+using V2.UI.VoreBestiary;
 
 namespace V2.NPCs
 {
@@ -85,11 +86,11 @@ namespace V2.NPCs
 		public SoundStyle? BigBurps { get; set; }
 
 		/// <summary>
-		/// If set to true, this NPC can bypass the current state "Pred Non-Preference" config option, being able to gulp down the player and anything else in-game regardless of what it is set to.<br/>
-		/// Should only be used for powerful predators that make sense to not give a fuck about your preferences, such as bosses.<br/>
+		/// If set to true, this NPC can bypass Divine Intergestion.<br/>
+		/// Should only be used for powerful predators that make sense to not give a fuck about your preferences; namely, divine entities themselves.<br/>
 		/// Defaults to false.<br/>
 		/// </summary>
-		public bool NonPreferenceBypass { get; set; }
+		public bool DIBypass { get; set; }
 		public delegate bool DelegateCanBeForceFed(NPC npc);
 		public DelegateCanBeForceFed CanBeForceFed { get; set; }
 
@@ -163,7 +164,7 @@ namespace V2.NPCs
 			GetDigestionTickDamage = null;
 			GetPreyAbsorptionRate = null;
 
-			NonPreferenceBypass = false;
+			DIBypass = false;
 			CanBeForceFed = (NPC npc) => false;
 			OnForceFed = null;
 
@@ -203,33 +204,20 @@ namespace V2.NPCs
 			if (V2.VoreNPCBlacklist is not null && V2.VoreNPCBlacklist.Count > 0 && V2.VoreNPCBlacklist.Contains(pred.type))
 				return false;
 
-			if (!pred.AsPred().NonPreferenceBypass)
-			{
-				switch (ModContent.GetInstance<V2ServerConfig>().GenderBlacklist)
-				{
-					default:
-						// do absolutely fucking nothing lmao
-						break;
-					case "No Male":
-						if (pred.AsV2NPC().Gender == EntityGender.Male)
-							return false;
-						break;
-					case "No Female":
-						if (pred.AsV2NPC().Gender == EntityGender.Female)
-							return false;
-						break;
-					case "No M or F...but why?":
-						if (pred.AsV2NPC().Gender != EntityGender.Other)
-							return false;
-						break;
-				}
-			}
-
 			if (!skipCaptorCheck && prey.CurrentCaptor() is not null)
 				return false;
 
 			if (prey is Player preyPlayer)
 			{
+				if (!pred.AsPred().DIBypass)
+				{
+					foreach (DISwitch toggle in DISwitchHandling.Switches)
+					{
+						if (toggle.CompareCanBeEatenBy(preyPlayer, pred))
+							return false;
+					}
+				}
+
 				if (preyPlayer.AsFood().PerfectMeal)
 					return true;
 			}
