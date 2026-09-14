@@ -10,7 +10,7 @@ namespace V2.Items.Voraria
 {
 	public class ObserverPupil : ModItem
 	{
-		public override bool IsLoadingEnabled(Mod mod) => !V2.GetFooled;
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override LocalizedText DisplayName => Language.GetText("Mods.V2.ItemName.Voraria.ObserverPupil");
 		public override LocalizedText Tooltip => Language.GetText("Mods.V2.ItemTooltip.Voraria.ObserverPupil.Short");
 		public override void SetDefaults()

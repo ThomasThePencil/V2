@@ -8,7 +8,8 @@ namespace V2.Projectiles.Vanilla.Other;
 
 public class Geode : GlobalProjectile
 {
-    public override bool AppliesToEntity(Projectile entity, bool lateInstantiation) => entity.type is ProjectileID.Geode;
+	public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
+	public override bool AppliesToEntity(Projectile entity, bool lateInstantiation) => entity.type is ProjectileID.Geode;
 
     public override void SetDefaults(Projectile entity)
     {

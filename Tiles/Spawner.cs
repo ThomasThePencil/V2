@@ -19,6 +19,7 @@ namespace V2.Tiles.Voraria
 {
 	public class Spawner : ModTile
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override string Texture => "V2/Tiles/InvisibleImage";
 		public override void SetStaticDefaults()
 		{

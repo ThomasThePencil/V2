@@ -1,40 +1,20 @@
-
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 using Terraria;
-using Terraria.Audio;
 using Terraria.DataStructures;
 using Terraria.GameContent;
-using Terraria.GameContent.Personalities;
-
 using Terraria.Graphics.Shaders;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
-using Terraria.ModLoader.IO;
-using Terraria.WorldBuilding;
 using V2.Core;
 using V2.Items;
 using V2.Items.Voraria;
-using V2.Items.Voraria.Consumables.Potions;
-using V2.PlayerHandling;
-using V2.Projectiles.Vanilla.Summons.Pets;
-using V2.Projectiles.Voraria.Pets;
-
 using V2.NPCs;
 using V2.PlayerHandling;
-
-using V2.Items.Voraria.Consumables.Potions;
-using V2.NPCs;
-using V2.PlayerHandling;
-using V2.Projectiles.Vanilla.Summons.Pets;
-using V2.Projectiles.Voraria.Pets;
 using V2.Projectiles.Voraria.Weapons.Ranged.Throwables;
 using V2.Sounds.Vore;
 using V2.StatusEffects.Voraria.Buffs;
@@ -43,6 +23,7 @@ namespace V2.Projectiles.Voraria.Weapons.Summon.ShroomFairy
 {
 	public class ShroomFairyDust : ModDust
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override void OnSpawn(Dust dust)
 		{
 			dust.noGravity = true;
@@ -74,6 +55,7 @@ namespace V2.Projectiles.Voraria.Weapons.Summon.ShroomFairy
 	}
 	public class ShroomFairyDust2 : ModDust
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override void OnSpawn(Dust dust)
 		{
 			dust.noGravity = true;
@@ -110,6 +92,7 @@ namespace V2.Projectiles.Voraria.Weapons.Summon.ShroomFairy
 	}
 	public class ShroomFairyBuff : ModBuff
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override LocalizedText DisplayName => Language.GetText("Mods.V2.StatusEffects.Voraria.Summons.ShroomFairy.Name");
 		public override LocalizedText Description => Language.GetText("Mods.V2.StatusEffects.Voraria.Summons.ShroomFairy.Description");
 
@@ -163,6 +146,7 @@ namespace V2.Projectiles.Voraria.Weapons.Summon.ShroomFairy
 
 	public class ShroomFairy : ModProjectile
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public (Projectile, NPC, Point) target = (null, null, Point.Zero);
 		public bool DroppedFungalGift = false;
 		public override void SetStaticDefaults()

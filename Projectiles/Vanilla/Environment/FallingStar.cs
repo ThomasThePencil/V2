@@ -13,7 +13,7 @@ namespace V2.Projectiles.Vanilla.Environment
 {
 	public class FallingStar : GlobalProjectile
 	{
-		public override bool IsLoadingEnabled(Mod mod) => !V2.GetFooled;
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 
 		public override bool AppliesToEntity(Projectile entity, bool lateInstantiation) => entity.type == ProjectileID.FallingStar;

@@ -18,7 +18,7 @@ namespace V2.Items.Voraria.Consumables.Catchables
 {
 	public class CaughtPiranha : ModItem
 	{
-		public override bool IsLoadingEnabled(Mod mod) => !V2.GetFooled;
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override LocalizedText DisplayName => Language.GetText("Mods.V2.ItemName.Voraria.Consumables.Catchables.Piranha");
 		public override LocalizedText Tooltip => Language.GetText("Mods.V2.ItemTooltip.Voraria.Consumables.Catchables.Piranha.Short");
 		public override void SetStaticDefaults()

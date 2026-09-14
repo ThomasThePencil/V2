@@ -8,6 +8,7 @@ namespace V2.Items.Vanilla.Placeables.TilesPlaceableTiles
 {
 	public class Poo : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item entity, bool lateInstantiation) => entity.type == ItemID.PoopBlock;
 
@@ -15,7 +16,7 @@ namespace V2.Items.Vanilla.Placeables.TilesPlaceableTiles
 		{
 			item.AsFood().MaxHealth = 1;
 			item.AsFood().Size = 0.06;
-			item.AsFood().MealSizeTextOverride = "please don't.";
+			item.AsFood().MealSizeTextOverride = "Please don't.";
 
 			item.AsFood().OnSwallowDamage = 999999;
 			item.AsFood().OnSwallowDeathReason = "Mods.V2.Death.SwallowDamage.Poop";
@@ -24,6 +25,7 @@ namespace V2.Items.Vanilla.Placeables.TilesPlaceableTiles
 	}
 	public class PooWall : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item entity, bool lateInstantiation) => entity.type == ItemID.PoopWall;
 
@@ -31,7 +33,7 @@ namespace V2.Items.Vanilla.Placeables.TilesPlaceableTiles
 		{
 			item.AsFood().MaxHealth = 1;
 			item.AsFood().Size = 0.6;
-			item.AsFood().MealSizeTextOverride = "please don't.";
+			item.AsFood().MealSizeTextOverride = "Please don't.";
 
 			item.AsFood().OnSwallowDamage = 999999;
 			item.AsFood().OnSwallowDeathReason = "Mods.V2.Death.SwallowDamage.Poop";

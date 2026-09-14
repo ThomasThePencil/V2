@@ -16,6 +16,7 @@ namespace V2.Items.Voraria.Armor
 	[AutoloadEquip(EquipType.Head)]
 	public class ShroomiteHairpin : ModItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public static LocalizedText SetBonusText => Language.GetText("Mods.V2.ItemTooltip.Voraria.Armor.FungalFairySetBonus");
 		public override LocalizedText DisplayName => Language.GetText("Mods.V2.ItemName.Voraria.Armor.ShroomiteHairpin");
 		public static int GLPBonus => 19;
@@ -79,6 +80,7 @@ namespace V2.Items.Voraria.Armor
 	[AutoloadEquip(EquipType.Body)]
 	public class ShroomiteDress : ModItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override LocalizedText DisplayName => Language.GetText("Mods.V2.ItemName.Voraria.Armor.ShroomiteDress");
 		public static int TUMBonus => 22;
 		public static int ACIBonus => 6;

@@ -17,7 +17,7 @@ namespace V2.Items.Voraria.Consumables.Potions
 {
 	public class StomachacheMeterCapacityPotion : ModItem
 	{
-		public override bool IsLoadingEnabled(Mod mod) => !V2.GetFooled;
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public static double StomachacheMeterCapacityBonus => 0.10;
 		public static int StomachacheDefenseBonus => 5;
 		public override LocalizedText DisplayName => Language.GetText("Mods.V2.ItemName.Voraria.Consumables.Potions.StomachacheMeterCapacityPotion");

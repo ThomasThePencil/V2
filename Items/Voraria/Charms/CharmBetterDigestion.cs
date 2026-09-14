@@ -9,7 +9,7 @@ namespace V2.Items.Voraria.Charms
 {
 	public class CharmBetterDigestion : ModItem
 	{
-		public override bool IsLoadingEnabled(Mod mod) => !V2.GetFooled;
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public static int AcidStrengthBonus => 12;
 
 		public override LocalizedText DisplayName => Language.GetText("Mods.V2.ItemName.Voraria.Charms.BetterDigestion");

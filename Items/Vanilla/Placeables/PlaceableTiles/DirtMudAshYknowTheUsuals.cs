@@ -8,6 +8,7 @@ namespace V2.Items.Vanilla.Placeables.PlaceableTiles
 {
 	public class Dirt : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item entity, bool lateInstantiation) => entity.type is ItemID.DirtBlock;
 
@@ -19,6 +20,7 @@ namespace V2.Items.Vanilla.Placeables.PlaceableTiles
 	}
 	public class Clay : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item entity, bool lateInstantiation) => entity.type is ItemID.ClayBlock;
 
@@ -30,6 +32,7 @@ namespace V2.Items.Vanilla.Placeables.PlaceableTiles
 	}
 	public class Mud : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item entity, bool lateInstantiation) => entity.type is ItemID.MudBlock;
 
@@ -41,6 +44,7 @@ namespace V2.Items.Vanilla.Placeables.PlaceableTiles
 	}
 	public class Ash : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item entity, bool lateInstantiation) => entity.type is ItemID.AshBlock;
 

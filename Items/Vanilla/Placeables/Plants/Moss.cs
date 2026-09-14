@@ -8,6 +8,7 @@ namespace V2.Items.Vanilla.Placeables.Plants
 {
 	public class RegularMoss : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item entity, bool lateInstantiation) => entity.type is ItemID.GreenMoss or ItemID.BrownMoss or ItemID.RedMoss
 			or ItemID.BlueMoss or ItemID.PurpleMoss;
@@ -21,6 +22,7 @@ namespace V2.Items.Vanilla.Placeables.Plants
 	}
 	public class GlowingMoss : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item entity, bool lateInstantiation) => entity.type is ItemID.LavaMoss or ItemID.KryptonMoss or ItemID.XenonMoss
 			or ItemID.ArgonMoss or ItemID.VioletMoss;
@@ -35,6 +37,7 @@ namespace V2.Items.Vanilla.Placeables.Plants
 	}
 	public class HeliumMoss : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item entity, bool lateInstantiation) => entity.type is ItemID.RainbowMoss;
 

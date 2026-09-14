@@ -20,6 +20,7 @@ namespace V2.Tiles.Vanilla.Relics
 {
 	public class EmpressOfLightRelic : ModTile
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public const int FrameWidth = 18 * 3;
 		public const int FrameHeight = 18 * 4;
 		public const int HorizontalFrames = 1;
@@ -202,6 +203,7 @@ namespace V2.Tiles.Vanilla.Relics
 
 	public class EmpressOfLightRelic_TileEntity : ModTileEntity
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public Projectile connectedNPC = null;
 		public double WeightOnLoad = 0;
 		public bool CurrentlyEnabled = true;
@@ -290,6 +292,7 @@ namespace V2.Tiles.Vanilla.Relics
 	}
 	public class EmpressOfLightRelic_ProjectileEntity : ModProjectile
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override string Texture => "V2/Tiles/InvisibleImage";
 		public override void SetDefaults()
 		{

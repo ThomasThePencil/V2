@@ -16,6 +16,7 @@ namespace V2.NPCs.Voraria.Mushroom
 {
 	public class OversizedFairy : ModNPC
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override string Texture => "V2/NPCs/Voraria/Mushroom/FATFUCK";
 		public override void SetStaticDefaults()
 		{

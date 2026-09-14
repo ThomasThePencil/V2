@@ -8,6 +8,7 @@ namespace V2.Items.Vanilla.Placeables.Bottles
 {
 	public class Mug : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item entity, bool lateInstantiation) => entity.type == ItemID.Mug;
 
@@ -19,6 +20,7 @@ namespace V2.Items.Vanilla.Placeables.Bottles
 	}
 	public class DynastyCup : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item entity, bool lateInstantiation) => entity.type == ItemID.DynastyCup;
 
@@ -30,6 +32,7 @@ namespace V2.Items.Vanilla.Placeables.Bottles
 	}
 	public class WineGlass : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item entity, bool lateInstantiation) => entity.type == ItemID.WineGlass;
 
@@ -41,6 +44,7 @@ namespace V2.Items.Vanilla.Placeables.Bottles
 	}
 	public class HoneyCup : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item entity, bool lateInstantiation) => entity.type == ItemID.HoneyCup;
 
@@ -59,6 +63,7 @@ namespace V2.Items.Vanilla.Placeables.Bottles
 	}
 	public class Chalice : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item entity, bool lateInstantiation) => entity.type == ItemID.SteampunkCup;
 

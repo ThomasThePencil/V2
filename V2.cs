@@ -40,23 +40,31 @@ namespace V2
 		/// A special flag which decides whether or not the vore blacklists are actually filled.<br/>
 		/// Defaults to <see langword="true"/>. If set to <see langword="false"/> instead, the blacklists remain empty.<br/>
 		/// This allows several entities which otherwise would not be included in vore mechanics, namely as predators, to instead be given full reign.<br/>
+		/// Should not be manually set to <see langword="false""/> outside of specific testing cases.
 		/// </summary>
-		public static bool BlacklistsActive { get; set; }
+		public static bool BlacklistsActive => !GetFooled;
 		public static List<int> VoreNPCBlacklist { get; set; }
 		public static List<int> VoreProjectileBlacklist { get; set; }
 
 		/// <summary>
+		/// A special flag which causes everything not immediately relevant to the mod's core vore functionality to fail to load; this builds a "Fundamentals" version of the mod.<br/>
+		/// All new content, most non-NPC reworks, and many player pred goals associated with new content will not load while this flag is set to <see langword="true"/>.<br/>
+		/// <b>Controlled by the "Design-Mode [Fundamentals]" configuration option.</b><br/>
+		/// </summary>
+		public static bool BasicMode => ModContent.GetInstance<V2ServerConfig>().BasicMode || GetFooled;
+
+		/// <summary>
 		/// A special flag which decides whether or not the April Fool's branch is active.<br/>
-		/// Defaults to <see langword="false"/>. If it is April Fool's Day, thus making this return <see langword="false"/>, the following things become true:<br/>
+		/// Defaults to <see langword="false"/>. If it is April Fool's Day, thus making this return <see langword="true"/>, the following things become true:<br/>
 		/// - <see cref="BlacklistsActive"/> is overridden to <see langword="false"/>. Nothing shall escape the fury of the Great Fool of April.<br/>
+		/// - <see cref="BasicMode"/> is overridden to <see langword="true"/>. Who needs new content when you've got all the old, shitty content you could ever want?<br/>
 		/// - All normal <see cref="GlobalNPC"/>s used for specific NPCs are inactive; instead, the universal AprilFoolsPredNPC is used.<br/>
-		/// - All of the nice, well-made belly sprites are replaced with a unified circle tool from Paint.NET because I can't be bothered to remember if I still have MS Paint on here.<br/>
+		/// - All of the nice, well-made belly sprites are replaced with a unified circle tool that's only from Paint.NET because I can't be bothered to remember if I still have MS Paint on here.<br/>
 		/// - Only one tum gurgly sound is used. This sound is never used in the normal game.<br/>
 		/// - Only one burp sound is used. This sound is also never used in the normal game.<br/>
 		/// - Both of the above are intentionally made to sound incredibly bad.<br/>
 		/// - VSC's dialogue changes are completely undone.<br/>
 		/// - NPCs slowly increase in size as they digest more food. All digestion stats are based on their scale.<br/>
-		/// - None of VSC's unique content is loaded.<br/>
 		/// More may be added if time permits.<br/>
 		/// <br/>
 		/// overall, this was made by yours truly stepping backwards about 13-14 years in time mentally and channeling that energy into assessment of mod quality<br/>
@@ -71,7 +79,6 @@ namespace V2
 		public V2()
 		{
 			Instance = this;
-			BlacklistsActive = true;
 			ModifiedStatusEffects = [];
 		}
 
@@ -120,7 +127,7 @@ namespace V2
 			VoreProjectileBlacklist = [
 			];
 
-			if (!BlacklistsActive || GetFooled)
+			if (!BlacklistsActive)
 			{
 				VoreNPCBlacklist.Clear();
 				VoreProjectileBlacklist.Clear();

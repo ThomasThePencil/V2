@@ -14,6 +14,7 @@ namespace V2.Items.Vanilla.Armor
 {
 	public class OakWoodBreastplate : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public static int SunlightDefenseBonus => 1;
 
 		public override bool AppliesToEntity(Item entity, bool lateInstantiation) => entity.type == ItemID.WoodBreastplate;

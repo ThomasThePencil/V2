@@ -8,6 +8,7 @@ namespace V2.Items.Vanilla.Weapons.Melee
 {
 	public class CopperShortsword : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item item, bool lateInstantiation) => item.type == ItemID.CopperShortsword;
 
@@ -24,6 +25,7 @@ namespace V2.Items.Vanilla.Weapons.Melee
 	}
 	public class TinShortsword : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item item, bool lateInstantiation) => item.type == ItemID.TinShortsword;
 
@@ -40,6 +42,7 @@ namespace V2.Items.Vanilla.Weapons.Melee
 	}
 	public class IronShortsword : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item item, bool lateInstantiation) => item.type == ItemID.IronShortsword;
 
@@ -56,6 +59,7 @@ namespace V2.Items.Vanilla.Weapons.Melee
 	}
 	public class LeadShortsword : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item item, bool lateInstantiation) => item.type == ItemID.LeadShortsword;
 
@@ -72,6 +76,7 @@ namespace V2.Items.Vanilla.Weapons.Melee
 	}
 	public class SilverShortsword : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item item, bool lateInstantiation) => item.type == ItemID.SilverShortsword;
 
@@ -88,6 +93,7 @@ namespace V2.Items.Vanilla.Weapons.Melee
 	}
 	public class TungstenShortsword : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item item, bool lateInstantiation) => item.type == ItemID.TungstenShortsword;
 
@@ -104,6 +110,7 @@ namespace V2.Items.Vanilla.Weapons.Melee
 	}
 	public class GoldShortsword : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item item, bool lateInstantiation) => item.type == ItemID.GoldShortsword;
 
@@ -120,6 +127,7 @@ namespace V2.Items.Vanilla.Weapons.Melee
 	}
 	public class PlatinumShortsword : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item item, bool lateInstantiation) => item.type == ItemID.PlatinumShortsword;
 

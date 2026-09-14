@@ -19,7 +19,7 @@ namespace V2.NPCs.Voraria.TownNPCs.Succubus
 {
 	public class LucindaBound : ModNPC
 	{
-		public override bool IsLoadingEnabled(Mod mod) => !V2.GetFooled;
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override void SetStaticDefaults()
 		{
 			NPCID.Sets.NPCBestiaryDrawOffset.Add(Type, new NPCID.Sets.NPCBestiaryDrawModifiers() { Hide = true });

@@ -18,6 +18,7 @@ namespace V2.PlayerHandling
 {
 	public class OllieDamageRampUp : GlobalNPC
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override void ModifyHitByProjectile(NPC npc, Projectile projectile, ref NPC.HitModifiers modifiers)
 		{
 			Player attacker = Main.player[projectile.owner];

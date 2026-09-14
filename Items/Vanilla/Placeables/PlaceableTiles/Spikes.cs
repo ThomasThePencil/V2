@@ -8,6 +8,7 @@ namespace V2.Items.Vanilla.Placeables.PlaceableTiles
 {
 	public class Spike : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item entity, bool lateInstantiation) => entity.type == ItemID.Spike;
 
@@ -23,6 +24,7 @@ namespace V2.Items.Vanilla.Placeables.PlaceableTiles
 	}
 	public class WoodenSpike : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item entity, bool lateInstantiation) => entity.type == ItemID.WoodenSpike;
 

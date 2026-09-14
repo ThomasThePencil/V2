@@ -442,7 +442,7 @@ namespace V2.PlayerHandling
 				else
 				{
 					Player.KillMe(
-						PlayerDeathReason.ByCustomReason(Player.name + " was digested."),
+						PlayerDeathReason.ByCustomReason(NetworkText.FromLiteral(Player.name + " was digested.")),
 						trueDigestionDamage,
 						0
 					);
@@ -473,7 +473,7 @@ namespace V2.PlayerHandling
 			}
 			if (damageSource.SourceOtherIndex == 1)
 			{
-				if (TotalTimesDigested >= 20)
+				if (TotalTimesDigested >= 500)
 				{
 					damageSource.CustomReason = NetworkText.FromKey(
 						Main.rand.NextFromList(

@@ -27,6 +27,7 @@ namespace V2.Projectiles.Voraria.Other
 {
 	public class MintWispPoof : ModDust
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override string Texture => "V2/Projectiles/Voraria/SporeTrail";
 		public override void OnSpawn(Dust dust)
 		{
@@ -62,6 +63,7 @@ namespace V2.Projectiles.Voraria.Other
 	}
 	public class MintWispShotTrail : ModDust
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override string Texture => "V2/Projectiles/Voraria/SporeTrail";
 		public override void OnSpawn(Dust dust)
 		{
@@ -96,6 +98,7 @@ namespace V2.Projectiles.Voraria.Other
 
 	public class MintWisp : ModProjectile
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override void SetStaticDefaults()
 		{
 			Main.projFrames[Projectile.type] = 3;
@@ -284,6 +287,7 @@ namespace V2.Projectiles.Voraria.Other
 	}
 	public class MintWispShot : ModProjectile
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override string Texture => "V2/Projectiles/Voraria/SporeTrail";
 		public sealed override void SetDefaults()
 		{
@@ -355,6 +359,7 @@ namespace V2.Projectiles.Voraria.Other
 	}
 	public class MintWispCharge : ModProjectile
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override void SetStaticDefaults()
 		{
 			Main.projFrames[Projectile.type] = 2;
@@ -472,6 +477,7 @@ namespace V2.Projectiles.Voraria.Other
 	}
 	public class MintWispExplode : ModProjectile
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override string Texture => "V2/Projectiles/Voraria/SporeTrail";
 		public sealed override void SetDefaults()
 		{

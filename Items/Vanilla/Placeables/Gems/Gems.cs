@@ -8,6 +8,7 @@ namespace V2.Items.Vanilla.Placeables.Gems
 {
 	public class Amethyst : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item entity, bool lateInstantiation) => entity.type == ItemID.Amethyst;
 
@@ -32,6 +33,7 @@ namespace V2.Items.Vanilla.Placeables.Gems
 	}
 	public class Topaz : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item entity, bool lateInstantiation) => entity.type == ItemID.Topaz;
 
@@ -56,6 +58,7 @@ namespace V2.Items.Vanilla.Placeables.Gems
 	}
 	public class Sapphire : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item entity, bool lateInstantiation) => entity.type == ItemID.Sapphire;
 
@@ -80,6 +83,7 @@ namespace V2.Items.Vanilla.Placeables.Gems
 	}
 	public class Emerald : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item entity, bool lateInstantiation) => entity.type == ItemID.Emerald;
 
@@ -104,6 +108,7 @@ namespace V2.Items.Vanilla.Placeables.Gems
 	}
 	public class Amber : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item entity, bool lateInstantiation) => entity.type == ItemID.Amber;
 
@@ -128,6 +133,7 @@ namespace V2.Items.Vanilla.Placeables.Gems
 	}
 	public class Ruby : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item entity, bool lateInstantiation) => entity.type == ItemID.Ruby;
 
@@ -153,6 +159,7 @@ namespace V2.Items.Vanilla.Placeables.Gems
 	}
 	public class Diamond : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item entity, bool lateInstantiation) => entity.type == ItemID.Diamond;
 

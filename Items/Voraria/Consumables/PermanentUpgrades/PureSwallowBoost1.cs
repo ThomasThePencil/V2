@@ -16,7 +16,7 @@ namespace V2.Items.Voraria.Consumables.PermanentUpgrades
 {
 	public class PureSwallowBoost1 : ModItem
 	{
-		public override bool IsLoadingEnabled(Mod mod) => !V2.GetFooled;
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public static int GLPBonus => 8;
 		public override LocalizedText DisplayName => Language.GetText("Mods.V2.ItemName.Voraria.Consumables.PermanentUpgrades.PureSwallowBoost1");
 		public override LocalizedText Tooltip => Language.GetText("Mods.V2.ItemTooltip.Voraria.Consumables.PermanentUpgrades.PureSwallowBoost1.Short");

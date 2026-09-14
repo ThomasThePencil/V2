@@ -18,7 +18,7 @@ namespace V2.Projectiles.Voraria.Weapons.Ranged.Throwables
 {
 	public class ThrowableHotSauceBottleProjectile : ModProjectile
 	{
-		public override bool IsLoadingEnabled(Mod mod) => !V2.GetFooled;
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 
 		public override LocalizedText DisplayName => Language.GetText("Mods.V2.ProjectileName.Voraria.Weapons.Ranged.Throwables.FragileBottles.HotSauce");
 

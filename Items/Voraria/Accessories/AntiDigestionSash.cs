@@ -16,7 +16,7 @@ namespace V2.Items.Voraria.Accessories
 {
 	public class AntiDigestionSash : ModItem
 	{
-		public override bool IsLoadingEnabled(Mod mod) => !V2.GetFooled;
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public static float DigestionDefenseBonus => 4;
 		public static float SoftenedBuildupReduction => 0.25f;
 

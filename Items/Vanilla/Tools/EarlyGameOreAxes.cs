@@ -8,6 +8,7 @@ namespace V2.Items.Vanilla.Tools
 {
 	public class CopperAxe : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item item, bool lateInstantiation) => item.type == ItemID.CopperAxe;
 
@@ -22,6 +23,7 @@ namespace V2.Items.Vanilla.Tools
 	}
 	public class TinAxe : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item item, bool lateInstantiation) => item.type == ItemID.TinAxe;
 
@@ -36,6 +38,7 @@ namespace V2.Items.Vanilla.Tools
 	}
 	public class IronAxe : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item item, bool lateInstantiation) => item.type == ItemID.IronAxe;
 
@@ -50,6 +53,7 @@ namespace V2.Items.Vanilla.Tools
 	}
 	public class LeadAxe : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item item, bool lateInstantiation) => item.type == ItemID.LeadAxe;
 
@@ -64,6 +68,7 @@ namespace V2.Items.Vanilla.Tools
 	}
 	public class SilverAxe : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item item, bool lateInstantiation) => item.type == ItemID.SilverAxe;
 
@@ -78,6 +83,7 @@ namespace V2.Items.Vanilla.Tools
 	}
 	public class TungstenAxe : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item item, bool lateInstantiation) => item.type == ItemID.TungstenAxe;
 
@@ -92,6 +98,7 @@ namespace V2.Items.Vanilla.Tools
 	}
 	public class GoldAxe : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item item, bool lateInstantiation) => item.type == ItemID.GoldAxe;
 
@@ -106,6 +113,7 @@ namespace V2.Items.Vanilla.Tools
 	}
 	public class PlatinumAxe : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item item, bool lateInstantiation) => item.type == ItemID.PlatinumAxe;
 

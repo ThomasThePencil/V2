@@ -15,6 +15,7 @@ namespace V2.NPCs.Voraria.Jungle
 {
 	public class JungleFairy : ModNPC
 	{
+		public override bool IsLoadingEnabled(Mod mod) => false;
 		public override string Texture => "V2/NPCs/Voraria/Mushroom/FATFUCK";
 		public override void SetStaticDefaults()
 		{

@@ -17,7 +17,7 @@ namespace V2.Projectiles.Vanilla.Other
 {
 	public class GolfBall : GlobalProjectile
 	{
-		public override bool IsLoadingEnabled(Mod mod) => !V2.GetFooled;
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 
 		//das a lotta balls

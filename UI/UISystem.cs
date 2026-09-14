@@ -137,18 +137,21 @@ namespace V2.UI
 			if (layers.FirstOrDefault(x => x.Name == "Vanilla: Cursor") is LegacyGameInterfaceLayer cursorLegacyLayer)
 			{
 				int cursorLegacyLayerIndex = layers.IndexOf(cursorLegacyLayer);
-				layers.Remove(cursorLegacyLayer);
-				layers.Insert(
-					cursorLegacyLayerIndex, new LegacyGameInterfaceLayer(
-						"Vanilla: Cursor (VSC Override)",
-						delegate
-						{
-							UIOverrides.DrawInterface_36_Cursor();
-							return true;
-						},
-						InterfaceScaleType.UI
-					)
-				);
+				if (!V2.BasicMode)
+				{
+					layers.Remove(cursorLegacyLayer);
+					layers.Insert(
+						cursorLegacyLayerIndex, new LegacyGameInterfaceLayer(
+							"Vanilla: Cursor (VSC Override)",
+							delegate
+							{
+								UIOverrides.DrawInterface_36_Cursor();
+								return true;
+							},
+							InterfaceScaleType.UI
+						)
+					);
+				}
 				AddInterfaceLayer(layers, MouseRestrictionDummyLayer, MouseRestrictionDummy, cursorLegacyLayerIndex, "Mouse Restriction Dummy State");
 			}
 
@@ -157,15 +160,18 @@ namespace V2.UI
 			{
 				AddInterfaceLayer(layers, StomachCapacityBarInterfaceLayer, StomachCapacityBarInterface, OverriddenHairWindowIndex, "Stomach Capacity Meter");
 				AddInterfaceLayer(layers, StomachacheMeterInterfaceLayer, StomachacheMeterInterface, OverriddenHairWindowIndex + 1, "Stomachache Meter");
-				AddInterfaceLayer(layers, MealSizeScannerInterfaceLayer, MealSizeScannerInterface, OverriddenHairWindowIndex + 2, "Sizemic Scanner");
-				AddInterfaceLayer(layers, PredCapacityScannerInterfaceLayer, PredCapacityScannerInterface, OverriddenHairWindowIndex + 3, "Servant's Scanner");
-				AddInterfaceLayer(layers, PlayerPredStruggleInterfaceLayer, PlayerPredStruggleInterface, OverriddenHairWindowIndex + 4, "Player Pred Struggles");
-				AddInterfaceLayer(layers, PredStatsMenuInterfaceLayer, PredStatsMenuInterface, OverriddenHairWindowIndex + 5, "Pred Stats Menu");
-				AddInterfaceLayer(layers, PredStatsMenuMouthInterfaceLayer, PredStatsMenuMouthInterface, OverriddenHairWindowIndex + 6, "Rose");
-				AddInterfaceLayer(layers, MintWispSummonMeterInterfaceLayer, MintWispSummonMeterInterface, OverriddenHairWindowIndex + 7, "Mint Wisp Summon Meter");
+				if (!V2.BasicMode)
+				{
+					AddInterfaceLayer(layers, MealSizeScannerInterfaceLayer, MealSizeScannerInterface, OverriddenHairWindowIndex + 2, "Sizemic Scanner");
+					AddInterfaceLayer(layers, PredCapacityScannerInterfaceLayer, PredCapacityScannerInterface, OverriddenHairWindowIndex + 3, "Servant's Scanner");
+					AddInterfaceLayer(layers, PlayerPredStruggleInterfaceLayer, PlayerPredStruggleInterface, OverriddenHairWindowIndex + 4, "Player Pred Struggles");
+					AddInterfaceLayer(layers, PredStatsMenuInterfaceLayer, PredStatsMenuInterface, OverriddenHairWindowIndex + 5, "Pred Stats Menu");
+					AddInterfaceLayer(layers, PredStatsMenuMouthInterfaceLayer, PredStatsMenuMouthInterface, OverriddenHairWindowIndex + 6, "Rose");
+					AddInterfaceLayer(layers, MintWispSummonMeterInterfaceLayer, MintWispSummonMeterInterface, OverriddenHairWindowIndex + 7, "Mint Wisp Summon Meter");
+				}
 			}
 			int MouseTextIndex = layers.FindIndex(layer => layer.Name.Equals("Vanilla: Mouse Text"));
-			if (MouseTextIndex != -1)
+			if (!V2.BasicMode && MouseTextIndex != -1)
 				AddInterfaceLayer(layers, HeldItemInterfaceLayer, HeldItemInterface, MouseTextIndex, "Held Item");
 		}
 

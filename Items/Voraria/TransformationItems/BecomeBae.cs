@@ -27,6 +27,7 @@ namespace V2.Items.Voraria.TransformationItems.Baelz
 {
 	public class A_BaeHeadDrawLayer : PlayerDrawLayer
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool GetDefaultVisibility(PlayerDrawSet drawInfo)
 		{
 			return drawInfo.drawPlayer.AsV2Player().HasTransformation;
@@ -105,6 +106,7 @@ namespace V2.Items.Voraria.TransformationItems.Baelz
 
 	public class B_BaeDrawLayer : PlayerDrawLayer
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public int LastIdleFrame = 0;
 		public int LastRunFrame = 0;
 		public override string Name => "Baelz_Body";
@@ -288,6 +290,7 @@ namespace V2.Items.Voraria.TransformationItems.Baelz
 
 	public class C_BaeHairDrawLayer : PlayerDrawLayer
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool GetDefaultVisibility(PlayerDrawSet drawInfo)
 		{
 			return drawInfo.drawPlayer.AsV2Player().HasTransformation;
@@ -377,6 +380,7 @@ namespace V2.Items.Voraria.TransformationItems.Baelz
 
 	public class BaelzDust : ModDust
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override void OnSpawn(Dust dust)
 		{
 			dust.noGravity = true;
@@ -416,6 +420,7 @@ namespace V2.Items.Voraria.TransformationItems.Baelz
 	}
 	public class BaelzSparkleDustRed : ModDust
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override string Texture => "V2/Items/Voraria/TransformationItems/Baelz/BaelzSparkleDust";
 		public override void OnSpawn(Dust dust)
 		{
@@ -448,6 +453,7 @@ namespace V2.Items.Voraria.TransformationItems.Baelz
 	}
 	public class BaelzSparkleDustCyan : ModDust
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override string Texture => "V2/Items/Voraria/TransformationItems/Baelz/BaelzSparkleDust";
 		public override void OnSpawn(Dust dust)
 		{
@@ -480,6 +486,7 @@ namespace V2.Items.Voraria.TransformationItems.Baelz
 	}
 	public class BaelzSparkleDustYellow : ModDust
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override string Texture => "V2/Items/Voraria/TransformationItems/Baelz/BaelzSparkleDust";
 		public override void OnSpawn(Dust dust)
 		{
@@ -512,6 +519,7 @@ namespace V2.Items.Voraria.TransformationItems.Baelz
 	}
 	public class BaelzSparkleDustBlack : ModDust
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override string Texture => "V2/Items/Voraria/TransformationItems/Baelz/BaelzSparkleDust";
 		public override void OnSpawn(Dust dust)
 		{
@@ -541,6 +549,7 @@ namespace V2.Items.Voraria.TransformationItems.Baelz
 	}
 	public class DeadBaelz : ModDust
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override string Texture => "V2/Items/Voraria/TransformationItems/Baelz/Baelz_Fuckin_Dies";
 		public override void OnSpawn(Dust dust)
 		{
@@ -591,7 +600,7 @@ namespace V2.Items.Voraria.TransformationItems.Baelz
 
 	public class BaeTransformationItem : ModItem
 	{
-		public override bool IsLoadingEnabled(Mod mod) => !V2.GetFooled;
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override LocalizedText DisplayName => Language.GetText("Mods.V2.ItemName.Voraria.TransformationItems.BaelzTransformationItem.ActiveName");
 		public override LocalizedText Tooltip => Language.GetText("Mods.V2.ItemTooltip.Voraria.TransformationItems.BaelzTransformationItem.Short");
 		public override string Texture => "V2/Items/Voraria/TransformationItems/Baelz/LoadedDie";
@@ -656,7 +665,7 @@ namespace V2.Items.Voraria.TransformationItems.Baelz
 	}
 	public class InactiveBaeTransformationItem : ModItem
 	{
-		public override bool IsLoadingEnabled(Mod mod) => !V2.GetFooled;
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override LocalizedText DisplayName => Language.GetText("Mods.V2.ItemName.Voraria.TransformationItems.BaelzTransformationItem.InactiveName");
 		public override LocalizedText Tooltip => Language.GetText("Mods.V2.ItemTooltip.Voraria.TransformationItems.BaelzTransformationItem.Short");
 		public override string Texture => "V2/Items/Voraria/TransformationItems/Baelz/LoadedDieInactive";

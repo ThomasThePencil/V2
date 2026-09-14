@@ -11,7 +11,7 @@ namespace V2.Items.Vanilla.Weapons.Ranged.Ammo
 {
 	public class MusketBall : GlobalItem
 	{
-		public override bool IsLoadingEnabled(Mod mod) => !V2.GetFooled;
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item entity, bool lateInstantiation) => entity.type == ItemID.MusketBall;
 		public override void SetDefaults(Item item)
@@ -41,7 +41,7 @@ namespace V2.Items.Vanilla.Weapons.Ranged.Ammo
 	}
 	public class MeteorShot : GlobalItem
 	{
-		public override bool IsLoadingEnabled(Mod mod) => !V2.GetFooled;
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item entity, bool lateInstantiation) => entity.type == ItemID.MeteorShot;
 		public override void SetDefaults(Item item)
@@ -71,7 +71,7 @@ namespace V2.Items.Vanilla.Weapons.Ranged.Ammo
 	}
 	public class SilverBullet : GlobalItem
 	{
-		public override bool IsLoadingEnabled(Mod mod) => !V2.GetFooled;
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item entity, bool lateInstantiation) => entity.type == ItemID.SilverBullet;
 		public override void SetDefaults(Item item)
@@ -101,7 +101,7 @@ namespace V2.Items.Vanilla.Weapons.Ranged.Ammo
 	}
 	public class TungstenBullet : GlobalItem
 	{
-		public override bool IsLoadingEnabled(Mod mod) => !V2.GetFooled;
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item entity, bool lateInstantiation) => entity.type == ItemID.TungstenBullet;
 		public override void SetDefaults(Item item)
@@ -131,7 +131,7 @@ namespace V2.Items.Vanilla.Weapons.Ranged.Ammo
 	}
 	public class CrystalBullet : GlobalItem
 	{
-		public override bool IsLoadingEnabled(Mod mod) => !V2.GetFooled;
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item entity, bool lateInstantiation) => entity.type == ItemID.CrystalBullet;
 		public override void SetDefaults(Item item)
@@ -160,7 +160,7 @@ namespace V2.Items.Vanilla.Weapons.Ranged.Ammo
 	}
 	public class CursedBullet : GlobalItem
 	{
-		public override bool IsLoadingEnabled(Mod mod) => !V2.GetFooled;
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item entity, bool lateInstantiation) => entity.type == ItemID.CursedBullet;
 		public override void SetDefaults(Item item)
@@ -191,7 +191,7 @@ namespace V2.Items.Vanilla.Weapons.Ranged.Ammo
 	}
 	public class IchorBullet : GlobalItem
 	{
-		public override bool IsLoadingEnabled(Mod mod) => !V2.GetFooled;
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item entity, bool lateInstantiation) => entity.type == ItemID.IchorBullet;
 		public override void SetDefaults(Item item)
@@ -222,7 +222,7 @@ namespace V2.Items.Vanilla.Weapons.Ranged.Ammo
 	}
 	public class ChlorophyteBullet : GlobalItem
 	{
-		public override bool IsLoadingEnabled(Mod mod) => !V2.GetFooled;
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item entity, bool lateInstantiation) => entity.type == ItemID.ChlorophyteBullet;
 		public override void SetDefaults(Item item)
@@ -252,7 +252,7 @@ namespace V2.Items.Vanilla.Weapons.Ranged.Ammo
 	}
 	public class HighVelocityBullet : GlobalItem
 	{
-		public override bool IsLoadingEnabled(Mod mod) => !V2.GetFooled;
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item entity, bool lateInstantiation) => entity.type == ItemID.HighVelocityBullet;
 		public override void SetDefaults(Item item)
@@ -282,7 +282,7 @@ namespace V2.Items.Vanilla.Weapons.Ranged.Ammo
 	}
 	public class VenomBullet : GlobalItem
 	{
-		public override bool IsLoadingEnabled(Mod mod) => !V2.GetFooled;
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item entity, bool lateInstantiation) => entity.type == ItemID.VenomBullet;
 		public override void SetDefaults(Item item)
@@ -312,7 +312,7 @@ namespace V2.Items.Vanilla.Weapons.Ranged.Ammo
 	}
 	public class PartyBullet : GlobalItem
 	{
-		public override bool IsLoadingEnabled(Mod mod) => !V2.GetFooled;
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item entity, bool lateInstantiation) => entity.type == ItemID.PartyBullet;
 		public override void SetDefaults(Item item)
@@ -342,7 +342,7 @@ namespace V2.Items.Vanilla.Weapons.Ranged.Ammo
 	}
 	public class NanoBullet : GlobalItem
 	{
-		public override bool IsLoadingEnabled(Mod mod) => !V2.GetFooled;
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item entity, bool lateInstantiation) => entity.type == ItemID.NanoBullet;
 		public override void SetDefaults(Item item)
@@ -372,7 +372,7 @@ namespace V2.Items.Vanilla.Weapons.Ranged.Ammo
 	}
 	public class ExplodingBullet : GlobalItem
 	{
-		public override bool IsLoadingEnabled(Mod mod) => !V2.GetFooled;
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item entity, bool lateInstantiation) => entity.type == ItemID.ExplodingBullet;
 		public override void SetDefaults(Item item)
@@ -402,7 +402,7 @@ namespace V2.Items.Vanilla.Weapons.Ranged.Ammo
 	}
 	public class GoldenBullet : GlobalItem
 	{
-		public override bool IsLoadingEnabled(Mod mod) => !V2.GetFooled;
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item entity, bool lateInstantiation) => entity.type == ItemID.GoldenBullet;
 		public override void SetDefaults(Item item)
@@ -432,7 +432,7 @@ namespace V2.Items.Vanilla.Weapons.Ranged.Ammo
 	}
 	public class LuminiteBullet : GlobalItem
 	{
-		public override bool IsLoadingEnabled(Mod mod) => !V2.GetFooled;
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item entity, bool lateInstantiation) => entity.type == ItemID.MoonlordBullet;
 		public override void SetDefaults(Item item)

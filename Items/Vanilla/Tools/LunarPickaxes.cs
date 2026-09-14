@@ -8,6 +8,7 @@ namespace V2.Items.Vanilla.Tools
 {
 	public class SolarFlarePickaxe : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item item, bool lateInstantiation) => item.type == ItemID.SolarFlarePickaxe;
 
@@ -22,6 +23,7 @@ namespace V2.Items.Vanilla.Tools
 	}
 	public class VortexPickaxe : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item item, bool lateInstantiation) => item.type == ItemID.VortexPickaxe;
 
@@ -36,6 +38,7 @@ namespace V2.Items.Vanilla.Tools
 	}
 	public class NebulaPickaxe : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item item, bool lateInstantiation) => item.type == ItemID.NebulaPickaxe;
 
@@ -50,6 +53,7 @@ namespace V2.Items.Vanilla.Tools
 	}
 	public class StardustPickaxe : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item item, bool lateInstantiation) => item.type == ItemID.StardustPickaxe;
 

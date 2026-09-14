@@ -27,6 +27,7 @@ namespace V2.Projectiles.Voraria.Pets
 {
 	public class AstralFairyBuff : ModBuff
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override LocalizedText DisplayName => Language.GetText("Mods.V2.StatusEffects.Voraria.Summons.AstralFairy.Name");
 		public override LocalizedText Description => Language.GetText("Mods.V2.StatusEffects.Voraria.Summons.AstralFairy.Description");
 
@@ -71,6 +72,7 @@ namespace V2.Projectiles.Voraria.Pets
 
 	public class AstralFairy : ModProjectile
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public (Projectile, NPC) target = (null, null);
 		
 		public override void SetStaticDefaults()

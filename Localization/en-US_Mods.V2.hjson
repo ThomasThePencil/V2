@@ -24,6 +24,28 @@ Configs: {
 	V2ClientConfig.DisplayName: Client-Side Options
 
 	Server: {
+		ContentLoading: {
+			Header:
+				'''
+				The Content Loading Controller
+				[c/7F0000:(don't touch this without reading.)]
+				'''
+			BasicMode: {
+				Label: Design-Mode [Fundamentals]
+				Tooltip:
+					'''
+					Will always default to false.
+					When set to true, [c/FF0000:prevents all VSC content from loading except the following:]
+					- The vore system itself.
+					- All NPC pred functionalities and accompanying reworks/adjustments.
+					- Anything else critically necessary for the vore system to work.
+					[c/FF7F00:This is liable to Bug The Fuck Out if your setting here does not match the host in multiplayer.]
+					[c/FF7F00:The balancing of the vore system at large also assumes this is false.]
+					[c/FF7F00:As such, NO balance suggestions for this Design-Mode whatsoever shall be taken into account.]
+					[c/FF0000:Only turn this off if you are absolutely certain you understand the ramifications.]
+					'''
+			}
+		}
 		Insight: {
 			Header:
 				'''

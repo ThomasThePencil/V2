@@ -19,7 +19,7 @@ namespace V2.Tiles.Vanilla
 {
 	public class Sunflower : ModTile
 	{
-
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override void SetStaticDefaults()
 		{
 			Main.tileFrameImportant[Type] = true;
@@ -115,6 +115,7 @@ namespace V2.Tiles.Vanilla
 	}
 	public class Sunflower_TileEntity : ModTileEntity
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public Projectile connectedNPC = null;
 		public double WeightOnLoad = 0;
 		public bool CurrentlyEnabled = false;
@@ -198,6 +199,7 @@ namespace V2.Tiles.Vanilla
 	}
 	public class Sunflower_ProjectileEntity : ModProjectile
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override string Texture => "V2/Tiles/InvisibleImage";
 		public override void SetDefaults()
 		{

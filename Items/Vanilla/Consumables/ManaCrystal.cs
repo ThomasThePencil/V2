@@ -22,6 +22,7 @@ namespace V2.Items.Vanilla.Consumables
 {
 	public class ManaCrystal : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public static int DigestedManaHeal => 100;
 		public static int DigestedManaRegenTime => V2Utils.SensibleTime(seconds: 2, frames: 30);
 		public override bool InstancePerEntity => true;

@@ -298,6 +298,7 @@ namespace V2.Projectiles.Vanilla.Summons.Pets
 				(PreyType.NPC, NPCID.BigMimicHallow),
 				(PreyType.NPC, NPCID.SandsharkHallow),
 				(PreyType.NPC, NPCID.EmpressButterfly),
+				(PreyType.NPC, NPCID.Princess),
 				(PreyType.NPC, NPCID.HallowBoss),
 				(PreyType.NPC, NPCID.IceQueen),
 				(PreyType.NPC, NPCID.VortexHornetQueen),
@@ -307,8 +308,6 @@ namespace V2.Projectiles.Vanilla.Summons.Pets
 				(PreyType.Projectile, ProjectileID.QueenSlimePet),
 				(PreyType.Projectile, ProjectileID.IceQueenPet),
 			];
-			if (!V2.BlacklistsActive)
-				diet.Add((PreyType.NPC, NPCID.Princess));
 
 			PreyType targetPreyType = PreyType.Undefined;
 			int targetPreyIndex = -1;

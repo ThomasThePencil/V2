@@ -8,6 +8,7 @@ namespace V2.Items.Vanilla.Placeables.Plants
 {
 	public class GrassSeeds : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item entity, bool lateInstantiation) => entity.type is ItemID.GrassSeeds or ItemID.JungleGrassSeeds or ItemID.HallowedSeeds
 			or ItemID.MushroomGrassSeeds or ItemID.AshGrassSeeds;
@@ -20,6 +21,7 @@ namespace V2.Items.Vanilla.Placeables.Plants
 	}
 	public class HerbSeeds : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item entity, bool lateInstantiation) => entity.type is ItemID.DaybloomSeeds or ItemID.BlinkrootSeeds or ItemID.MoonglowSeeds
 			or ItemID.WaterleafSeeds or ItemID.ShiverthornSeeds or ItemID.FireblossomSeeds;
@@ -33,6 +35,7 @@ namespace V2.Items.Vanilla.Placeables.Plants
 	}
 	public class EvilSeeds : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item entity, bool lateInstantiation) => entity.type is ItemID.CorruptSeeds or ItemID.CrimsonSeeds or ItemID.DeathweedSeeds;
 
@@ -45,6 +48,7 @@ namespace V2.Items.Vanilla.Placeables.Plants
 	}
 	public class FlowerPackets : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item entity, bool lateInstantiation) => entity.type is ItemID.FlowerPacketBlue or ItemID.FlowerPacketMagenta or ItemID.FlowerPacketPink
 			or ItemID.FlowerPacketRed or ItemID.FlowerPacketTallGrass or ItemID.FlowerPacketViolet or ItemID.FlowerPacketWhite or ItemID.FlowerPacketWild or ItemID.FlowerPacketYellow;
@@ -57,6 +61,7 @@ namespace V2.Items.Vanilla.Placeables.Plants
 	}
 	public class PumpkinSeed : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item entity, bool lateInstantiation) => entity.type is ItemID.PumpkinSeed;
 

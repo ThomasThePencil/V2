@@ -8,6 +8,7 @@ namespace V2.Items.Vanilla.Accessories.Offensive
 {
 	public class SharkToothNecklace : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public static int ArmorPenetration => 5;
 		public static int GLPACIBonus => 1;
 		public static float CritDamageBonus => 0.10f;

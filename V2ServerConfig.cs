@@ -12,6 +12,13 @@ namespace V2
 	{
 		public override ConfigScope Mode => ConfigScope.ServerSide;
 
+		[Header("$Mods.V2.Configs.Server.ContentLoading.Header")]
+
+		[LabelKey("$Mods.V2.Configs.Server.ContentLoading.BasicMode.Label")]
+		[TooltipKey("$Mods.V2.Configs.Server.ContentLoading.BasicMode.Tooltip")]
+		[DefaultValue(false)]
+		public bool BasicMode { get; set; }
+
 		[Header("$Mods.V2.Configs.Server.Insight.Header")]
 
 		[LabelKey("$Mods.V2.Configs.Server.Insight.DebugChatMessages.Label")]

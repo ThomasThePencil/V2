@@ -14,6 +14,7 @@ namespace V2.NPCs.Voraria.TownNPCs.Succubus.ChatButtons
 {
 	public class LucindaHelpButton : ChatButton
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		internal static int HelpIndex = -1;
 		internal static int HelpIndexMax = 7;
 		public override string Text(NPC npc, Player player) => Language.GetTextValue("Mods.V2.NPCs.Lucinda.HelpButton.DisplayName");

@@ -30,7 +30,7 @@ namespace V2.Items.Voraria.Weapons.Summon
 	}
 	public class PaperMaidSummon : ModItem
 	{
-		public override bool IsLoadingEnabled(Mod mod) => !V2.GetFooled;
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override LocalizedText DisplayName => Language.GetText("Mods.V2.ItemName.Voraria.Weapons.Summon.PaperMaidSummon");
 		public override LocalizedText Tooltip => Language.GetText("Mods.V2.ItemTooltip.Voraria.Weapons.Summon.PaperMaidSummon.Short");
 

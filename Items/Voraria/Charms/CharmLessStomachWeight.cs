@@ -18,7 +18,7 @@ namespace V2.Items.Voraria.Charms
 {
 	public class CharmLessStomachWeight : ModItem
 	{
-		public override bool IsLoadingEnabled(Mod mod) => !V2.GetFooled;
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public static double MaxWeightReduction => 0.40;
 		public static double FullnessEffectivenessLossThreshold => 0.70;
 		public static double WeightReductionEffectiveness(Player player)

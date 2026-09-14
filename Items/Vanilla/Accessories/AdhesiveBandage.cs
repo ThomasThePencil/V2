@@ -9,6 +9,7 @@ namespace V2.Items.Vanilla.Accessories
 {
 	public class AdhesiveBandage : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public static float SoftenedBuildupReduction => 0.075f;
 		public override bool AppliesToEntity(Item entity, bool lateInstantiation) => entity.type == ItemID.AdhesiveBandage;
 

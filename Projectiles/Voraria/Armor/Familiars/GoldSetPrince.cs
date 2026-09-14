@@ -38,7 +38,7 @@ namespace V2.Projectiles.Voraria.Armor.Familiars
 	public partial class GoldSetPrince : ModProjectile
 	{
 		public bool WaitingForChurnedOwner { get; set; }
-		public override bool IsLoadingEnabled(Mod mod) => !V2.GetFooled;
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 
 		public override LocalizedText DisplayName => Language.GetText("Mods.V2.Projectiles.DisplayName.Voraria.Armor.Familiars.GoldSetPrince");
 

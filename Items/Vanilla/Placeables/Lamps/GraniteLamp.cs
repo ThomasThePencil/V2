@@ -11,6 +11,7 @@ namespace V2.Items.Vanilla.Placeables.Lamps
 {
 	public class GraniteLamp : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item item, bool lateInstantiation) => item.type == ItemID.GraniteLamp;
 		public override void SetDefaults(Item item)

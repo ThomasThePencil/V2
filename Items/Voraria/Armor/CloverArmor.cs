@@ -15,6 +15,7 @@ namespace V2.Items.Voraria.Armor
 	[AutoloadEquip(EquipType.Head)]
 	public class CloverHeadAccessories : ModItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public static LocalizedText SetBonusText => Language.GetText("Mods.V2.ItemTooltip.Voraria.Armor.CloverArmorSetBonus");
 		public override LocalizedText DisplayName => Language.GetText("Mods.V2.ItemName.Voraria.Armor.CloverHeadAccessories");
 		public static float StruggleBonus => 0.75f;
@@ -65,6 +66,7 @@ namespace V2.Items.Voraria.Armor
 	[AutoloadEquip(EquipType.Body)]
 	public class CloverSweater : ModItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override LocalizedText DisplayName => Language.GetText("Mods.V2.ItemName.Voraria.Armor.CloverSweater");
 		public static float StruggleBonus => 1f;
 		public static int TUMBonus => 8;
@@ -99,6 +101,7 @@ namespace V2.Items.Voraria.Armor
 	[AutoloadEquip(EquipType.Legs)]
 	public class CloverStockings : ModItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override LocalizedText DisplayName => Language.GetText("Mods.V2.ItemName.Voraria.Armor.CloverStockings");
 		public static float StruggleBonus => 0.75f;
 		public static int CritBonus => 7;

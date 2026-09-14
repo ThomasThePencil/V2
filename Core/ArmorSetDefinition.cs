@@ -5,6 +5,14 @@ namespace V2.Core
 {
 	public abstract class ArmorSetDefinition : ModType
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
+
+		protected sealed override void Register()
+		{
+			ModTypeLookup<ArmorSetDefinition>.Register(this);
+
+			ArmorSetHandler.RegisterArmorSet(this);
+		}
 		/// <summary>
 		/// The equipment needed for the set bonus to take effect.
 		/// </summary>
@@ -47,13 +55,6 @@ namespace V2.Core
 					return false;
 			}
 			return true;
-		}
-
-		protected sealed override void Register()
-		{
-			ModTypeLookup<ArmorSetDefinition>.Register(this);
-
-			ArmorSetHandler.RegisterArmorSet(this);
 		}
 	}
 }

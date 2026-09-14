@@ -16,6 +16,7 @@ namespace V2.Items.Vanilla.Accessories
 {
 	public class HealthRegenAndPotionCooldownBand : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public static double WornHealthRegenFlat => 1.0;
 		public static double DigestingHealthRegenFlat => 2.0;
 		public static int DigestingEffectTime => V2Utils.SensibleTime(minutes: 10);

@@ -37,7 +37,7 @@ namespace V2
 			{
 				GeneralNPC npcAsV2NPC = npc.AsV2NPC(risky: true);
 				PreyNPC npcAsPrey = npc.AsFood(risky: true);
-				if (npc.HasBuff<TimeStun>() || (npc.realLife > -1 && Main.npc[npc.realLife].active && Main.npc[npc.realLife].HasBuff<TimeStun>()))
+				if (!BasicMode && (npc.HasBuff<TimeStun>() || (npc.realLife > -1 && Main.npc[npc.realLife].active && Main.npc[npc.realLife].HasBuff<TimeStun>())))
 				{
 					npc.frameCounter = 0;
 					if (npc.AsV2NPC().VelocityBeforeTimeStun == null)

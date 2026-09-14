@@ -1,27 +1,20 @@
-﻿using System;
+﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Terraria.GameContent.UI;
+using Terraria;
+using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Terraria;
-using V2.StatusEffects.Voraria.Debuffs;
-using Microsoft.Xna.Framework;
-using Terraria.DataStructures;
-using Terraria.WorldBuilding;
-using V2.PlayerHandling;
 using V2.Core;
+using V2.PlayerHandling;
 using V2.Projectiles.Voraria.Weapons.Ranged.Throwables;
-using Mono.Cecil;
-using Microsoft.Xna.Framework.Graphics;
-using Terraria.GameContent;
+using V2.StatusEffects.Voraria.Debuffs;
 
 namespace V2.Items.Voraria.Tools
 {
 	public class Spoon : ModItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override void SetDefaults()
 		{
 			Item.damage = 10;

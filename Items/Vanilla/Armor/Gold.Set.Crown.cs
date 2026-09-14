@@ -11,6 +11,7 @@ namespace V2.Items.Vanilla.Armor
 {
 	public class GoldSetWithCrown : ArmorSetDefinition
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public static double PrinceMidasChance => 0.15;
 		public static double PrinceMagicDamageUp => 0.15;
 		public static double PrinceDowntime => 900;

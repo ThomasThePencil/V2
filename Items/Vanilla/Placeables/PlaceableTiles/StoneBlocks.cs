@@ -8,6 +8,7 @@ namespace V2.Items.Vanilla.Placeables.TilesPlaceableTiles
 {
 	public class Stone : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item entity, bool lateInstantiation) => entity.type == ItemID.StoneBlock;
 
@@ -20,6 +21,7 @@ namespace V2.Items.Vanilla.Placeables.TilesPlaceableTiles
 	}
 	public class EvilStone : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item entity, bool lateInstantiation) => entity.type == ItemID.EbonstoneBlock || entity.type == ItemID.CrimstoneBlock;
 
@@ -32,6 +34,7 @@ namespace V2.Items.Vanilla.Placeables.TilesPlaceableTiles
 	}
 	public class Pearlstone : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item entity, bool lateInstantiation) => entity.type == ItemID.PearlstoneBlock;
 

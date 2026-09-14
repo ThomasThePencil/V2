@@ -11,6 +11,7 @@ namespace V2.Items.Vanilla
 {
 	public class VanillaGel : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool AppliesToEntity(Item entity, bool lateInstantiation) => entity.type == ItemID.Gel;
 
 		public override void SetDefaults(Item entity)
@@ -27,6 +28,7 @@ namespace V2.Items.Vanilla
 	}
 	public class PinkGel : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool AppliesToEntity(Item entity, bool lateInstantiation) => entity.type == ItemID.PinkGel;
 
 		public override void SetDefaults(Item entity)

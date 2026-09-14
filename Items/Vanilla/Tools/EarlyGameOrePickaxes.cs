@@ -8,6 +8,7 @@ namespace V2.Items.Vanilla.Tools
 {
 	public class CopperPickaxe : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item item, bool lateInstantiation) => item.type == ItemID.CopperPickaxe;
 
@@ -22,6 +23,7 @@ namespace V2.Items.Vanilla.Tools
 	}
 	public class TinPickaxe : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item item, bool lateInstantiation) => item.type == ItemID.TinPickaxe;
 
@@ -36,6 +38,7 @@ namespace V2.Items.Vanilla.Tools
 	}
 	public class IronPickaxe : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item item, bool lateInstantiation) => item.type == ItemID.IronPickaxe;
 
@@ -50,6 +53,7 @@ namespace V2.Items.Vanilla.Tools
 	}
 	public class LeadPickaxe : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item item, bool lateInstantiation) => item.type == ItemID.LeadPickaxe;
 
@@ -64,6 +68,7 @@ namespace V2.Items.Vanilla.Tools
 	}
 	public class SilverPickaxe : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item item, bool lateInstantiation) => item.type == ItemID.SilverPickaxe;
 
@@ -78,6 +83,7 @@ namespace V2.Items.Vanilla.Tools
 	}
 	public class TungstenPickaxe : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item item, bool lateInstantiation) => item.type == ItemID.TungstenPickaxe;
 
@@ -92,6 +98,7 @@ namespace V2.Items.Vanilla.Tools
 	}
 	public class GoldPickaxe : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item item, bool lateInstantiation) => item.type == ItemID.GoldPickaxe;
 
@@ -106,6 +113,7 @@ namespace V2.Items.Vanilla.Tools
 	}
 	public class PlatinumPickaxe : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item item, bool lateInstantiation) => item.type == ItemID.PlatinumPickaxe;
 

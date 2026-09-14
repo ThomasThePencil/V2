@@ -8,6 +8,7 @@ namespace V2.Items.Vanilla.Tools
 {
 	public class OakWoodHammer : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item entity, bool lateInstantiation) => entity.type == ItemID.WoodenHammer;
 
@@ -21,6 +22,7 @@ namespace V2.Items.Vanilla.Tools
 	}
 	public class BorealWoodHammer : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item entity, bool lateInstantiation) => entity.type == ItemID.BorealWoodHammer;
 
@@ -34,6 +36,7 @@ namespace V2.Items.Vanilla.Tools
 	}
 	public class PalmWoodHammer : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item item, bool lateInstantiation) => item.type == ItemID.PalmWoodHammer;
 
@@ -47,6 +50,7 @@ namespace V2.Items.Vanilla.Tools
 	}
 	public class RichMahoganyHammer : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item item, bool lateInstantiation) => item.type == ItemID.RichMahoganyHammer;
 
@@ -60,6 +64,7 @@ namespace V2.Items.Vanilla.Tools
 	}
 	public class AshWoodHammer : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item item, bool lateInstantiation) => item.type == ItemID.AshWoodHammer;
 
@@ -73,6 +78,7 @@ namespace V2.Items.Vanilla.Tools
 	}
 	public class EbonwoodHammer : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item item, bool lateInstantiation) => item.type == ItemID.EbonwoodHammer;
 
@@ -87,6 +93,7 @@ namespace V2.Items.Vanilla.Tools
 	}
 	public class ShadewoodHammer : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item item, bool lateInstantiation) => item.type == ItemID.ShadewoodHammer;
 
@@ -101,6 +108,7 @@ namespace V2.Items.Vanilla.Tools
 	}
 	public class PearlwoodHammer : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item item, bool lateInstantiation) => item.type == ItemID.PearlwoodHammer;
 

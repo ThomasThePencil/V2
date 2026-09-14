@@ -8,6 +8,7 @@ namespace V2.Items.Vanilla.Placeables.TilesPlaceableTiles
 {
 	public class GlowingMossBricks : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item entity, bool lateInstantiation) => entity.type is ItemID.LavaMossBlock or ItemID.KryptonMossBlock or ItemID.XenonMossBlock
 			or ItemID.ArgonMossBlock or ItemID.VioletMossBlock;
@@ -23,6 +24,7 @@ namespace V2.Items.Vanilla.Placeables.TilesPlaceableTiles
 	}
 	public class HeliumMossBrick : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item entity, bool lateInstantiation) => entity.type is ItemID.RainbowMossBlock;
 
@@ -37,6 +39,7 @@ namespace V2.Items.Vanilla.Placeables.TilesPlaceableTiles
 	}
 	public class GlowingMossBrickWalls : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item entity, bool lateInstantiation) => entity.type is ItemID.LavaMossBlockWall or ItemID.KryptonMossBlockWall
 			or ItemID.XenonMossBlockWall or ItemID.ArgonMossBlockWall or ItemID.VioletMossBlockWall;
@@ -52,6 +55,7 @@ namespace V2.Items.Vanilla.Placeables.TilesPlaceableTiles
 	}
 	public class HeliumMossBrickWall : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item entity, bool lateInstantiation) => entity.type is ItemID.RainbowMossBlockWall;
 

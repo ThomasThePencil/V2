@@ -11,6 +11,7 @@ namespace V2.Projectiles.Vanilla.Traps
 {
 	public class Boulder : GlobalProjectile
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Projectile entity, bool lateInstantiation) => entity.type == ProjectileID.Boulder;
 
@@ -23,6 +24,7 @@ namespace V2.Projectiles.Vanilla.Traps
 	}
 	public class BouncyBoulder : GlobalProjectile
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Projectile entity, bool lateInstantiation) => entity.type == ProjectileID.BouncyBoulder;
 
@@ -36,6 +38,7 @@ namespace V2.Projectiles.Vanilla.Traps
 	}
 	public class LifeCrystalBoulder : GlobalProjectile
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Projectile entity, bool lateInstantiation) => entity.type == ProjectileID.LifeCrystalBoulder;
 
@@ -49,6 +52,7 @@ namespace V2.Projectiles.Vanilla.Traps
 
 	public class RollingCactus : GlobalProjectile
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Projectile entity, bool lateInstantiation) => entity.type == ProjectileID.RollingCactus;
 

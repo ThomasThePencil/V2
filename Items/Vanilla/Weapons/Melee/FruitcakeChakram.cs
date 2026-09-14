@@ -17,6 +17,7 @@ namespace V2.Items.Vanilla.Weapons.Melee
 {
 	public class FruitcakeChakram : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public static int SwallowDamageToPred => 40;
 		public static int PoisonTime => V2Utils.SensibleTime(seconds: 5);
 		public static int WrathTime => V2Utils.SensibleTime(seconds: 5);

@@ -16,7 +16,7 @@ namespace V2.Items.Voraria.Accessories
 {
 	public class PromethiaAntiDigestionSash : ModItem
 	{
-		public override bool IsLoadingEnabled(Mod mod) => !V2.GetFooled;
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public static float DigestionDefenseBonus => 13;
 		public static float SoftenedBuildupReduction => 0.45f;
 

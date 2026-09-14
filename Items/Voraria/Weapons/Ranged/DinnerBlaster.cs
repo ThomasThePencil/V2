@@ -21,7 +21,7 @@ namespace V2.Items.Voraria.Weapons.Ranged
 {
 	public class DinnerBlaster : ModItem
 	{
-		public override bool IsLoadingEnabled(Mod mod) => !V2.GetFooled;
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override void SetDefaults()
 		{
 			Item.DefaultToRangedWeapon(ModContent.ProjectileType<Burger>(), AmmoID.None, 20, 14f, true);

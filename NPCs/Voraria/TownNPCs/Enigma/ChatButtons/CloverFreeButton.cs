@@ -15,6 +15,7 @@ namespace V2.NPCs.Voraria.TownNPCs.Enigma.ChatButtons
 {
 	public class CloverFreeButton : ChatButton
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override string Text(NPC npc, Player player) => Language.GetTextValue("Mods.V2.NPCs.Clover.FreeButton.DisplayName");
 
 		public override double Priority => 3.4;

@@ -15,6 +15,7 @@ namespace V2.Items.Vanilla.Armor
 {
 	public class BorealWoodHelmet : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public static double ManaRegenInCold => 2.0;
 		public override bool AppliesToEntity(Item entity, bool lateInstantiation) => entity.type == ItemID.BorealWoodHelmet;
 

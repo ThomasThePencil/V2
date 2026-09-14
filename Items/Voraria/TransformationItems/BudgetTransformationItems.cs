@@ -26,7 +26,7 @@ namespace V2.Items.Voraria.TransformationItems
 	{
 		public class KroniiTF : ModItem
 		{
-			public override bool IsLoadingEnabled(Mod mod) => !V2.GetFooled;
+			public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 			public override LocalizedText DisplayName => Language.GetText("Mods.V2.ItemName.Voraria.TransformationItems.KroniiTransformationItem.ActiveName");
 			public override LocalizedText Tooltip => Language.GetText("Mods.V2.ItemTooltip.Voraria.TransformationItems.KroniiTransformationItem.Short");
 			public override string Texture => "V2/Items/Voraria/TransformationItems/Baelz/LoadedDie";
@@ -81,7 +81,7 @@ namespace V2.Items.Voraria.TransformationItems
 		}
 		public class InactiveKroniiTF : ModItem
 		{
-			public override bool IsLoadingEnabled(Mod mod) => !V2.GetFooled;
+			public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 			public override LocalizedText DisplayName => Language.GetText("Mods.V2.ItemName.Voraria.TransformationItems.KroniiTransformationItem.InactiveName");
 			public override LocalizedText Tooltip => Language.GetText("Mods.V2.ItemTooltip.Voraria.TransformationItems.KroniiTransformationItem.Short");
 			public override string Texture => "V2/Items/Voraria/TransformationItems/Baelz/LoadedDieInactive";
@@ -119,7 +119,7 @@ namespace V2.Items.Voraria.TransformationItems
 
 		public class OllieTF : ModItem
 		{
-			public override bool IsLoadingEnabled(Mod mod) => !V2.GetFooled;
+			public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 			public override LocalizedText DisplayName => Language.GetText("Mods.V2.ItemName.Voraria.TransformationItems.OllieTransformationItem.ActiveName");
 			public override LocalizedText Tooltip => Language.GetText("Mods.V2.ItemTooltip.Voraria.TransformationItems.OllieTransformationItem.Short");
 			public override string Texture => "V2/Items/Voraria/TransformationItems/Baelz/LoadedDie";
@@ -174,7 +174,7 @@ namespace V2.Items.Voraria.TransformationItems
 		}
 		public class InactiveOllieTF : ModItem
 		{
-			public override bool IsLoadingEnabled(Mod mod) => !V2.GetFooled;
+			public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 			public override LocalizedText DisplayName => Language.GetText("Mods.V2.ItemName.Voraria.TransformationItems.OllieTransformationItem.InactiveName");
 			public override LocalizedText Tooltip => Language.GetText("Mods.V2.ItemTooltip.Voraria.TransformationItems.OllieTransformationItem.Short");
 			public override string Texture => "V2/Items/Voraria/TransformationItems/Baelz/LoadedDieInactive";
@@ -212,7 +212,7 @@ namespace V2.Items.Voraria.TransformationItems
 
 		public class SoraTF : ModItem
 		{
-			public override bool IsLoadingEnabled(Mod mod) => !V2.GetFooled;
+			public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 			public override LocalizedText DisplayName => Language.GetText("Mods.V2.ItemName.Voraria.TransformationItems.SoraTransformationItem.ActiveName");
 			public override LocalizedText Tooltip => Language.GetText("Mods.V2.ItemTooltip.Voraria.TransformationItems.SoraTransformationItem.Short");
 			public override string Texture => "V2/Items/Voraria/TransformationItems/Baelz/LoadedDie";
@@ -267,7 +267,7 @@ namespace V2.Items.Voraria.TransformationItems
 		}
 		public class InactiveSoraTF : ModItem
 		{
-			public override bool IsLoadingEnabled(Mod mod) => !V2.GetFooled;
+			public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 			public override LocalizedText DisplayName => Language.GetText("Mods.V2.ItemName.Voraria.TransformationItems.SoraTransformationItem.InactiveName");
 			public override LocalizedText Tooltip => Language.GetText("Mods.V2.ItemTooltip.Voraria.TransformationItems.SoraTransformationItem.Short");
 			public override string Texture => "V2/Items/Voraria/TransformationItems/Baelz/LoadedDieInactive";
@@ -305,7 +305,7 @@ namespace V2.Items.Voraria.TransformationItems
 
 		public class MintTF : ModItem
 		{
-			public override bool IsLoadingEnabled(Mod mod) => !V2.GetFooled;
+			public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 			public override LocalizedText DisplayName => Language.GetText("Mods.V2.ItemName.Voraria.TransformationItems.MintTransformationItem.ActiveName");
 			public override LocalizedText Tooltip => Language.GetText("Mods.V2.ItemTooltip.Voraria.TransformationItems.MintTransformationItem.Short");
 			public override string Texture => "V2/Items/Voraria/TransformationItems/Baelz/LoadedDie";
@@ -360,7 +360,7 @@ namespace V2.Items.Voraria.TransformationItems
 		}
 		public class InactiveMintTF : ModItem
 		{
-			public override bool IsLoadingEnabled(Mod mod) => !V2.GetFooled;
+			public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 			public override LocalizedText DisplayName => Language.GetText("Mods.V2.ItemName.Voraria.TransformationItems.MintTransformationItem.InactiveName");
 			public override LocalizedText Tooltip => Language.GetText("Mods.V2.ItemTooltip.Voraria.TransformationItems.MintTransformationItem.Short");
 			public override string Texture => "V2/Items/Voraria/TransformationItems/Baelz/LoadedDieInactive";

@@ -1,6 +1,7 @@
 ﻿using Terraria;
 using Terraria.ID;
 using Terraria.Localization;
+using Terraria.ModLoader;
 using V2.Core;
 using V2.PlayerHandling;
 using V2.Projectiles.Voraria.Armor.Familiars;
@@ -9,6 +10,7 @@ namespace V2.Items.Vanilla.Armor
 {
 	public class GoldSetWithOldHat : ArmorSetDefinition
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public static double PrinceMidasChance => 0.15;
 		public static double PrinceMagicDamageUp => 0.15;
 		public static double PrinceDowntime => 900;

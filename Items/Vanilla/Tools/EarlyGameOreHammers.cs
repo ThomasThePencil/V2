@@ -8,6 +8,7 @@ namespace V2.Items.Vanilla.Tools
 {
 	public class CopperHammer : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item item, bool lateInstantiation) => item.type == ItemID.CopperHammer;
 
@@ -22,6 +23,7 @@ namespace V2.Items.Vanilla.Tools
 	}
 	public class TinHammer : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item item, bool lateInstantiation) => item.type == ItemID.TinHammer;
 
@@ -36,6 +38,7 @@ namespace V2.Items.Vanilla.Tools
 	}
 	public class IronHammer : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item item, bool lateInstantiation) => item.type == ItemID.IronHammer;
 
@@ -50,6 +53,7 @@ namespace V2.Items.Vanilla.Tools
 	}
 	public class LeadHammer : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item item, bool lateInstantiation) => item.type == ItemID.LeadHammer;
 
@@ -64,6 +68,7 @@ namespace V2.Items.Vanilla.Tools
 	}
 	public class SilverHammer : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item item, bool lateInstantiation) => item.type == ItemID.SilverHammer;
 
@@ -78,6 +83,7 @@ namespace V2.Items.Vanilla.Tools
 	}
 	public class TungstenHammer : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item item, bool lateInstantiation) => item.type == ItemID.TungstenHammer;
 
@@ -92,6 +98,7 @@ namespace V2.Items.Vanilla.Tools
 	}
 	public class GoldHammer : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item item, bool lateInstantiation) => item.type == ItemID.GoldHammer;
 
@@ -106,6 +113,7 @@ namespace V2.Items.Vanilla.Tools
 	}
 	public class PlatinumHammer : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item item, bool lateInstantiation) => item.type == ItemID.PlatinumHammer;
 

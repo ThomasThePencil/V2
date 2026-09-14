@@ -18,7 +18,7 @@ namespace V2.Items.Voraria.Consumables.Potions
 {
 	public class FastDigestionPotion : ModItem
 	{
-		public override bool IsLoadingEnabled(Mod mod) => !V2.GetFooled;
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public static int ACIBonus => 15;
 		public static int ABSBonus => 15;
 		public override LocalizedText DisplayName => Language.GetText("Mods.V2.ItemName.Voraria.Consumables.Potions.FastDigestionPotion");

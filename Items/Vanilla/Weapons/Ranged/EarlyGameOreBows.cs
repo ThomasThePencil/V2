@@ -8,6 +8,7 @@ namespace V2.Items.Vanilla.Weapons.Ranged
 {
 	public class CopperBow : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item entity, bool lateInstantiation) => entity.type == ItemID.CopperBow;
 
@@ -21,6 +22,7 @@ namespace V2.Items.Vanilla.Weapons.Ranged
 	}
 	public class TinBow : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item entity, bool lateInstantiation) => entity.type == ItemID.TinBow;
 
@@ -34,6 +36,7 @@ namespace V2.Items.Vanilla.Weapons.Ranged
 	}
 	public class IronBow : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item entity, bool lateInstantiation) => entity.type == ItemID.IronBow;
 
@@ -47,6 +50,7 @@ namespace V2.Items.Vanilla.Weapons.Ranged
 	}
 	public class LeadBow : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item entity, bool lateInstantiation) => entity.type == ItemID.LeadBow;
 
@@ -60,6 +64,7 @@ namespace V2.Items.Vanilla.Weapons.Ranged
 	}
 	public class SilverBow : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item entity, bool lateInstantiation) => entity.type == ItemID.SilverBow;
 
@@ -73,6 +78,7 @@ namespace V2.Items.Vanilla.Weapons.Ranged
 	}
 	public class TungstenBow : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item entity, bool lateInstantiation) => entity.type == ItemID.TungstenBow;
 
@@ -86,6 +92,7 @@ namespace V2.Items.Vanilla.Weapons.Ranged
 	}
 	public class GoldBow : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item entity, bool lateInstantiation) => entity.type == ItemID.GoldBow;
 
@@ -99,6 +106,7 @@ namespace V2.Items.Vanilla.Weapons.Ranged
 	}
 	public class PlatinumBow : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item entity, bool lateInstantiation) => entity.type == ItemID.PlatinumBow;
 

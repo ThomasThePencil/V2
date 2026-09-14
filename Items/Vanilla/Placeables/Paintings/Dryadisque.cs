@@ -4,8 +4,9 @@ using Terraria.ModLoader;
 
 namespace V2.Items.Vanilla.Placeables.Paintings
 {
-	internal class Dryadisque : GlobalItem
+	public class Dryadisque : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item item, bool lateInstantiation) => item.type == ItemID.Dryadisque;
 		public override void SetDefaults(Item item)

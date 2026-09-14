@@ -12,6 +12,7 @@ namespace V2.Projectiles.Voraria.Weapons.Ranged
 {
 	public class ThrowingDice : ModProjectile
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override void SetDefaults()
 		{
 			Projectile.width = 22;
@@ -84,6 +85,7 @@ namespace V2.Projectiles.Voraria.Weapons.Ranged
 	}
 	public class ThrowingDice_Dust : ModDust
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override string Texture => "V2/Projectiles/Voraria/Weapons/Ranged/ThrowingDice_Dust";
 		public override void OnSpawn(Dust dust)
 		{

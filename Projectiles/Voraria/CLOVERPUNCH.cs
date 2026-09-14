@@ -9,6 +9,7 @@ namespace V2.Projectiles.Voraria
 {
 	public class CLOVERPUNCH : ModProjectile
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public float CollisionWidth => 36f * Projectile.scale;
 
 		public int Timer

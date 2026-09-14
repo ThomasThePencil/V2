@@ -19,7 +19,7 @@ namespace V2.Items.Voraria.Consumables
 {
 	public class GhostBall : ModItem
 	{
-		public override bool IsLoadingEnabled(Mod mod) => !V2.GetFooled;
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override LocalizedText DisplayName => Language.GetText("Mods.V2.ItemName.Voraria.Consumables.GhostBall");
 		public override LocalizedText Tooltip => Language.GetText("Mods.V2.ItemName.Voraria.Consumables.GhostBall");
 		public override void SetDefaults()
@@ -62,7 +62,7 @@ namespace V2.Items.Voraria.Consumables
 	{
 
 		public override string Texture => "V2/Items/Voraria/Consumables/GhostBall";
-		public override bool IsLoadingEnabled(Mod mod) => !V2.GetFooled;
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 
 		public override LocalizedText DisplayName => Language.GetText("Mods.V2.ProjectileName.Voraria.GhostBall");
 

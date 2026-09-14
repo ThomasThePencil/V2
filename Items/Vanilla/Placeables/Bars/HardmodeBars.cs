@@ -11,6 +11,7 @@ namespace V2.Items.Vanilla.Placeables.Bars
 {
 	public class CobaltBar : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item item, bool lateInstantiation) => item.type == ItemID.CobaltBar;
 		public override void SetDefaults(Item item)
@@ -22,6 +23,7 @@ namespace V2.Items.Vanilla.Placeables.Bars
 	}
 	public class PalladiumBar : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item item, bool lateInstantiation) => item.type == ItemID.PalladiumBar;
 		public override void SetDefaults(Item item)
@@ -33,6 +35,7 @@ namespace V2.Items.Vanilla.Placeables.Bars
 	}
 	public class MythrilBar : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item item, bool lateInstantiation) => item.type == ItemID.MythrilBar;
 		public override void SetDefaults(Item item)
@@ -44,6 +47,7 @@ namespace V2.Items.Vanilla.Placeables.Bars
 	}
 	public class OrichalcumBar : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item item, bool lateInstantiation) => item.type == ItemID.OrichalcumBar;
 		public override void SetDefaults(Item item)
@@ -55,6 +59,7 @@ namespace V2.Items.Vanilla.Placeables.Bars
 	}
 	public class AdamantiteBar : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item item, bool lateInstantiation) => item.type == ItemID.AdamantiteBar;
 		public override void SetDefaults(Item item)
@@ -66,6 +71,7 @@ namespace V2.Items.Vanilla.Placeables.Bars
 	}
 	public class TitaniumBar : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item item, bool lateInstantiation) => item.type == ItemID.TitaniumBar;
 		public override void SetDefaults(Item item)
@@ -75,8 +81,9 @@ namespace V2.Items.Vanilla.Placeables.Bars
 			item.AsFood().AcidResistTier = 2;
 		}
 	}
-	public class HallowedBar : GlobalItem
+	public class SynthesiteBar : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item item, bool lateInstantiation) => item.type == ItemID.HallowedBar;
 		public override void SetDefaults(Item item)
@@ -88,6 +95,7 @@ namespace V2.Items.Vanilla.Placeables.Bars
 	}
 	public class ChlorophyteBar : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item item, bool lateInstantiation) => item.type == ItemID.ChlorophyteBar;
 		public override void SetDefaults(Item item)
@@ -99,6 +107,7 @@ namespace V2.Items.Vanilla.Placeables.Bars
 	}
 	public class ShroomiteBar : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item item, bool lateInstantiation) => item.type == ItemID.ShroomiteBar;
 		public override void SetDefaults(Item item)
@@ -110,6 +119,7 @@ namespace V2.Items.Vanilla.Placeables.Bars
 	}
 	public class SpectreBar : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item item, bool lateInstantiation) => item.type == ItemID.SpectreBar;
 		public override void SetDefaults(Item item)
@@ -121,6 +131,7 @@ namespace V2.Items.Vanilla.Placeables.Bars
 	}
 	public class LuminiteBar : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item item, bool lateInstantiation) => item.type == ItemID.LunarBar;
 		public override void SetDefaults(Item item)

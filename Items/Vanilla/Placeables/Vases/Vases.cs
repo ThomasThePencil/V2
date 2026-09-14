@@ -7,6 +7,7 @@ namespace V2.Items.Vanilla.Placeables.Vases
 {
 	public class PinkVase : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item entity, bool lateInstantiation) => entity.type == ItemID.PinkVase;
 
@@ -18,6 +19,7 @@ namespace V2.Items.Vanilla.Placeables.Vases
 	}
 	public class DungeonVase : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item entity, bool lateInstantiation) => entity.type is ItemID.BlueDungeonVase or ItemID.PinkDungeonVase or ItemID.GreenDungeonVase;
 
@@ -30,6 +32,7 @@ namespace V2.Items.Vanilla.Placeables.Vases
 	}
 	public class ObsidianVase : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item entity, bool lateInstantiation) => entity.type == ItemID.ObsidianVase;
 

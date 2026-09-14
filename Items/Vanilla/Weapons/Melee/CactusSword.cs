@@ -16,6 +16,7 @@ namespace V2.Items.Vanilla.Weapons.Melee
 {
 	public class CactusSword : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public static int ThornsBuffTime => V2Utils.SensibleTime(seconds: 10);
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item item, bool lateInstantiation) => item.type == ItemID.CactusSword;

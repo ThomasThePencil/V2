@@ -22,7 +22,7 @@ namespace V2.Items.Voraria.Weapons.Ranged
 {
 	public class ThrowingDice : ModItem
 	{
-		public override bool IsLoadingEnabled(Mod mod) => !V2.GetFooled;
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override string Texture => "V2/Items/UnspritedItem";
 		public override void SetStaticDefaults()
 		{

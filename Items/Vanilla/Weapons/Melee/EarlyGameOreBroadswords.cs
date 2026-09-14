@@ -8,6 +8,7 @@ namespace V2.Items.Vanilla.Weapons.Melee
 {
 	public class CopperBroadsword : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item item, bool lateInstantiation) => item.type == ItemID.CopperBroadsword;
 
@@ -22,6 +23,7 @@ namespace V2.Items.Vanilla.Weapons.Melee
 	}
 	public class TinBroadsword : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item item, bool lateInstantiation) => item.type == ItemID.TinBroadsword;
 
@@ -36,6 +38,7 @@ namespace V2.Items.Vanilla.Weapons.Melee
 	}
 	public class IronBroadsword : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item item, bool lateInstantiation) => item.type == ItemID.IronBroadsword;
 
@@ -45,11 +48,12 @@ namespace V2.Items.Vanilla.Weapons.Melee
 			item.AsFood().Size = 0.54;
 			item.AsFood().AcidResistTier = 2;
 
-			item.AsTaggable().Shortsword = true;
+			item.AsTaggable().Broadsword = true;
 		}
 	}
 	public class LeadBroadsword : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item item, bool lateInstantiation) => item.type == ItemID.LeadBroadsword;
 
@@ -59,11 +63,12 @@ namespace V2.Items.Vanilla.Weapons.Melee
 			item.AsFood().Size = 0.54;
 			item.AsFood().AcidResistTier = 2;
 
-			item.AsTaggable().Shortsword = true;
+			item.AsTaggable().Broadsword = true;
 		}
 	}
 	public class SilverBroadsword : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item item, bool lateInstantiation) => item.type == ItemID.SilverBroadsword;
 
@@ -78,6 +83,7 @@ namespace V2.Items.Vanilla.Weapons.Melee
 	}
 	public class TungstenBroadsword : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item item, bool lateInstantiation) => item.type == ItemID.TungstenBroadsword;
 
@@ -92,6 +98,7 @@ namespace V2.Items.Vanilla.Weapons.Melee
 	}
 	public class GoldBroadsword : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item item, bool lateInstantiation) => item.type == ItemID.GoldBroadsword;
 
@@ -106,6 +113,7 @@ namespace V2.Items.Vanilla.Weapons.Melee
 	}
 	public class PlatinumBroadsword : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item item, bool lateInstantiation) => item.type == ItemID.PlatinumBroadsword;
 

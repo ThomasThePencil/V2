@@ -8,7 +8,8 @@ namespace V2.Items.Vanilla.Placeables.Crates;
 
 public class FishingCrate : GlobalItem
 {
-    public override bool AppliesToEntity(Item entity, bool lateInstantiation) =>
+	public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
+	public override bool AppliesToEntity(Item entity, bool lateInstantiation) =>
         ItemID.Sets.IsFishingCrate[entity.type];
 
     public override void SetDefaults(Item entity)

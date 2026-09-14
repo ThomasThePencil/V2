@@ -18,6 +18,7 @@ namespace V2.Items.Vanilla.Placeables.Tiles
 {
 	public class Silt : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public static bool ExtractableBlockWasJustDigested { get; set; }
 		private static MethodInfo Player_ExtractinatorUse => typeof(Player).GetMethod(
 			"ExtractinatorUse",
@@ -57,6 +58,7 @@ namespace V2.Items.Vanilla.Placeables.Tiles
 	}
 	public class Fossil : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item entity, bool lateInstantiation) => entity.type == ItemID.DesertFossil;
 

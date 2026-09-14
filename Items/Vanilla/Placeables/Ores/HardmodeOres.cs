@@ -11,6 +11,7 @@ namespace V2.Items.Vanilla.Placeables.Ores
 {
 	public class CobaltOre : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item item, bool lateInstantiation) => item.type == ItemID.CobaltOre;
 		public override void SetDefaults(Item item)
@@ -22,6 +23,7 @@ namespace V2.Items.Vanilla.Placeables.Ores
 	}
 	public class PalladiumOre : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item item, bool lateInstantiation) => item.type == ItemID.PalladiumOre;
 		public override void SetDefaults(Item item)
@@ -33,6 +35,7 @@ namespace V2.Items.Vanilla.Placeables.Ores
 	}
 	public class MythrilOre : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item item, bool lateInstantiation) => item.type == ItemID.MythrilOre;
 		public override void SetDefaults(Item item)
@@ -44,6 +47,7 @@ namespace V2.Items.Vanilla.Placeables.Ores
 	}
 	public class OrichalcumOre : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item item, bool lateInstantiation) => item.type == ItemID.OrichalcumOre;
 		public override void SetDefaults(Item item)
@@ -55,6 +59,7 @@ namespace V2.Items.Vanilla.Placeables.Ores
 	}
 	public class AdamantiteOre : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item item, bool lateInstantiation) => item.type == ItemID.AdamantiteOre;
 		public override void SetDefaults(Item item)
@@ -66,6 +71,7 @@ namespace V2.Items.Vanilla.Placeables.Ores
 	}
 	public class TitaniumOre : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item item, bool lateInstantiation) => item.type == ItemID.TitaniumOre;
 		public override void SetDefaults(Item item)
@@ -77,6 +83,7 @@ namespace V2.Items.Vanilla.Placeables.Ores
 	}
 	public class ChlorophyteOre : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item item, bool lateInstantiation) => item.type == ItemID.ChlorophyteOre;
 		public override void SetDefaults(Item item)
@@ -88,6 +95,7 @@ namespace V2.Items.Vanilla.Placeables.Ores
 	}
 	public class LuminiteOre : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item item, bool lateInstantiation) => item.type == ItemID.LunarOre;
 		public override void SetDefaults(Item item)

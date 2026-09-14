@@ -27,6 +27,8 @@ namespace V2.NPCs
 	{
 		public override void ModifyNPCLoot(NPC npc, NPCLoot npcLoot)
 		{
+			if (V2.BasicMode)
+				return;
 			npcLoot.RemoveWhere(x =>
 				x is DropBasedOnExpertMode expertDependentRule
 			 && expertDependentRule.ruleForNormalMode is CommonDropWithRerolls normalBandageRule

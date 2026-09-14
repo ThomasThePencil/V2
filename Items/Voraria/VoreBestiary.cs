@@ -11,7 +11,7 @@ namespace V2.Items.Voraria
 {
 	public class VoreBestiary : ModItem
 	{
-		public override bool IsLoadingEnabled(Mod mod) => !V2.GetFooled;
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override LocalizedText DisplayName => Language.GetText("Mods.V2.ItemName.Voraria.VoreBestiary");
 		public override LocalizedText Tooltip => Language.GetText("Mods.V2.ItemTooltip.Voraria.VoreBestiary");
 		public override string Texture => "V2/Items/UnspritedItem";

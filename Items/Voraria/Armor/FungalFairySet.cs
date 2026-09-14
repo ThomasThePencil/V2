@@ -16,6 +16,7 @@ namespace V2.Items.Voraria.Armor
 	[AutoloadEquip(EquipType.Head)]
 	public class MushroomHairpin : ModItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public static LocalizedText SetBonusText => Language.GetText("Mods.V2.ItemTooltip.Voraria.Armor.FungalFairySetBonus");
 		public override LocalizedText DisplayName => Language.GetText("Mods.V2.ItemName.Voraria.Armor.MushroomHairpin");
 		public static int GLPBonus => 7;
@@ -75,6 +76,7 @@ namespace V2.Items.Voraria.Armor
 	[AutoloadEquip(EquipType.Body)]
 	public class FungalDress : ModItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override LocalizedText DisplayName => Language.GetText("Mods.V2.ItemName.Voraria.Armor.FungalDress");
 		public static int TUMBonus => 9;
 		public static float StomachWeightReduction => 0.2f;

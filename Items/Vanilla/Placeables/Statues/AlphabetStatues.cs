@@ -8,6 +8,7 @@ namespace V2.Items.Vanilla.Placeables.Statues
 {
 	public class AlphabetStatues : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item entity, bool lateInstantiation) => entity.type is ItemID.AlphabetStatue0 or ItemID.AlphabetStatue1 or ItemID.AlphabetStatue2
 			 or ItemID.AlphabetStatue3 or ItemID.AlphabetStatue4 or ItemID.AlphabetStatue5 or ItemID.AlphabetStatue6 or ItemID.AlphabetStatue7 or ItemID.AlphabetStatue8

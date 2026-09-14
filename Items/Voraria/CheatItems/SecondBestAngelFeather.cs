@@ -16,7 +16,7 @@ namespace V2.Items.Voraria.CheatItems
 {
 	public class SecondBestAngelFeather : ModItem
 	{
-		public override bool IsLoadingEnabled(Mod mod) => !V2.GetFooled;
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override LocalizedText DisplayName => Language.GetText("Mods.V2.ItemName.Voraria.CheatItems.SecondBestAngelFeather");
 		public override LocalizedText Tooltip => Language.GetText("Mods.V2.ItemTooltip.Voraria.CheatItems.SecondBestAngelFeather.Short");
 		public override string Texture => "V2/Items/UnspritedItem";

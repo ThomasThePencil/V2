@@ -16,6 +16,7 @@ namespace V2.NPCs.Voraria.Sky
 {
 	public class ObserverRed : ModNPC
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override void SetStaticDefaults()
 		{
 			Main.npcFrameCount[NPC.type] = 3;
@@ -194,6 +195,7 @@ namespace V2.NPCs.Voraria.Sky
 
 	public class ObserverGreen : ModNPC
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override void SetStaticDefaults()
 		{
 			Main.npcFrameCount[NPC.type] = 3;
@@ -367,6 +369,7 @@ namespace V2.NPCs.Voraria.Sky
 
 	public class ObserverPurple : ModNPC
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override void SetStaticDefaults()
 		{
 			Main.npcFrameCount[NPC.type] = 3;

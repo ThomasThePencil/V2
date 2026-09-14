@@ -20,6 +20,7 @@ namespace V2.Items.Vanilla.Consumables
 {
 	public class LifeFruit : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public static int DigestedHeal => 50;
 		public static int DigestedRegenTime => V2Utils.SensibleTime(minutes: 1, seconds: 30);
 		public static int StomachStrengthBonus => 2;

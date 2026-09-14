@@ -4,8 +4,9 @@ using Terraria.ModLoader;
 
 namespace V2.Items.Vanilla.Placeables.Paintings
 {
-	internal class DoNotEatTheVileMushroom : GlobalItem
+	public class DoNotEatTheVileMushroom : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item item, bool lateInstantiation) => item.type == ItemID.DoNotEattheVileMushroom;
 		public override void SetDefaults(Item item)

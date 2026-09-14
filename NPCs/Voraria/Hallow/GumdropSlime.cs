@@ -28,7 +28,7 @@ namespace V2.NPCs.Voraria.Hallow
 		public static GlobalGumdropSlime AsGumdropSlime(this NPC npc)
 		{
 			if (!npc.TryGetGlobalNPC(out GlobalGumdropSlime GumdropSlime))
-				throw new Exception("this instance of a Gumdrop Slime, somehow against all odds, doesn't exist");
+				throw new Exception("this instance of a Gumdrop Slime, somehow, against all odds, doesn't exist");
 
 			return GumdropSlime;
 		}
@@ -36,7 +36,7 @@ namespace V2.NPCs.Voraria.Hallow
 
 	public partial class GlobalGumdropSlime : GlobalNPC
 	{
-		public override bool IsLoadingEnabled(Mod mod) => !V2.GetFooled;
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 
 		public override bool AppliesToEntity(NPC entity, bool lateInstantiation) => entity.type == ModContent.NPCType<GumdropSlime>();
@@ -120,7 +120,7 @@ namespace V2.NPCs.Voraria.Hallow
 				return feedto;
 			}
 		}
-		public override bool IsLoadingEnabled(Mod mod) => !V2.GetFooled;
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 
 		public override void SetStaticDefaults()
 		{

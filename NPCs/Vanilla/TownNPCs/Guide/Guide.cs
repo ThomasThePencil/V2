@@ -196,7 +196,7 @@ namespace V2.NPCs.Vanilla.TownNPCs.Guide
 						{
 							guideChatPool.AddRange(new List<string>
 							{
-								"A friend of mine told be her belch is as strong as thunder. I think she's delusional.",
+								"A friend of mine told me her belch is as strong as thunder. I think she's delusional.",
 							});
 						}
 						if (player.ZoneGraveyard)
@@ -249,14 +249,14 @@ namespace V2.NPCs.Vanilla.TownNPCs.Guide
 					{
 						guideChatPool.AddRange(new List<string>
 						{
-							"What do you- oh, right. You probably don't know. It's a [c/FF0000:blood moon] tonight. Everyone gets angry on nights like these. [c/FF0000:Myself somewhat included.]",
-							"You can tell a Blood Moon is out if the sky is red. There's something about it that makes the monsters go into a frenzy, so be careful.",
+							"[c/FF0000:What do you-] oh, right. You probably don't know. It's a [c/FF0000:Blood Moon] tonight. Everyone gets angry on nights like these. [c/FF0000:Myself somewhat included.]",
+							"You can tell a [c/FF0000:Blood Moon] is out if the sky is red. There's something about it that makes [c/FF0000:everybody] go into a frenzy, so be careful. [c/FF0000:Or don't. I can't force you to.]",
 						});
 						if (nearbyResidentNPCs.Count > 0)
 						{
 							guideChatPool.AddRange(new List<string>
 							{
-								"Hey, uh...try staying away from the others for now, alright? For some reason, the Moon is making them all furious.",
+								"Hey, uh...try staying away from the others for now, alright? The [c/FF0000:Blood Moon] is making them all furious. [c/FF0000:Even gets to me sometimes...]",
 							});
 						}
 					}

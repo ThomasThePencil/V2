@@ -20,7 +20,7 @@ namespace V2.Items.Voraria.Consumables
 		public static double CooldownMax => V2Utils.SensibleTime(minutes: 24);
 		public double Cooldown { get; set; }
 
-		public override bool IsLoadingEnabled(Mod mod) => !V2.GetFooled;
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override LocalizedText DisplayName => Language.GetText("Mods.V2.ItemName.Voraria.Consumables.DigestionRepairScroll");
 		public override LocalizedText Tooltip => Language.GetText("Mods.V2.ItemTooltip.Voraria.Consumables.DigestionRepairScroll.Short");
 		public override void SetStaticDefaults()

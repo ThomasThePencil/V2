@@ -24,7 +24,7 @@ namespace V2.Items.Voraria.Accessories.Vanity
 {
 	public class BalloonBelly : ModItem
 	{
-		public override bool IsLoadingEnabled(Mod mod) => !V2.GetFooled;
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public static SoundStyle InflationSound => new SoundStyle("V2/Sounds/Item/BalloonBellyInflate", SoundType.Sound);
 		public static SoundStyle DeflationSound => new SoundStyle("V2/Sounds/Item/BalloonBellyDeflate", SoundType.Sound);
 		public static double BaseSnackSize => Balloons.AfterPopSize;

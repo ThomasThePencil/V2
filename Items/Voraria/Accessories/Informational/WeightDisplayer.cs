@@ -22,7 +22,7 @@ namespace V2.Items.Voraria.Accessories.Informational
 {
 	public class WeightDisplayer : ModItem
 	{
-		public override bool IsLoadingEnabled(Mod mod) => !V2.GetFooled;
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override LocalizedText DisplayName => Language.GetText("Mods.V2.ItemName.Voraria.Accessories.Informational.WeightDisplayer");
 		public override LocalizedText Tooltip => Language.GetText("Mods.V2.ItemTooltip.Voraria.Accessories.Informational.WeightDisplayer.Short");
 		public override string Texture => "V2/Items/UnspritedItem";

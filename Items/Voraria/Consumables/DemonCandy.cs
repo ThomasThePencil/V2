@@ -15,7 +15,7 @@ namespace V2.Items.Voraria.Consumables
 {
 	public class DemonCandy : ModItem
 	{
-		public override bool IsLoadingEnabled(Mod mod) => !V2.GetFooled;
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public static int DigestedRegenTime => V2Utils.SensibleTime(minutes: 5);
 		public override LocalizedText DisplayName => Language.GetText("Mods.V2.ItemName.Voraria.Consumables.DemonCandy");
 		public override LocalizedText Tooltip => Language.GetText("Mods.V2.ItemName.Voraria.Consumables.DemonCandy");

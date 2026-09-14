@@ -16,7 +16,7 @@ namespace V2.Items.Voraria
 {
 	public class MushroomToken : ModItem
 	{
-		public override bool IsLoadingEnabled(Mod mod) => !V2.GetFooled;
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override LocalizedText DisplayName => Language.GetText("Mods.V2.ItemName.Voraria.MushroomToken");
 		public override LocalizedText Tooltip => Language.GetText("Mods.V2.ItemTooltip.Voraria.MushroomToken.Short");
 		public override string Texture => "V2/Items/UnspritedItem";

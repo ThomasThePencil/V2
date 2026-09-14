@@ -15,6 +15,7 @@ namespace V2.Items.Vanilla.Armor
 {
 	public class GoldFormalSabatons : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public static float ManaEfficiencyUp => 0.06f;
 		public static float MovingManaRateUp => 0.08f;
 		public override bool AppliesToEntity(Item entity, bool lateInstantiation) => entity.type == ItemID.GoldGreaves;

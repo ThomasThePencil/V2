@@ -76,15 +76,9 @@ namespace V2.Core
 			}
 		}
 
-		public class RerollsBasedOnWeightLevelRule : CommonDrop
+		public class RerollsBasedOnWeightLevelRule(int itemId, int chanceDenominator, int amountDroppedMinimum = 1, int amountDroppedMaximum = 1, int chanceNumerator = 1, int minimumWeightLevel = 0) : CommonDrop(itemId, chanceDenominator, amountDroppedMinimum, amountDroppedMaximum, chanceNumerator)
 		{
-			public int minimumWeightLevel;
-
-			public RerollsBasedOnWeightLevelRule(int itemId, int chanceDenominator, int amountDroppedMinimum = 1, int amountDroppedMaximum = 1, int chanceNumerator = 1, int minimumWeightLevel = 0)
-				: base(itemId, chanceDenominator, amountDroppedMinimum, amountDroppedMaximum, chanceNumerator)
-			{
-				this.minimumWeightLevel = minimumWeightLevel;
-			}
+			public int minimumWeightLevel = minimumWeightLevel;
 
 			public override ItemDropAttemptResult TryDroppingItem(DropAttemptInfo info)
 			{

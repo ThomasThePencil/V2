@@ -28,7 +28,7 @@ namespace V2.Items.Voraria.Charms
 
 	public class CharmGlobalItem : GlobalItem
 	{
-		public override bool IsLoadingEnabled(Mod mod) => !V2.GetFooled;
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool AppliesToEntity(Item entity, bool lateInstantiation) => CharmHelpers.ImplementedCharms.Contains(entity.type);
 		/// <summary>
 		/// Whether or not this item is a charm and thus able to grant the charm goal on equip.<br/>

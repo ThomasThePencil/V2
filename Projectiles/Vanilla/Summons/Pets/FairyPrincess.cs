@@ -39,7 +39,7 @@ namespace V2.Projectiles.Vanilla.Summons.Pets
 	public partial class FairyPrincess : GlobalProjectile
 	{
 		public bool WaitingForChurnedOwner { get; set; }
-		public override bool IsLoadingEnabled(Mod mod) => !V2.GetFooled;
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 
 		public override bool AppliesToEntity(Projectile entity, bool lateInstantiation) => entity.type == ProjectileID.FairyQueenPet;

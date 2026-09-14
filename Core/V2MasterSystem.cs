@@ -49,12 +49,14 @@ namespace V2.Core
 			freedSucc = false;
 			freedAngel = false;
 			freedEnigma = false;
-
 		}
 
 		public override void PostWorldGen()
 		{
-			//going through every single tile in the world... Awesome...
+			if (V2.BasicMode)
+				return;
+
+			// going through every single tile in the world... Awesome...
 			for (int x = 5; x < Main.maxTilesX - 5; x++)
 			{
 				for (int y = 5; y < Main.maxTilesY - 5; y++)

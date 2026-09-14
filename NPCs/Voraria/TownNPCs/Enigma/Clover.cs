@@ -68,7 +68,7 @@ namespace V2.NPCs.Voraria.TownNPCs.Enigma
 	{
 		const int BaseTownNPC = NPCID.Dryad;
 
-		public override bool IsLoadingEnabled(Mod mod) => !V2.GetFooled;
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override string Texture => "V2/NPCs/Voraria/TownNPCs/Enigma/Clover_WeightBase_BellyBase";
 		public override string HeadTexture => "V2/NPCs/Voraria/TownNPCs/Enigma/Clover_Head";
 

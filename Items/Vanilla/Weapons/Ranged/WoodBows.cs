@@ -8,6 +8,7 @@ namespace V2.Items.Vanilla.Weapons.Ranged
 {
 	public class OakWoodBow : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item entity, bool lateInstantiation) => entity.type == ItemID.WoodenBow;
 
@@ -32,6 +33,7 @@ namespace V2.Items.Vanilla.Weapons.Ranged
 	}
 	public class BorealWoodBow : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item entity, bool lateInstantiation) => entity.type == ItemID.BorealWoodBow;
 
@@ -56,6 +58,7 @@ namespace V2.Items.Vanilla.Weapons.Ranged
 	}
 	public class PalmWoodBow : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item item, bool lateInstantiation) => item.type == ItemID.PalmWoodBow;
 
@@ -80,6 +83,7 @@ namespace V2.Items.Vanilla.Weapons.Ranged
 	}
 	public class RichMahoganyBow : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item item, bool lateInstantiation) => item.type == ItemID.RichMahoganyBow;
 
@@ -104,6 +108,7 @@ namespace V2.Items.Vanilla.Weapons.Ranged
 	}
 	public class AshWoodBow : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item item, bool lateInstantiation) => item.type == ItemID.AshWoodBow;
 
@@ -128,6 +133,7 @@ namespace V2.Items.Vanilla.Weapons.Ranged
 	}
 	public class EbonwoodBow : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item item, bool lateInstantiation) => item.type == ItemID.EbonwoodBow;
 
@@ -153,6 +159,7 @@ namespace V2.Items.Vanilla.Weapons.Ranged
 	}
 	public class ShadewoodBow : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item item, bool lateInstantiation) => item.type == ItemID.ShadewoodBow;
 
@@ -178,6 +185,7 @@ namespace V2.Items.Vanilla.Weapons.Ranged
 	}
 	public class PearlwoodBow : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item item, bool lateInstantiation) => item.type == ItemID.PearlwoodBow;
 

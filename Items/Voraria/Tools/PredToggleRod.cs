@@ -1,26 +1,17 @@
-﻿using System;
+﻿using Microsoft.Xna.Framework;
 using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 using Terraria;
-using Terraria.DataStructures;
 using Terraria.ID;
-using Terraria.IO;
 using Terraria.ModLoader;
-using V2.Core;
 using V2.PlayerHandling;
 using V2.Projectiles;
-using V2.Tiles.Vanilla.Paintings;
 
 namespace V2.Items.Voraria.Tools
 {
 
 	public class PredToggleRod : ModItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override void SetDefaults()
 		{
 			Item.useStyle = ItemUseStyleID.Swing;

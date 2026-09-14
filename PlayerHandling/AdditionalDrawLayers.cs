@@ -1,21 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using static Terraria.ModLoader.PlayerDrawLayer;
-using Terraria.DataStructures;
-using Terraria.ModLoader;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.ID;
+using Terraria.ModLoader;
 using V2.Items.Voraria.Armor;
 
 namespace V2.PlayerHandling
 {
 	public class HelmetGlowMask : PlayerDrawLayer
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override Position GetDefaultPosition() => new AfterParent(PlayerDrawLayers.Head);
 		protected override void Draw(ref PlayerDrawSet drawInfo)
 		{

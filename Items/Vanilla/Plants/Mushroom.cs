@@ -11,6 +11,7 @@ namespace V2.Items.Vanilla.Plants
 {
 	public class Mushroom : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public static int HealAmount => 15;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item entity, bool lateInstantiation) => entity.type == ItemID.Mushroom;
@@ -45,6 +46,7 @@ namespace V2.Items.Vanilla.Plants
 	}
 	public class EvilMushroom : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public static int HealAmount => 15;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item entity, bool lateInstantiation) => entity.type is ItemID.VileMushroom or ItemID.ViciousMushroom;

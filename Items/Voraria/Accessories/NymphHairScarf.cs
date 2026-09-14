@@ -15,7 +15,7 @@ namespace V2.Items.Voraria.Accessories
 {
 	public class NymphHairScarf : ModItem
 	{
-		public override bool IsLoadingEnabled(Mod mod) => !V2.GetFooled;
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public static float MoveSpeedBonus => 0.12f;
 		public static float StomachWeightReduction => 0.12f;
 

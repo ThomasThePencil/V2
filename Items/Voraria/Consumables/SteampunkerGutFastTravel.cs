@@ -21,7 +21,7 @@ namespace V2.Items.Voraria.Consumables
 {
 	public class SteampunkerGutFastTravel : ModItem
 	{
-		public override bool IsLoadingEnabled(Mod mod) => !V2.GetFooled;
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override LocalizedText DisplayName => Language.GetText("Mods.V2.ItemName.Voraria.Consumables.SteampunkerGutFastTravel");
 		public override LocalizedText Tooltip => Language.GetText("Mods.V2.ItemTooltip.Voraria.Consumables.SteampunkerGutFastTravel.Short");
 		public override string Texture => "V2/Items/UnspritedItem";

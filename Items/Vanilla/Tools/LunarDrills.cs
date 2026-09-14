@@ -8,6 +8,7 @@ namespace V2.Items.Vanilla.Tools
 {
 	public class SolarFlareDrill : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item item, bool lateInstantiation) => item.type == ItemID.SolarFlareDrill;
 
@@ -22,6 +23,7 @@ namespace V2.Items.Vanilla.Tools
 	}
 	public class VortexDrill : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item item, bool lateInstantiation) => item.type == ItemID.VortexDrill;
 
@@ -36,6 +38,7 @@ namespace V2.Items.Vanilla.Tools
 	}
 	public class NebulaDrill : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item item, bool lateInstantiation) => item.type == ItemID.NebulaDrill;
 
@@ -50,6 +53,7 @@ namespace V2.Items.Vanilla.Tools
 	}
 	public class StardustDrill : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item item, bool lateInstantiation) => item.type == ItemID.StardustDrill;
 

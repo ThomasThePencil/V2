@@ -9,7 +9,7 @@ namespace V2.Items.Voraria.Consumables.Catchables
 {
 	public class CaughtButterflyZebraSwallowtailWG2 : ModItem
 	{
-		public override bool IsLoadingEnabled(Mod mod) => !V2.GetFooled;
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override LocalizedText DisplayName => Language.GetText("Mods.V2.ItemName.Voraria.Consumables.Catchables.Butterflies.ZebraSwallowtail.WeightGain2");
 		public override void SetStaticDefaults()
 		{

@@ -14,6 +14,7 @@ namespace V2.Items.Vanilla.Armor
 {
 	public class GoldChainDress : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public static float MagicDamageUp => 0.04f;
 		public static float ManaEfficiencyUp => 0.08f;
 		public override bool AppliesToEntity(Item entity, bool lateInstantiation) => entity.type == ItemID.GoldChainmail;

@@ -8,6 +8,7 @@ namespace V2.StatusEffects.Voraria.Debuffs
 {
 	public class TimeStun : ModBuff
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override LocalizedText DisplayName => Language.GetText("Mods.V2.StatusEffects.Voraria.Debuffs.TimeStun.Name");
 		public override LocalizedText Description => Language.GetText("Mods.V2.StatusEffects.Voraria.Debuffs.TimeStuff.Description");
 		public override string Texture => "V2/StatusEffects/Voraria/Debuffs/DebuffPlaceholder";
@@ -27,7 +28,7 @@ namespace V2.StatusEffects.Voraria.Debuffs
 	}
 	public class TimeStunImmune : GlobalNPC
 	{
-		public override bool IsLoadingEnabled(Mod mod) => !V2.GetFooled;
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 
 		public override void SetStaticDefaults()
 		{

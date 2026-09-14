@@ -8,6 +8,7 @@ namespace V2.Items.Vanilla.Placeables.TilesPlaceableTiles
 {
 	public class LunarBricks : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item entity, bool lateInstantiation) => entity.type is ItemID.LunarBrick or ItemID.LunarRustBrick or ItemID.DarkCelestialBrick
 			or ItemID.AstraBrick or ItemID.CosmicEmberBrick or ItemID.CryocoreBrick or ItemID.MercuryBrick or ItemID.StarRoyaleBrick or ItemID.HeavenforgeBrick;
@@ -22,6 +23,7 @@ namespace V2.Items.Vanilla.Placeables.TilesPlaceableTiles
 	}
 	public class LunarBrickWalls : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item entity, bool lateInstantiation) => entity.type is ItemID.LunarBrickWall or ItemID.LunarRustBrickWall or ItemID.DarkCelestialBrickWall
 			or ItemID.AstraBrickWall or ItemID.CosmicEmberBrickWall or ItemID.CryocoreBrickWall or ItemID.MercuryBrickWall or ItemID.StarRoyaleBrickWall or ItemID.HeavenforgeBrickWall;

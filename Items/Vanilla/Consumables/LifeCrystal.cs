@@ -22,6 +22,7 @@ namespace V2.Items.Vanilla.Consumables
 {
 	public class LifeCrystal : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public static int DigestedHeal => 25;
 		public static int DigestedRegenTime => V2Utils.SensibleTime(seconds: 35);
 		public static float MaxEatenPermaWeightReduction => 0.15f;

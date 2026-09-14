@@ -15,6 +15,7 @@ namespace V2.NPCs.Voraria.TownNPCs.Succubus.ChatButtons
 {
 	public class LucindaDontFreeBecauseYoureAnAssholeButton : ChatButton
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override string Text(NPC npc, Player player) => Language.GetTextValue("Mods.V2.NPCs.Lucinda.DontFreeBecauseYoureAnAssholeButton.DisplayName");
 
 		public override double Priority => 3.6;

@@ -15,7 +15,7 @@ namespace V2.Core
 {
 	public class V2RecipeSystem : ModSystem
 	{
-		public override bool IsLoadingEnabled(Mod mod) => !V2.GetFooled;
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override void AddRecipes()
 		{
 			// surprisingly, I don't actually use this as a recipe method; that title belongs to the shitshow that is EstablishRecipeCollection below
@@ -25,6 +25,9 @@ namespace V2.Core
 
 		public override void PostAddRecipes()
 		{
+			if (V2.BasicMode)
+				return;
+			
 			EstablishRecipeCollection();
 		}
 		public override void AddRecipeGroups()

@@ -15,6 +15,7 @@ namespace V2.NPCs.Voraria.Underworld.HellHarpy
 {
 	public class HellHarpy : ModNPC
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override void SetStaticDefaults()
 		{
 			NPCID.Sets.CantTakeLunchMoney[NPC.type] = true;

@@ -15,6 +15,7 @@ namespace V2.Items.Vanilla.Armor
 {
 	public class AncientGoldHelmet : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public static float MagicDamageUpPercent => 0.05f;
 		public static float MagicDamageUpFlat => 1f;
 		public static float ManaEfficiencyUp => 0.08f;

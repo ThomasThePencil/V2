@@ -9,8 +9,9 @@ using Terraria.ModLoader;
 
 namespace V2.Items.Vanilla.Placeables.Plants
 {
-	internal class Sunflower : GlobalItem
+	public class Sunflower : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item item, bool lateInstantiation) => item.type == ItemID.Sunflower;
 		public override void SetDefaults(Item item)

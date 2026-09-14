@@ -11,6 +11,7 @@ namespace V2.Items.Vanilla.Placeables.PlaceableTiles
 {
 	public class LihzahrdBrick : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item entity, bool lateInstantiation) => entity.type is ItemID.LihzahrdBrick;
 
@@ -32,6 +33,7 @@ namespace V2.Items.Vanilla.Placeables.PlaceableTiles
 	}
 	public class DungeonBrick : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item entity, bool lateInstantiation) => entity.type is ItemID.PinkBrick or ItemID.BlueBrick or ItemID.GreenBrick;
 

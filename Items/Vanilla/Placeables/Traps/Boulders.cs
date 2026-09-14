@@ -16,6 +16,7 @@ namespace V2.Items.Vanilla.Placeables.Traps
 {
 	public class Boulder : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item entity, bool lateInstantiation) => entity.type == ItemID.Boulder;
 
@@ -27,6 +28,7 @@ namespace V2.Items.Vanilla.Placeables.Traps
 	}
 	public class BouncyBoulder : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item entity, bool lateInstantiation) => entity.type == ItemID.BouncyBoulder;
 
@@ -39,6 +41,7 @@ namespace V2.Items.Vanilla.Placeables.Traps
 	}
 	public class LifeCrystalBoulder : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item entity, bool lateInstantiation) => entity.type == ItemID.LifeCrystalBoulder;
 
@@ -54,6 +57,7 @@ namespace V2.Items.Vanilla.Placeables.Traps
 
 	public class RollingCactus : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item entity, bool lateInstantiation) => entity.type == ItemID.RollingCactus;
 

@@ -20,7 +20,7 @@ namespace V2.Items.Voraria.Weapons.Ranged.Throwables
 
 	public class ThrowableFungalBottle : ModItem
 	{
-		public override bool IsLoadingEnabled(Mod mod) => !V2.GetFooled;
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override LocalizedText DisplayName => Language.GetText("Mods.V2.ItemName.Voraria.Weapons.Ranged.Throwables.FragileBottles.Fungal");
 		public override LocalizedText Tooltip => Language.GetText("Mods.V2.ItemTooltip.Voraria.Weapons.Ranged.Throwables.FragileBottles.Fungal.Short");
 

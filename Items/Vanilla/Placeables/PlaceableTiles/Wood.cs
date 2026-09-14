@@ -7,6 +7,7 @@ namespace V2.Items.Vanilla.Placeables.TilesPlaceableTiles
 {
 	public class OakWood : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item entity, bool lateInstantiation) => entity.type == ItemID.Wood;
 
@@ -18,6 +19,7 @@ namespace V2.Items.Vanilla.Placeables.TilesPlaceableTiles
 	}
 	public class PalmWood : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item entity, bool lateInstantiation) => entity.type == ItemID.PalmWood;
 
@@ -29,6 +31,7 @@ namespace V2.Items.Vanilla.Placeables.TilesPlaceableTiles
 	}
 	public class BorealWood : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item entity, bool lateInstantiation) => entity.type == ItemID.BorealWood;
 
@@ -40,6 +43,7 @@ namespace V2.Items.Vanilla.Placeables.TilesPlaceableTiles
 	}
 	public class RichMahogany : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item entity, bool lateInstantiation) => entity.type == ItemID.RichMahogany;
 
@@ -51,6 +55,7 @@ namespace V2.Items.Vanilla.Placeables.TilesPlaceableTiles
 	}
 	public class AshWood : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item entity, bool lateInstantiation) => entity.type == ItemID.AshWood;
 
@@ -62,6 +67,7 @@ namespace V2.Items.Vanilla.Placeables.TilesPlaceableTiles
 	}
 	public class Ebonwood : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item entity, bool lateInstantiation) => entity.type == ItemID.Ebonwood;
 
@@ -74,6 +80,7 @@ namespace V2.Items.Vanilla.Placeables.TilesPlaceableTiles
 	}
 	public class Shadewood : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item entity, bool lateInstantiation) => entity.type == ItemID.Shadewood;
 
@@ -86,6 +93,7 @@ namespace V2.Items.Vanilla.Placeables.TilesPlaceableTiles
 	}
 	public class Pearlwood : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item entity, bool lateInstantiation) => entity.type == ItemID.Pearlwood;
 
@@ -97,6 +105,7 @@ namespace V2.Items.Vanilla.Placeables.TilesPlaceableTiles
 	}
 	public class DynastyWood : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item entity, bool lateInstantiation) => entity.type == ItemID.DynastyWood;
 
@@ -108,6 +117,7 @@ namespace V2.Items.Vanilla.Placeables.TilesPlaceableTiles
 	}
 	public class SpookyWood : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item entity, bool lateInstantiation) => entity.type == ItemID.SpookyWood;
 

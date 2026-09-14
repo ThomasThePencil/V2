@@ -10,7 +10,7 @@ namespace V2.Items.Voraria.Weapons.Throwing.Knives
 {
 	public class PiranhaTooth : ModItem
 	{
-		public override bool IsLoadingEnabled(Mod mod) => !V2.GetFooled;
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override LocalizedText DisplayName => Language.GetText("Mods.V2.ItemName.Voraria.Weapons.Throwing.Knives.PiranhaTooth");
 		public override LocalizedText Tooltip => Language.GetText("Mods.V2.ItemTooltip.Voraria.Weapons.Throwing.Knives.PiranhaTooth.Short");
 		public override string Texture => "V2/Items/UnspritedItem";

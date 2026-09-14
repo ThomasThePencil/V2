@@ -22,6 +22,7 @@ namespace V2.Items.Vanilla.Currency
 {
 	public class SilverCoin : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item entity, bool lateInstantiation) => entity.type == ItemID.SilverCoin;
 

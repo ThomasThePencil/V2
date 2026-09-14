@@ -8,6 +8,7 @@ namespace V2.Items.Vanilla.Weapons.Melee
 {
 	public class OakWoodSword : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item item, bool lateInstantiation) => item.type == ItemID.WoodenSword;
 
@@ -32,6 +33,7 @@ namespace V2.Items.Vanilla.Weapons.Melee
 	}
 	public class BorealWoodSword : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item item, bool lateInstantiation) => item.type == ItemID.BorealWoodSword;
 
@@ -56,6 +58,7 @@ namespace V2.Items.Vanilla.Weapons.Melee
 	}
 	public class PalmWoodSword : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item item, bool lateInstantiation) => item.type == ItemID.PalmWoodSword;
 
@@ -80,6 +83,7 @@ namespace V2.Items.Vanilla.Weapons.Melee
 	}
 	public class RichMahoganySword : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item item, bool lateInstantiation) => item.type == ItemID.RichMahoganySword;
 
@@ -104,6 +108,7 @@ namespace V2.Items.Vanilla.Weapons.Melee
 	}
 	public class AshWoodSword : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item item, bool lateInstantiation) => item.type == ItemID.AshWoodSword;
 
@@ -128,6 +133,7 @@ namespace V2.Items.Vanilla.Weapons.Melee
 	}
 	public class EbonwoodSword : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item item, bool lateInstantiation) => item.type == ItemID.EbonwoodSword;
 
@@ -153,6 +159,7 @@ namespace V2.Items.Vanilla.Weapons.Melee
 	}
 	public class ShadewoodSword : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item item, bool lateInstantiation) => item.type == ItemID.ShadewoodSword;
 
@@ -178,6 +185,7 @@ namespace V2.Items.Vanilla.Weapons.Melee
 	}
 	public class PearlwoodSword : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item item, bool lateInstantiation) => item.type == ItemID.PearlwoodSword;
 

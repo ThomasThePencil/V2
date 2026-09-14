@@ -15,7 +15,7 @@ namespace V2.Items.Voraria.Charms
 {
 	public class CharmRegenFromAbsorption : ModItem
 	{
-		public override bool IsLoadingEnabled(Mod mod) => !V2.GetFooled;
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public static double HealthRegenerationRatio => 1.5;
 		public static double ManaRegenerationRatio => 4.25;
 

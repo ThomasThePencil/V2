@@ -18,7 +18,7 @@ namespace V2.Projectiles.Vanilla.GrapplingHooks
 {
 	public class Hooks : GlobalProjectile
 	{
-		public override bool IsLoadingEnabled(Mod mod) => !V2.GetFooled;
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public float SetPullingStrength(Projectile projectile)
 		{

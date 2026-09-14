@@ -56,7 +56,7 @@ namespace V2.NPCs.Voraria.TownNPCs.Ghost
 	[AutoloadHead]
 	public class Echo : ModNPC
 	{
-		public override bool IsLoadingEnabled(Mod mod) => !V2.GetFooled;
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override string Texture => "V2/NPCs/Voraria/TownNPCs/Ghost/Echo_Weight0";
 		public override string HeadTexture => "V2/NPCs/Voraria/TownNPCs/Ghost/Echo_Head";
 

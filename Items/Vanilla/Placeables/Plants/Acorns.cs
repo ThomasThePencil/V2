@@ -8,6 +8,7 @@ namespace V2.Items.Vanilla.Placeables.Plants
 {
 	public class Acorn : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item entity, bool lateInstantiation) => entity.type is ItemID.Acorn;
 
@@ -19,6 +20,7 @@ namespace V2.Items.Vanilla.Placeables.Plants
 	}
 	public class AmethystGemcorn : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item entity, bool lateInstantiation) => entity.type == ItemID.GemTreeAmethystSeed;
 
@@ -31,6 +33,7 @@ namespace V2.Items.Vanilla.Placeables.Plants
 	}
 	public class TopazGemcorn : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item entity, bool lateInstantiation) => entity.type == ItemID.GemTreeTopazSeed;
 
@@ -43,6 +46,7 @@ namespace V2.Items.Vanilla.Placeables.Plants
 	}
 	public class SapphireGemcorn : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item entity, bool lateInstantiation) => entity.type == ItemID.GemTreeSapphireSeed;
 
@@ -55,6 +59,7 @@ namespace V2.Items.Vanilla.Placeables.Plants
 	}
 	public class EmeraldGemcorn : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item entity, bool lateInstantiation) => entity.type == ItemID.GemTreeEmeraldSeed;
 
@@ -67,6 +72,7 @@ namespace V2.Items.Vanilla.Placeables.Plants
 	}
 	public class AmberGemcorn : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item entity, bool lateInstantiation) => entity.type == ItemID.GemTreeAmberSeed;
 
@@ -80,6 +86,7 @@ namespace V2.Items.Vanilla.Placeables.Plants
 	}
 	public class RubyGemcorn : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item entity, bool lateInstantiation) => entity.type == ItemID.GemTreeRubySeed;
 
@@ -93,6 +100,7 @@ namespace V2.Items.Vanilla.Placeables.Plants
 	}
 	public class DiamondGemcorn : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item entity, bool lateInstantiation) => entity.type == ItemID.GemTreeDiamondSeed;
 

@@ -6,7 +6,7 @@ using V2.Items.Voraria.TransformationItems.Baelz;
 
 namespace V2.PlayerHandling
 {
-	internal class PlayerGaining
+	public class PlayerGaining
 	{
 		public static float DamageScale = 0.125f;
 		public static float AttackSpeedScale = -0.06f;

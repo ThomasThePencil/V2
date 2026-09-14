@@ -7,6 +7,7 @@ namespace V2.Items.Vanilla.Placeables.Torches
 {
 	public class Torch : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item entity, bool lateInstantiation) => entity.type == ItemID.Torch;
 
@@ -18,6 +19,7 @@ namespace V2.Items.Vanilla.Placeables.Torches
 	}
 	public class GemTorches : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item entity, bool lateInstantiation) => entity.type is ItemID.PurpleTorch or ItemID.YellowTorch or ItemID.GreenTorch
 			or ItemID.BlueTorch or ItemID.OrangeTorch or ItemID.RedTorch or ItemID.WhiteTorch;
@@ -30,6 +32,7 @@ namespace V2.Items.Vanilla.Placeables.Torches
 	}
 	public class UniqueTorches : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item entity, bool lateInstantiation) => entity.type is ItemID.IceTorch or ItemID.DesertTorch or ItemID.RainbowTorch
 			or ItemID.UltrabrightTorch or ItemID.CoralTorch or ItemID.JungleTorch;
@@ -42,6 +45,7 @@ namespace V2.Items.Vanilla.Placeables.Torches
 	}
 	public class TastyTorches : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item entity, bool lateInstantiation) => entity.type is ItemID.PinkTorch or ItemID.MushroomTorch;
 
@@ -55,6 +59,7 @@ namespace V2.Items.Vanilla.Placeables.Torches
 	}
 	public class NotTastyTorches : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item entity, bool lateInstantiation) => entity.type is ItemID.CorruptTorch or ItemID.CrimsonTorch or ItemID.DemonTorch
 			or ItemID.BoneTorch;
@@ -68,6 +73,7 @@ namespace V2.Items.Vanilla.Placeables.Torches
 	}
 	public class VeryNotTastyTorches : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item entity, bool lateInstantiation) => entity.type is ItemID.CursedTorch or ItemID.IchorTorch;
 
@@ -80,6 +86,7 @@ namespace V2.Items.Vanilla.Placeables.Torches
 	}
 	public class AetherTorch : GlobalItem
 	{
+		public override bool IsLoadingEnabled(Mod mod) => !V2.BasicMode;
 		public override bool InstancePerEntity => true;
 		public override bool AppliesToEntity(Item entity, bool lateInstantiation) => entity.type is ItemID.ShimmerTorch;
 
