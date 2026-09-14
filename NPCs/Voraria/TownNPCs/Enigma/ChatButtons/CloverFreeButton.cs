@@ -22,6 +22,7 @@ namespace V2.NPCs.Voraria.TownNPCs.Enigma.ChatButtons
 
 		public override bool IsActive(NPC npc, Player player) => npc.type == ModContent.NPCType<CloverBound>();
 
+		// [TAG:DialogueParsing] TO-DO: transfer all dialogue to localization files
 		public override void OnClick(NPC npc, Player player)
 		{
 			ModContent.GetInstance<V2MasterSystem>().freedEnigma = true;

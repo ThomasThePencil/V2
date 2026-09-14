@@ -168,6 +168,7 @@ namespace V2.NPCs.Voraria.TownNPCs.Enigma
 
 		public override ITownNPCProfile TownNPCProfile() => EnigmaStuff.EnigmaProfile;
 
+		// [TAG:DialogueParsing] TO-DO: transfer all dialogue to localization files
 		public static List<string> GetEnigmaChat(NPC npc, Player player)
 		{
 			List<NPC> nearbyResidentNPCs = npc.GetNearbyResidentNPCs(out int npcsWithinHouse, out int npcsWithinVillage);

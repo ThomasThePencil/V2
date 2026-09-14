@@ -145,12 +145,12 @@ namespace V2.NPCs.Vanilla.TownNPCs.Nurse
 
 			npc.AsFood().OnDigestedBy += OnKilledByDigestion_GrantCheapskateGoal;
 
-			npc.AsFood().ItemTheftRules = new List<DigestionLootRule>
-			{
+			npc.AsFood().ItemTheftRules =
+			[
 				NurseStuff.ItemTheftRules.ClothingHat,
 				NurseStuff.ItemTheftRules.ClothingTop,
 				NurseStuff.ItemTheftRules.ClothingBottom,
-			};
+			];
 		}
 
 		public override void ResetEffects(NPC npc)
@@ -166,6 +166,7 @@ namespace V2.NPCs.Vanilla.TownNPCs.Nurse
 
 		public override ITownNPCProfile ModifyTownNPCProfile(NPC npc) => NurseStuff.PredNurseProfile;
 
+		// [TAG:DialogueParsing] TO-DO: transfer all dialogue to localization files
 		public List<string> GetNurseChat(NPC npc, Player player)
 		{
 			npc.AsNurse().originalHealPrice = 0;
@@ -221,7 +222,7 @@ namespace V2.NPCs.Vanilla.TownNPCs.Nurse
 							nurseChatPool.AddRange([
 								"Don't worry, I got an order for this restraint. Now quit resisting or I'll make it tighter.",
 								"Stop squirming so much. You looked ill, so I decided to give you my special treatment. The more you move around in there, the longer this is going to take...not that I mind...",
-								"It's for your safety. You were a high fall risk!",
+								"It's for your safety. You were a high fall risk! Probably a high FAT risk, too, with all that adventuring you do!",
 							]);
 						}
 					}
@@ -233,13 +234,12 @@ namespace V2.NPCs.Vanilla.TownNPCs.Nurse
 							"As a word of warning, if eating you ends up making me catch some sort of illness, I'm including it in your next medical bill.",
 							"Hmm...well, my stomach sounds perfectly healthy, and it feels perfectly healthy too. Seems you're just what the nurse ordered.",
 							"You had better put all the fat you're about to give me onto my butt, instead of bumping me up a cup size like everyone else does. I am SO tired of people feigning sickness to fondle my breasts...",
-							"Still wanting to stay in there, or would you like to get out and have a lollipop for trying?...hah, I'm just kidding. You aren't getting out."
 						]);
 						if (digestScamPatient)
 						{
 							nurseChatPool.AddRange([
-								"Oh, what's that? You wanted to be healed, not hurt? Well, you shouldn't have tried to undercut me, then. Enjoy being a nutrient soup and my future ass fat.",
-								"Maybe next time, you'll pay me enough. If you couldn't pay your medical fees, then you shouldn't have asked me to eat you.",
+								"Oh, what's that? You wanted to be healed, not hurt? Well, you shouldn't have tried to undercut me, then. Enjoy being a nutrient soup and my future ass fat...hopefully...",
+								"Maybe next time, you'll pay me enough. If you couldn't pay your medical fees like everybody else, then you shouldn't have asked me to eat you.",
 								"Scamming prick...you BETTER add a new layer of fat to my ass, you hear me? You don't, I'll FORCE you down my throat and KEEP racking up your debt to me until you do.",
 							]);
 						}
@@ -260,20 +260,18 @@ namespace V2.NPCs.Vanilla.TownNPCs.Nurse
 					switch (player.statLife)
 					{
 						case int i when i > (int)((double)player.statLifeMax2 * 0.5):
-							nurseChatPool =
-							[
+							nurseChatPool.AddRange([
 								"I don't think I like your tone. Better keep that tongue to yourself before I cram it into my ass with the rest of you.",
-								"If you're about to ask me to heal you for basically nothing, I swear, you're gonna be headed right to my ass...hopefully.",
-								"Please don't tell me you went out and got a papercut or two just to be able to come in here...I'm already booked solid enough as is.",
-								"If you get blood on my floor, you'll be BEGGING me to give you treatment by the time my stomach's done with you.",
-								"If you're gonna die, do it either outside my house or inside my gut.",
-							];
+								"If you're about to ask me to heal you for [c/FF0000:basically nothing], I swear, you're gonna be headed [c/FF0000:straight to my ass]...hopefully.",
+								"Don't tell [c/FF0000:your dumb ass went out and got a papercut] just to be able to come in here...I'm already booked solid enough as is.",
+								"If you get blood on my floor, [c/FF0000:you'll be BEGGING me to give you treatment] by the time my stomach's done with you.",
+								"If you're gonna [c/FF0000:die], do it either outside my house or [c/FF0000:inside my gut.] Got it?",
+							]);
 							break;
 						case int i when i < (int)((double)player.statLifeMax2 * 0.5):
 							if (PredNPC.CanSwallow(npc, player))
 							{
-								nurseChatPool =
-								[
+								nurseChatPool =	[
 									"You were a high fall risk. This way, you won't be a high FALL risk; only a high FAT risk, which I'm willing to take if it means you'll ACTUALLY ADD TO MY ASS.",
 									"Next time, don't come in here half-digested if you don't want me finishing the job, dumbass. Better add some meat to the glutes while you're melting in there.",
 									"THERE! Now STAY put so you melt faster. You better make sure you take up PERMANENT residence on the cheeks in back, or I swear, you'll be in there OVER AND OVER UNTIL YOU DO.",
@@ -453,44 +451,41 @@ namespace V2.NPCs.Vanilla.TownNPCs.Nurse
 						{
 							if (player.AsPred().SafeStomach)
 							{
-								nurseChatPool.AddRange(new List<string>
-								{
+								nurseChatPool.AddRange([
 									"...I see " + carefreeSwitch.GivenName + " gave you a lollipop of sorts. You...don't seem to be digesting her, either. I should probably give you a quick check-up...",
 									"Hmm...no, your system's not responding to her the way it should. Is that something you just randomly decided to do for a while, or a medical condition I should be looking into?",
-								});
+								]);
 							}
 							else
 							{
-								nurseChatPool.AddRange(new List<string>
-								{
+								nurseChatPool.AddRange([
 									"...I see " + carefreeSwitch.GivenName + " gave you a lollipop of sorts. Must've felt like crashing in your gut. Be sure to check back in with me in a few hours. A girl that high in fat can clog up your system FAST if she doesn't digest well.",
 									"Hmm...yeah, your system seems to be digesting that sweet tooth of hers just fine, at least for now. Still, keep an eye on your blood sugar and your fat levels, and give me a ring if you get any bad signs.",
-								});
+								]);
 							}
 						}
 						else if (carefreeSwitch.IsFoodFor(npc))
 						{
-							nurseChatPool.AddRange(new List<string>
-							{
+							nurseChatPool.AddRange([
 								"[c/7F7F7F:<You feel the compulsion to ask where" + carefreeSwitch.GivenName + " is. " + npc.GivenName + " tries to keep quiet, but her bloated, squirmy belly and the belch she stifles with her left hand say all you need to know.>]",
 								"Huh? Where'd " + carefreeSwitch.GivenName + " get off to?\n"
 							  + "[c/7F7F7F:<" + npc.GivenName + " tries to keep down a burp...but fails, and sighs defeatedly.>]\n"
 							  + "Alright, so I had an unhealthy meal. Sue me. I was hungry, and she likes to feed me when she's done her check-ups...at least, when she's not eating me instead.",
-							});
+							]);
 						}
 						else
 						{
-							nurseChatPool.AddRange(new List<string>
-							{
+							nurseChatPool.AddRange([
 								"Make sure " + carefreeSwitch.GivenName + " keeps an eye on her sugar and comes in again soon, alright? She'll probably need another dosage of healthy food before long...",
 								"Hey, while you're here: remind " + carefreeSwitch.GivenName + " that her next check-up's tonight, and you make sure she's taking her prescribed one apple a day!",
-							});
+							]);
 						}
 					}
 					if (player.inventory[player.selectedItem].type == ItemID.Apple)
 					{
 						nurseChatPool.AddRange([
 							"...that's an apple. What are you expecting? Apples are healthy, at least for younger people. For the older ones, you might need something a bit more filling...",
+							"...what? It's an apple. What's the big holdup? Sit down and let me make sure you're alive, at least...",
 						]);
 					}
 					if (player.AsPred().TotalMeals >= 50)
@@ -499,21 +494,21 @@ namespace V2.NPCs.Vanilla.TownNPCs.Nurse
 							"No, you can't fit someone in a PEG tube. Stop asking.",
 						]);
 					}
-					if (player.AsFood().TotalTimesDigested >= 5 && player.AsFood().TotalTimesDigested <= 25)
+					if (player.AsFood().TotalTimesDigested >= 15 && player.AsFood().TotalTimesDigested <= 25)
 					{
 						nurseChatPool.AddRange([
 							"...maybe you should be the one to ask me to say \"ahh\" for a change?",
 							"Hmm. You've already been mulched a total of...lemme check your chart..." + player.AsFood().TotalTimesDigested + " times. Be a bit more careful.",
 						]);
 					}
-					else if (player.AsFood().TotalTimesDigested > 25 && player.AsFood().TotalTimesDigested <= 100)
+					else if (player.AsFood().TotalTimesDigested > 50 && player.AsFood().TotalTimesDigested <= 500)
 					{
 						nurseChatPool.AddRange([
 							"Shouldn't you be the one asking me to say \"ahh\"?",
 							"The preds around this world have eaten you " + player.AsFood().TotalTimesDigested + " times already? Huh...wonder if any of them belched up a banner for you...",
 						]);
 					}
-					else if (player.AsFood().TotalTimesDigested > 100)
+					else if (player.AsFood().TotalTimesDigested > 500)
 					{
 						nurseChatPool.AddRange([
 							"Feels like you should be the one asking me to say \"ahh\". You've definitely gotten gurgled enough by now to make a gal believe you'd want that.",
@@ -523,8 +518,8 @@ namespace V2.NPCs.Vanilla.TownNPCs.Nurse
 					if (Main.IsItAHappyWindyDay)
 					{
 						nurseChatPool.AddRange([
-							"I've been chasing my medical instruments all day. This gale is really keeping me fit!",
-							"This breeze is really extra right now! Beware of flying needles and hungry predators, and don't get too full of air!",
+							"Haah, I've had to chase down my medical instruments all day. This gale is really keeping me fit, at least...",
+							"The winds are fierce outside today. Beware of flying needles and hungry predators, and don't get too full of air.",
 						]);
 					}
 					if (Main.IsItRaining)
@@ -538,7 +533,7 @@ namespace V2.NPCs.Vanilla.TownNPCs.Nurse
 					{
 						nurseChatPool.AddRange([
 							"I don't DO shock therapy. Go outside and sit under a tree if you need it that badly.",
-							"I have had to treat SO many electrocuted patients today, it's not even funny. Just stay inside.",
+							"I have had to treat SO many electrocuted patients today, it's not even funny. Just stay inside, for your safety and my sanity.",
 						]);
 					}
 				}

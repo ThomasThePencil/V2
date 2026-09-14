@@ -95,14 +95,14 @@ namespace V2.NPCs.Voraria.TownNPCs.Enigma
 		}
 		public override bool CanChat() => true;
 
+		// [TAG:DialogueParsing] TO-DO: transfer all dialogue to localization files
 		public override string GetChat()
 		{
-			List<string> possibleLines = new List<string>
-			{
+			List<string> possibleLines = [
 				"Oh, hey! I'm, uh, stuck up here somehow. Don't ask how I did it, just get me down!",
 				"So, how's it... hanging? Get it? ...okay, I won't do any more awful jokes if you get me down!",
 				"...no chat, I'm not going to- OH IM NOT ALONE HERE Hi! Can you... help a gal out here?",
-			};
+			];
 			return Main.rand.NextFromCollection(possibleLines);
 		}
 		public override void ModifyHoverBoundingBox(ref Rectangle boundingBox)

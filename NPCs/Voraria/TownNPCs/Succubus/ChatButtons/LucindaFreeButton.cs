@@ -26,6 +26,7 @@ namespace V2.NPCs.Voraria.TownNPCs.Succubus.ChatButtons
 		{
 			ModContent.GetInstance<V2MasterSystem>().freedSucc = true;
 			npc.AI_000_TransformBoundNPC(Main.CurrentPlayer.whoAmI, ModContent.NPCType<Lucinda>());
+			// [TAG:DialogueParsing] TO-DO: transfer all dialogue to localization files
 			Main.npcChatText = "There ya go! Wasn't that hard. Now, c'mere so I can reward you with some time in my gut...or, y'know, just some old trinkets from your ol' pal Lucinda to help you be a great pred just like me.";
 		}
 	}

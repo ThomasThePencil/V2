@@ -179,6 +179,7 @@ namespace V2.NPCs.Voraria.TownNPCs.Succubus
 
 		public override ITownNPCProfile TownNPCProfile() => SuccubusStuff.SuccubusProfile;
 
+		// [TAG:DialogueParsing] TO-DO: transfer all dialogue to localization files
 		public static List<string> GetSuccubusChat(NPC npc, Player player)
 		{
 			LucindaHelpButton.HelpIndex = 0;

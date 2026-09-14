@@ -22,8 +22,6 @@ namespace V2.Items.Voraria.Charms
 			ModContent.ItemType<CharmPreyItemTheft>(),
 			ModContent.ItemType<CharmRegenFromAbsorption>(),
 		];
-
-		public static int MaxCharms => 3;
 	}
 
 	public class CharmGlobalItem : GlobalItem

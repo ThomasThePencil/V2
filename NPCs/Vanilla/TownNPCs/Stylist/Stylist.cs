@@ -128,6 +128,7 @@ namespace V2.NPCs.Vanilla.TownNPCs.Stylist
 			shop.InsertBefore(ItemID.WilsonBeardShort, ModContent.ItemType<HairDyeCapacity>(), V2ShopConditions.BeginnerStatPoints);
 		}
 
+		// [TAG:DialogueParsing] TO-DO: transfer all dialogue to localization files
 		public static List<string> GetStylistChat(NPC npc, Player player)
 		{
 			List<NPC> nearbyResidentNPCs = npc.GetNearbyResidentNPCs(out int npcsWithinHouse, out int npcsWithinVillage);

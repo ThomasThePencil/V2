@@ -222,6 +222,7 @@ namespace V2.NPCs.Vanilla.TownNPCs.Dryad
 			return true;
 		}
 
+		// [TAG:DialogueParsing] TO-DO: transfer all dialogue to localization files
 		public static List<string> GetDryadChat(NPC npc, Player player)
 		{
 			List<NPC> nearbyResidentNPCs = npc.GetNearbyResidentNPCs(out int npcsWithinHouse, out int npcsWithinVillage);

@@ -26,6 +26,7 @@ namespace V2.NPCs.Voraria.TownNPCs.Succubus.ChatButtons
 		{
 			ModContent.GetInstance<V2MasterSystem>().freedSucc = true;
 			npc.AI_000_TransformBoundNPC(Main.CurrentPlayer.whoAmI, ModContent.NPCType<Lucinda>());
+			// [TAG:DialogueParsing] TO-DO: transfer all dialogue to localization files
 			PredNPC.SwallowWithTextIfApplicable(
 				npc,
 				Main.CurrentPlayer,

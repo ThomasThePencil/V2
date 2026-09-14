@@ -252,6 +252,7 @@ namespace V2.NPCs.Voraria.TownNPCs.Ghost
 
 		public static void OnGhostForceFed(NPC npc, Player player)
 		{
+			// [TAG:DialogueParsing] TO-DO: transfer all dialogue to localization files
 			PredNPC.SwallowWithTextIfApplicable(
 				npc,
 				player,

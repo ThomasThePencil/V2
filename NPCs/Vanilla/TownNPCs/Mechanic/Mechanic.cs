@@ -151,6 +151,7 @@ namespace V2.NPCs.Vanilla.TownNPCs.Mechanic
 				V2ShopConditions.ShopOwnerHasEatenWellRecently
 			);
 		}
+		// [TAG:DialogueParsing] TO-DO: transfer all dialogue to localization files
 		public static List<string> GetMechanicChat(NPC npc, Player player)
 		{
 			List<NPC> nearbyResidentNPCs = npc.GetNearbyResidentNPCs(out int npcsWithinHouse, out int npcsWithinVillage);
@@ -185,22 +186,22 @@ namespace V2.NPCs.Vanilla.TownNPCs.Mechanic
 				{
 					mechanicChatPool.AddRange([
 						"...you shouldn't bother worrying about getting in the way. I stitched these overalls myself specifically to resolve that issue.",
-						"...you know that moving around too much in there is going to hurt both of us, right? System damage goes both ways...",
+						"You...DO know that moving around too much in there is going to hurt both of us, right? System damage goes both ways...",
 					]);
 					if (noDigest)
 					{
 						mechanicChatPool.AddRange([
-							"...there should be some spare wire inside there. Push some up. I need some.",
+							"There should be some spare wire inside there. Push some up. I need some.",
 							"...thank you for staying calm inside me. This helps me focus.",
-							"...this gives me valuable additional data on how the human stomach handles live prey without digesting. Continue.",
+							"This gives me valuable additional data on how the human stomach handles...live inhabitants without digesting. Continue.",
 						]);
 					}
 					else
 					{
 						mechanicChatPool.AddRange([
-							"[c/00BB00:*BUOARP!*]\n"
+							"[c/00BB00:*BUuUWwoOoOOAaaAAArRRp!!*]\n"
 						  + "...my focus is coming back after that. Good. I need to work.",
-							"...you're digesting well, or at least it sounds like you are. Can't help but wonder if I could optimize my stomach just a bit more...",
+							"You're digesting well, or at least it sounds like you are...can't help but wonder if I could optimize my stomach just a bit more...",
 							"...nothing like some decent brain food while you work. Helps the mind stay on track.",
 							"...better not add too much cellulite to me. Gets hard to work if I'm heavy past a certain breakpoint.",
 						]);

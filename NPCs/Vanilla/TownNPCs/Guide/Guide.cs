@@ -108,6 +108,7 @@ namespace V2.NPCs.Vanilla.TownNPCs.Guide
 
 		public override ITownNPCProfile ModifyTownNPCProfile(NPC npc) => GuideStuff.PredGuideProfile;
 
+		// [TAG:DialogueParsing] TO-DO: transfer all dialogue to localization files
 		public static List<string> GetGuideChat(NPC npc, Player player)
 		{
 			List<NPC> nearbyResidentNPCs = npc.GetNearbyResidentNPCs(out int npcsWithinHouse, out int npcsWithinVillage);

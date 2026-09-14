@@ -12,6 +12,7 @@ namespace V2.NPCs.Vanilla.TownNPCs.PartyGirl
 {
 	public partial class PartyGirl : GlobalNPC
 	{
+		// [TAG:DialogueParsing] TO-DO: transfer all dialogue to localization files
 		public static List<string> GetPartyGirlChat(NPC npc, Player player)
 		{
 			List<NPC> nearbyResidentNPCs = npc.GetNearbyResidentNPCs(out int npcsWithinHouse, out int npcsWithinVillage);
