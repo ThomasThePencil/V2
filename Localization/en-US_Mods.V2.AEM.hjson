@@ -1,3 +1,8 @@
+Generic: {
+	OpenTabByClicking: "[c/{$Mods.V2.Colors.Action}:Click to switch to this tab!]"
+	AlreadyOnTab: "[c/{$Mods.V2.Colors.Yellow}:You're already on this tab!]"
+}
+
 Items: {
 	Accessories: {
 		Offensive: {
@@ -64,7 +69,7 @@ Items: {
 				[c/{$Mods.V2.Colors.Action}:Left-click] to select the placeable item closest to the cursor, outlining it in [c/{$Mods.V2.Colors.Green}:green].
 				[c/{$Mods.V2.Colors.Action}:Right-click] with a placeable item selected to [c/{$Mods.V2.Colors.Action}:cycle that item between the following appetite tunings:]
 				> Reserved (will not eat anything)
-				> Friendly (will not eat you or townsfolk, but will randomly eat others)
+				> Friendly (will randomly eat hostile mobs that come near)
 				> Indiscriminate (will randomly eat anything that comes near)
 				Most placeable items default to Reserved. Some do not; make sure you take note of which ones default to which.
 				'''
@@ -82,7 +87,7 @@ Items: {
 				Can show you [c/{$Mods.V2.Colors.Action}:detailed information] about items, projectiles, NPCs, and anything else you happen to encounter on your journey.
 				Items with entries allow you to [c/{$Mods.V2.Colors.Action}:press {AEMQuickOpenToItemBind} while hovering over them] to quick-nav to their entry.
 
-				[c/{$Mods.V2.Colors.Red}:Cannot be eaten until you have met St. Promethia and had her remove its consumption lock.]
+				[c/{$Mods.V2.Colors.Red}:Cannot be eaten until you have met St. Promethia, and she has removed its consumption lock.]
 				Afterwards, if you ate yours or need another, you can [c/{$Mods.V2.Colors.Action}:buy more from her] for 15 Concertissimo Tickets a piece.
 				'''
 			Flavor: The main menu itself! E- everyone at the Gluttony Gallery gets one for their f- first visit, and can take as many more as they want afterwards! O- of course, I usually go there to s- see everyone e- else stuff themselves...a- and be o- on the menu...but! You can use it to learn all about your f- future meals, a- and anything you can get d- digested by!
@@ -91,6 +96,7 @@ Items: {
 }
 
 NPCs: {
+	TabOverview: Get a sneak peek at your next live lunch
 	Generic: {
 		BehaviorNoteUnlock: " to reveal this note."
 		LootTableUnlock: Defeat or digest a {Title} to reveal possible loot.
@@ -99,7 +105,7 @@ NPCs: {
 	Tundra: {
 		Nymph: {
 			Name: Nymph
-			Subtitle: Damsel (Or Not) Of Distress
+			Subtitle: Damsel-or-Not Of Distress
 		}
 	}
 
@@ -107,13 +113,14 @@ NPCs: {
 		Piranha: {
 			Name: Piranha
 			Subtitle: Quite Unlike A Present
-			Overview: A r- ravenous species of fish which dwells within the Jungle's many rivers and lakes. Often found swimming in modestly-sized groups, or alone in small enough bodies of water, they'll waste no time t- tearing apart and gulping down any oh-s- so-unfortunate f- food that enters their territory. They can even prove a threat outside of water, though they can't remain outside of it for long, l- lest they put themselves at risk of asphyxiation.
+			DiscoveryHint: O- oh! These are found in the [c/{$Mods.V2.Colors.Green}:Jungle's] [c/{$Mods.V2.Colors.Aqua}:waters]! G- go look there!
+			Overview: A r- ravenous species of fish which dwells within the Jungle's many rivers and lakes! Often found swimming in modestly-sized groups, or alone in small enough bodies of water, they'll waste no time t- tearing apart and gulping down any oh-s- so-unfortunate f- food that enters their territory. They can even prove a threat outside of water, though they can't remain outside of it for long, l- lest they put themselves at risk of asphyxiation.
 			SpawnCondition: This common species of fish is found [c/{$Mods.V2.Colors.Aqua}:in the Jungle's waters]! While small bodies of water can produce lone piranhas, they are most often found in [c/{$Mods.V2.Colors.Aqua}:schools of 2-5].
 
 			BehaviorNotes: {
 				Passive: {
 					Function: If you're not in the water and haven't provoked them, Piranhas will [c/{$Mods.V2.Colors.Aqua}:swim around peacefully], only preying upon [c/{$Mods.V2.Colors.Aqua}:other sea creatures] such as fish and turtles.
-					Flavor: Believe it or not, piranhas aren't actually intrinsically out to g- gobble up adventurers or citizens!...e- even if I wish they'd do it to m- me! They're very calm when people don't disturb the waters (or o- offer themselves up as f- fish food), and their most common prey include other jungle fish; they'll usually swallow smaller prey wh- whole.
+					Flavor: Believe it or not, piranhas aren't actually intrinsically out to g- gobble up adventurers or citizens!...e- even if I sometimes w-w ish they'd be for m- me! They're very calm when people don't disturb the waters (or o- offer themselves up as f- fish food), and their most common prey include other jungle fish; they'll usually swallow smaller prey wh- whole.
 				}
 
 				HostileInWater: {
@@ -159,7 +166,7 @@ NPCs: {
 				MasterSmartFlop: {
 					Unlock: Lead a Piranha out of water
 					Function: Piranhas which are out of water will [c/{$Mods.V2.Colors.Aqua}:actively flop towards nearby bodies of water] if any are available and they are not currently hunting a meal.
-					Flavor: Piranhas, while much less actionable overall out of water, are very smart fish; they'll always try to flop and hop their way back to water if they end up out of it for too long without good food to chase. After all, while they CAN survive quite a while outside of water, they don't want to die of oxygen loss!
+					Flavor: Piranhas, while much less a- actionable overall out of water, are very smart fish; they'll always try to f- flop and hop their way back to water if they end up out of it for too long without good f- food to chase. After all, while they CAN survive quite a while outside of w- water, they don't want to die of oxygen loss!
 				}
 
 				Stomach: {
@@ -174,6 +181,11 @@ NPCs: {
 
 DivineIntervention: {
 	Title: Divine Intergestion
+	TabOverview:
+		'''
+		Request divine protection* from preds you don't like
+		[c/{$Mods.V2.Colors.Grey}:(* - provided and controlled BY the divines)]
+		'''
 	Overview:
 		'''
 		Are you mortally terrified by the idea of specific sorts of preds eating you? Mortified at the idea they so much as exist?
@@ -182,19 +194,19 @@ DivineIntervention: {
 		This menu allows you to [c/{$Mods.V2.Colors.Action}:ask the divines] to [c/{$Mods.V2.Colors.Green}:prevent certain categories of entity from eating you].
 		Note that it will [c/{$Mods.V2.Colors.Red}:not prevent them from eating other people or things}; only you.
 		'''
-	ToggleStateGeneral: This type of pred currently {ToggleStatus}.
+	ToggleStateGeneral: This type of pred currently {ToggleStatus}.\n[c/{$Mods.V2.Colors.Action}:Click the box to change that.]
 	ToggleStateGood: "[c/{$Mods.V2.Colors.Green}:can eat you]"
 	ToggleStateBad: "[c/{$Mods.V2.Colors.Red}:can't eat you]"
 
 	GenderRelated: {
 		Male: {
 			Title: Male
-			Description: Covers all male preds. Normal guys, femboys, h- hunks...all those fun folks. They've all got b- beautiful bellies!
+			Description: Covers all male preds. Normal guys, femboys, h- hunks...all those fun folks. They've all got b- beautiful bellies, g- guarantee!
 		}
 
 		Female: {
 			Title: Female
-			Description: Covers all female preds. R- r- royalty, t- tomboys, werefoxes, plant girls...a- all your favorite ladies and m- more!
+			Description: Covers all female preds. R- r- royalty, tomboys, werefoxes, plant girls...a- all your favorite ladies and m- more!
 		}
 
 		NonBinary: {
@@ -226,7 +238,7 @@ DivineIntervention: {
 
 		Fish: {
 			Title: Fish
-			Description: Covers all fish, and fish-adjacent sea life. Also includes m- mermaids...s- sexy, s- starving mermaids...b- but! You don't look like you'd f- find many of those.
+			Description: Covers all fish, and fish-adjacent sea life. Also includes m- merfolk...s- sexy, s- starving merfolk...b- but! You don't look like you'd f- find many of those.
 		}
 
 		Object: {

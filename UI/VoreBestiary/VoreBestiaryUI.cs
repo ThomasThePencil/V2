@@ -27,6 +27,7 @@ namespace V2.UI.VoreBestiary
 	public enum AEMTab
 	{
 		Starter,
+		You,
 		ItemEntries,
 		NPCEntries,
 		WorldEntries,
@@ -46,11 +47,17 @@ namespace V2.UI.VoreBestiary
 		public static AEMTab SelectedTab { get; set; }
 		public static DITab SelectedDITab { get; set; }
 
-		private static readonly Asset<Texture2D> _voreBestiaryBackground = ModContent.Request<Texture2D>("V2/UI/VoreBestiary/VoreBestiary_Main", AssetRequestMode.ImmediateLoad);
-		private static readonly Asset<Texture2D> _DITabActive = ModContent.Request<Texture2D>("V2/UI/VoreBestiary/VoreBestiary_DivineInterventionTab", AssetRequestMode.ImmediateLoad);
-		private static readonly Asset<Texture2D> _DITabInactive = ModContent.Request<Texture2D>("V2/UI/VoreBestiary/VoreBestiary_DivineInterventionTabInactive", AssetRequestMode.ImmediateLoad);
-		private static readonly Asset<Texture2D> _actualDescBox = ModContent.Request<Texture2D>("V2/UI/VoreBestiary/VoreBestiary_DescriptionBox", AssetRequestMode.ImmediateLoad);
-		private static readonly Asset<Texture2D> _snackAngelYapBox = ModContent.Request<Texture2D>("V2/UI/VoreBestiary/VoreBestiary_FoodAngelYappingBox", AssetRequestMode.ImmediateLoad);
+		public static int YappySnackAngelTalkingTime = 0;
+
+		private static readonly Asset<Texture2D> _voreBestiaryBackground = ModContent.Request<Texture2D>("V2/UI/VoreBestiary/VoreBestiary_Main");
+		private static readonly Asset<Texture2D> _actualDescBox = ModContent.Request<Texture2D>("V2/UI/VoreBestiary/VoreBestiary_DescriptionBox");
+		private static readonly Asset<Texture2D> _snackAngelYapBox = ModContent.Request<Texture2D>("V2/UI/VoreBestiary/VoreBestiary_FoodAngelYappingBox");
+		private static readonly Asset<Texture2D> _genericTabActive = ModContent.Request<Texture2D>("V2/UI/VoreBestiary/VoreBestiary_GenericTabActive");
+		private static readonly Asset<Texture2D> _genericTabInactive = ModContent.Request<Texture2D>("V2/UI/VoreBestiary/VoreBestiary_GenericTabInactive");
+		private static readonly Asset<Texture2D> _DITabActive = ModContent.Request<Texture2D>("V2/UI/VoreBestiary/VoreBestiary_DivineInterventionTab");
+		private static readonly Asset<Texture2D> _DITabInactive = ModContent.Request<Texture2D>("V2/UI/VoreBestiary/VoreBestiary_DivineInterventionTabInactive");
+		private static readonly Asset<Texture2D> _DISwitch = ModContent.Request<Texture2D>("V2/UI/VoreBestiary/VoreBestiary_DivineInterventionSwitch");
+		private static readonly Asset<Texture2D> _DIHoverBox = ModContent.Request<Texture2D>("V2/UI/VoreBestiary/VoreBestiary_GeneralHoverBox");
 
 		public override void OnInitialize()
 		{
@@ -81,6 +88,8 @@ namespace V2.UI.VoreBestiary
 				(Main.screenWidth - _voreBestiaryBackground.Value.Width) / 2,
 				(Main.screenHeight - _voreBestiaryBackground.Value.Height) / 2
 			);
+			Vector2 descBoxPos = backdropPos + new Vector2(922, 62);
+			Vector2 snackAngelYapPos = backdropPos + new Vector2(922, 502);
 			spriteBatch.Draw(
 				_voreBestiaryBackground.Value,
 				backdropPos,
@@ -92,22 +101,60 @@ namespace V2.UI.VoreBestiary
 				SpriteEffects.None,
 				0f
 			);
+			spriteBatch.Draw(
+				_actualDescBox.Value,
+				descBoxPos,
+				_actualDescBox.Value.Bounds,
+				Color.White,
+				0f,
+				Vector2.Zero,
+				1f,
+				SpriteEffects.None,
+				0f
+			);
+			spriteBatch.Draw(
+				_snackAngelYapBox.Value,
+				snackAngelYapPos,
+				_snackAngelYapBox.Value.Bounds,
+				Color.White,
+				0f,
+				Vector2.Zero,
+				1f,
+				SpriteEffects.None,
+				0f
+			);
+			void DrawAEMTab(AEMTab tabToDraw, int offX,)
+			{
+				Texture2D tabTexture = (SelectedTab switch {
+					_ => _genericTabInactive
+				}).Value;
+				spriteBatch.Draw(
+					tabTexture,
+					backdropPos + new Vector2(offX, 20),
+					tabTexture.Bounds,
+					Color.White,
+					0f,
+					tabTexture.Size() / 2f,
+					1f,
+					SpriteEffects.None,
+					0f
+				);
+
+				Rectangle hoverRect = new Rectangle(
+					(int)backdropPos.X + offX,
+					(int)backdropPos.Y + 20,
+					tabTexture.Width,
+					tabTexture.Height
+				);
+				if (hoverRect.Contains(Main.MouseScreen.ToPoint()))
+				{
+					string 
+				}
+			}
 
 			switch (SelectedTab)
 			{
 				case AEMTab.DivineIntervention:
-					spriteBatch.Draw(
-						_voreBestiaryBackground.Value,
-						backdropPos,
-						_voreBestiaryBackground.Value.Bounds,
-						Color.White,
-						0f,
-						Vector2.Zero,
-						1f,
-						SpriteEffects.None,
-						0f
-					);
-
 					Vector2 tabGenderPos = backdropPos + new Vector2(128, 128);
 					Vector2 tabTypePos = backdropPos + new Vector2(200, 128);
 					switch (SelectedDITab)
@@ -136,6 +183,63 @@ namespace V2.UI.VoreBestiary
 								SpriteEffects.None,
 								0f
 							);
+
+							int row = 0;
+							int column = 0;
+							Vector2 switchBasePos = backdropPos + new Vector2(160, 200);
+							foreach (DISwitch toggle in DISwitchHandling.Switches)
+							{
+								if (toggle.Category != DISwitchCategory.Gender)
+									continue;
+
+								Vector2 properSwitchPos = switchBasePos + new Vector2(
+									row * 40,
+									column * 60
+								);
+								spriteBatch.Draw(
+									_DISwitch.Value,
+									properSwitchPos,
+									_DISwitch.Value.Bounds,
+									Color.White,
+									0f,
+									Vector2.Zero,
+									1f,
+									SpriteEffects.None,
+									0f
+								);
+
+								toggle.GetTitleAndDescription(out string title, out string stPrommentary);
+
+								ChatManager.DrawColorCodedStringWithShadow(
+									spriteBatch,
+									FontAssets.MouseText.Value,
+									title,
+									properSwitchPos + new Vector2(20, 0),
+									new Color(255, 204, 255),
+									new Color(0, 9, 38),
+									0f,
+									Vector2.Zero,
+									Vector2.One
+								);
+
+								Rectangle switchHoverBox = new Rectangle(
+									(int)properSwitchPos.X,
+									(int)properSwitchPos.Y,
+									16,
+									16
+								);
+
+								if (switchHoverBox.Contains(Main.MouseScreen.ToPoint()))
+								{
+									
+								}
+								row += 1;
+								if (row >= 7)
+								{
+									row = 0;
+									column += 1;
+								}
+							}
 							break;
 						case DITab.Type:
 							spriteBatch.Draw(
@@ -162,29 +266,6 @@ namespace V2.UI.VoreBestiary
 							);
 							break;
 					}
-
-					spriteBatch.Draw(
-						_actualDescBox.Value,
-						backdropPos + new Vector2(922, 62),
-						_actualDescBox.Value.Bounds,
-						Color.White,
-						0f,
-						Vector2.Zero,
-						1f,
-						SpriteEffects.None,
-						0f
-					);
-					spriteBatch.Draw(
-						_snackAngelYapBox.Value,
-						backdropPos + new Vector2(922, 502),
-						_snackAngelYapBox.Value.Bounds,
-						Color.White,
-						0f,
-						Vector2.Zero,
-						1f,
-						SpriteEffects.None,
-						0f
-					);
 					break;
 				case AEMTab.Starter:
 				default:

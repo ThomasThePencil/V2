@@ -21,29 +21,29 @@ namespace V2.UI.VoreBestiary
 			DISwitch.Enby,
 		];
 	}
+	public enum DISwitchCategory
+	{
+		Gender,
+		Type,
+	}
 	public abstract class DISwitch
 	{
-		public static DISwitchMale Male => new DISwitchMale();
-		public static DISwitchFemale Female => new DISwitchFemale();
-		public static DISwitchEnby Enby => new DISwitchEnby();
-		public static DISwitchBat Bat => new DISwitchBat();
-		public static DISwitchBird Bird => new DISwitchBird();
-		public static DISwitchBug Bug => new DISwitchBug();
-		public static DISwitchCanine Canine => new DISwitchCanine();
-		public static DISwitchFish Fish => new DISwitchFish();
-		public static DISwitchObject Object => new DISwitchObject();
-		public static DISwitchPlant Plant => new DISwitchPlant();
-		public static DISwitchSlime Slime => new DISwitchSlime();
-		public static DISwitchSpider Spider => new DISwitchSpider();
-		public static DISwitchTownsfolk Townsfolk => new DISwitchTownsfolk();
-		public static DISwitchUndead Undead => new DISwitchUndead();
-		public enum SwitchCategory
-		{
-			Gender,
-			Type,
-		}
+		public static DISwitchMale Male { get; private set; } = new DISwitchMale();
+		public static DISwitchFemale Female { get; private set; } = new DISwitchFemale();
+		public static DISwitchEnby Enby { get; private set; } = new DISwitchEnby();
+		public static DISwitchBat Bat { get; private set; } = new DISwitchBat();
+		public static DISwitchBird Bird { get; private set; } = new DISwitchBird();
+		public static DISwitchBug Bug { get; private set; } = new DISwitchBug();
+		public static DISwitchCanine Canine { get; private set; } = new DISwitchCanine();
+		public static DISwitchFish Fish { get; private set; } = new DISwitchFish();
+		public static DISwitchObject Object { get; private set; } = new DISwitchObject();
+		public static DISwitchPlant Plant { get; private set; } = new DISwitchPlant();
+		public static DISwitchSlime Slime { get; private set; } = new DISwitchSlime();
+		public static DISwitchSpider Spider { get; private set; } = new DISwitchSpider();
+		public static DISwitchTownsfolk Townsfolk { get; private set; } = new DISwitchTownsfolk();
+		public static DISwitchUndead Undead { get; private set; } = new DISwitchUndead();
 
-		public abstract SwitchCategory Category { get; }
+		public abstract DISwitchCategory Category { get; }
 
 		/// <summary>
 		/// The localization key which this Divine Intergestion toggle uses to fetch its title and commentary.
@@ -52,11 +52,11 @@ namespace V2.UI.VoreBestiary
 		/// <summary>
 		/// Gets the intended title and St. Promethia commentary for this Divine Intergestion toggle.
 		/// </summary>
-		public void GetTitleAndDescription(out LocalizedText title, out LocalizedText stPrommentary)
+		public void GetTitleAndDescription(out string title, out string stPrommentary)
 		{
-			string intendedKey = "Mods.V2.AEM.DivineIntervention." + (Category switch { SwitchCategory.Gender => "GenderRelated", _ => "TypeRelated" }) + "." + LocalizeKey;
-			title = Language.GetText(intendedKey + ".Title");
-			stPrommentary = Language.GetText(intendedKey + ".Description");
+			string intendedKey = "Mods.V2.AEM.DivineIntervention." + (Category switch { DISwitchCategory.Gender => "GenderRelated", _ => "TypeRelated" }) + "." + LocalizeKey;
+			title = Language.GetTextValue(intendedKey + ".Title");
+			stPrommentary = Language.GetTextValue(intendedKey + ".Description");
 		}
 		/// <summary>
 		/// The key which this Divine Intergestion toggle uses to know if its pred type should or shouldn't be enabled.
@@ -110,7 +110,7 @@ namespace V2.UI.VoreBestiary
 
 	public class DISwitchMale : DISwitch
 	{
-		public override SwitchCategory Category => SwitchCategory.Gender;
+		public override DISwitchCategory Category => DISwitchCategory.Gender;
 		public override string LocalizeKey => "Male";
 		public override string ToggleStateKey => "blacksapphirecookie";
 		public override bool ComparisonRule(Player player, Entity entity)
@@ -128,7 +128,7 @@ namespace V2.UI.VoreBestiary
 
 	public class DISwitchFemale : DISwitch
 	{
-		public override SwitchCategory Category => SwitchCategory.Gender;
+		public override DISwitchCategory Category => DISwitchCategory.Gender;
 		public override string LocalizeKey => "Female";
 		public override string ToggleStateKey => "povidoneiodinecookie";
 		public override bool ComparisonRule(Player player, Entity entity)
@@ -146,7 +146,7 @@ namespace V2.UI.VoreBestiary
 
 	public class DISwitchEnby : DISwitch
 	{
-		public override SwitchCategory Category => SwitchCategory.Gender;
+		public override DISwitchCategory Category => DISwitchCategory.Gender;
 		public override string LocalizeKey => "NonBinary";
 		public override string ToggleStateKey => "rinpenroseifshewasatheysloshthem";
 		public override bool ComparisonRule(Player player, Entity entity)
@@ -164,23 +164,23 @@ namespace V2.UI.VoreBestiary
 
 	public class DISwitchBat : DISwitch
 	{
-		public override SwitchCategory Category => SwitchCategory.Type;
+		public override DISwitchCategory Category => DISwitchCategory.Type;
 		public override string LocalizeKey => "Bat";
-		public override string ToggleStateKey => "thatoneshinynoivernIcaughtwhilegettingtheshinycharm";
+		public override string ToggleStateKey => "thatoneshinynoivernIcaughtwhilelookingforadifferentpokemonentirely";
 		public override bool ComparisonRule(Player player, Entity entity) => false;
 	}
 
 	public class DISwitchBird : DISwitch
 	{
-		public override SwitchCategory Category => SwitchCategory.Type;
+		public override DISwitchCategory Category => DISwitchCategory.Type;
 		public override string LocalizeKey => "Bird";
-		public override string ToggleStateKey => "birdup";
+		public override string ToggleStateKey => "birdup_theworstshowontelevision";
 		public override bool ComparisonRule(Player player, Entity entity) => false;
 	}
 
 	public class DISwitchBug : DISwitch
 	{
-		public override SwitchCategory Category => SwitchCategory.Type;
+		public override DISwitchCategory Category => DISwitchCategory.Type;
 		public override string LocalizeKey => "Bat";
 		public override string ToggleStateKey => "10kfireflies";
 		public override bool ComparisonRule(Player player, Entity entity) => false;
@@ -188,7 +188,7 @@ namespace V2.UI.VoreBestiary
 
 	public class DISwitchCanine : DISwitch
 	{
-		public override SwitchCategory Category => SwitchCategory.Type;
+		public override DISwitchCategory Category => DISwitchCategory.Type;
 		public override string LocalizeKey => "Canine";
 		public override string ToggleStateKey => "dogememes";
 		public override bool ComparisonRule(Player player, Entity entity) => false;
@@ -196,7 +196,7 @@ namespace V2.UI.VoreBestiary
 
 	public class DISwitchFish : DISwitch
 	{
-		public override SwitchCategory Category => SwitchCategory.Type;
+		public override DISwitchCategory Category => DISwitchCategory.Type;
 		public override string LocalizeKey => "Fish";
 		public override string ToggleStateKey => "fih";
 		public override bool ComparisonRule(Player player, Entity entity) => false;
@@ -204,7 +204,7 @@ namespace V2.UI.VoreBestiary
 
 	public class DISwitchObject : DISwitch
 	{
-		public override SwitchCategory Category => SwitchCategory.Type;
+		public override DISwitchCategory Category => DISwitchCategory.Type;
 		public override string LocalizeKey => "Object";
 		public override string ToggleStateKey => "theentirecastofii";
 		public override bool ComparisonRule(Player player, Entity entity) => false;
@@ -212,7 +212,7 @@ namespace V2.UI.VoreBestiary
 
 	public class DISwitchPlant : DISwitch
 	{
-		public override SwitchCategory Category => SwitchCategory.Type;
+		public override DISwitchCategory Category => DISwitchCategory.Type;
 		public override string LocalizeKey => "Plant";
 		public override string ToggleStateKey => "jarona";
 		public override bool ComparisonRule(Player player, Entity entity) => false;
@@ -220,7 +220,7 @@ namespace V2.UI.VoreBestiary
 
 	public class DISwitchSlime : DISwitch
 	{
-		public override SwitchCategory Category => SwitchCategory.Type;
+		public override DISwitchCategory Category => DISwitchCategory.Type;
 		public override string LocalizeKey => "Slime";
 		public override string ToggleStateKey => "beatrixlebeau";
 		public override bool ComparisonRule(Player player, Entity entity) => false;
@@ -228,7 +228,7 @@ namespace V2.UI.VoreBestiary
 
 	public class DISwitchSpider : DISwitch
 	{
-		public override SwitchCategory Category => SwitchCategory.Type;
+		public override DISwitchCategory Category => DISwitchCategory.Type;
 		public override string LocalizeKey => "Spider";
 		public override string ToggleStateKey => "gwenstacy";
 		public override bool ComparisonRule(Player player, Entity entity) => false;
@@ -236,7 +236,7 @@ namespace V2.UI.VoreBestiary
 
 	public class DISwitchTownsfolk : DISwitch
 	{
-		public override SwitchCategory Category => SwitchCategory.Type;
+		public override DISwitchCategory Category => DISwitchCategory.Type;
 		public override string LocalizeKey => "Townsfolk";
 		public override string ToggleStateKey => "4town";
 		public override bool ComparisonRule(Player player, Entity entity) => false;
@@ -244,7 +244,7 @@ namespace V2.UI.VoreBestiary
 
 	public class DISwitchUndead : DISwitch
 	{
-		public override SwitchCategory Category => SwitchCategory.Type;
+		public override DISwitchCategory Category => DISwitchCategory.Type;
 		public override string LocalizeKey => "Undead";
 		public override string ToggleStateKey => "thezombiesonyourlawn";
 		public override bool ComparisonRule(Player player, Entity entity) => false;

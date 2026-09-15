@@ -358,18 +358,18 @@ namespace V2.Projectiles.Voraria.Pets
 						PredProjectile.Swallow(astralFairy, item);
 					}
 				}
-				foreach (var item in Main.ActiveNPCs)
+				foreach (var npc in Main.ActiveNPCs)
 				{
-					if (item.active && item.CurrentCaptor() is null && hitbox.Intersects(item.Hitbox))
+					if (npc.active && npc.CurrentCaptor() is null && hitbox.Intersects(npc.Hitbox))
 					{
-						PredProjectile.Swallow(astralFairy, item);
+						PredProjectile.Swallow(astralFairy, npc);
 					}
 				}
-				foreach (var item in Main.ActiveProjectiles)
+				foreach (var projectile in Main.ActiveProjectiles)
 				{
-					if (item.active && item.CurrentCaptor() is null && hitbox.Intersects(item.Hitbox) && item.type != ModContent.ProjectileType<AstralFairy>())
+					if (projectile.active && projectile.CurrentCaptor() is null && hitbox.Intersects(projectile.Hitbox) && projectile.type != ModContent.ProjectileType<AstralFairy>())
 					{
-						PredProjectile.Swallow(astralFairy, item);
+						PredProjectile.Swallow(astralFairy, projectile);
 					}
 				}
 			}

@@ -120,7 +120,7 @@ namespace V2.StatusEffects.Voraria.Debuffs
 				0f
 			);
 
-			Vector2 stringSize = FontAssets.MouseText.Value.MeasureString("" + Main.LocalPlayer.AsFood().SoftenedStacks);
+			Vector2 stringSize = FontAssets.MouseText.Value.MeasureString(Main.LocalPlayer.AsFood().SoftenedStacks.ToString());
 			ChatManager.DrawColorCodedStringWithShadow(
 				spriteBatch,
 				FontAssets.MouseText.Value,
