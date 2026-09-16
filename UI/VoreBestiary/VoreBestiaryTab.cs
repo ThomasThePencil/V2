@@ -18,10 +18,8 @@ namespace V2.UI.VoreBestiary
 {
 	public static class VoreBestiaryTabHandling
 	{
-		public static List<DISwitch> Switches => [
-			DISwitch.Male,
-			DISwitch.Female,
-			DISwitch.Enby,
+		public static List<VoreBestiaryTab> Tabs => [
+			VoreBestiaryTab.DivineIntervention,
 		];
 	}
 	public abstract class VoreBestiaryTab
@@ -29,7 +27,7 @@ namespace V2.UI.VoreBestiary
 		public static DivineIntervention DivineIntervention { get; private set; } = new DivineIntervention();
 
 		/// <summary>
-		/// 
+		/// A number which signifies the priority this 
 		/// </summary>
 		public abstract int Priority { get; }
 
@@ -45,6 +43,26 @@ namespace V2.UI.VoreBestiary
 
 		public abstract AEMTab Signifier { get; }
 		public bool IsActiveTab => VoreBestiaryUI.SelectedTab == Signifier;
+	}
+
+	public class Starter : VoreBestiaryTab
+	{
+		public static readonly Asset<Texture2D> InactiveTex = ModContent.Request<Texture2D>("V2/UI/VoreBestiary/VoreBestiary_GenericTabInactive");
+		public static readonly Asset<Texture2D> ActiveTex = ModContent.Request<Texture2D>("V2/UI/VoreBestiary/VoreBestiary_GenericTabActive");
+		public override int Priority => 0;
+		public override Texture2D Texture => (IsActiveTab ? ActiveTex : InactiveTex).Value;
+		public override string LocalizeKey => "Starter";
+		public override AEMTab Signifier => AEMTab.DivineIntervention;
+	}
+
+	public class You : VoreBestiaryTab
+	{
+		public static readonly Asset<Texture2D> InactiveTex = ModContent.Request<Texture2D>("V2/UI/VoreBestiary/VoreBestiary_GenericTabInactive");
+		public static readonly Asset<Texture2D> ActiveTex = ModContent.Request<Texture2D>("V2/UI/VoreBestiary/VoreBestiary_GenericTabActive");
+		public override int Priority => 1;
+		public override Texture2D Texture => (IsActiveTab ? ActiveTex : InactiveTex).Value;
+		public override string LocalizeKey => "Starter";
+		public override AEMTab Signifier => AEMTab.DivineIntervention;
 	}
 
 	public class DivineIntervention : VoreBestiaryTab

@@ -57,7 +57,7 @@ namespace V2.UI.VoreBestiary
 		private static readonly Asset<Texture2D> _DITabActive = ModContent.Request<Texture2D>("V2/UI/VoreBestiary/VoreBestiary_DivineInterventionTab");
 		private static readonly Asset<Texture2D> _DITabInactive = ModContent.Request<Texture2D>("V2/UI/VoreBestiary/VoreBestiary_DivineInterventionTabInactive");
 		private static readonly Asset<Texture2D> _DISwitch = ModContent.Request<Texture2D>("V2/UI/VoreBestiary/VoreBestiary_DivineInterventionSwitch");
-		private static readonly Asset<Texture2D> _DIHoverBox = ModContent.Request<Texture2D>("V2/UI/VoreBestiary/VoreBestiary_GeneralHoverBox");
+		private static readonly Asset<Texture2D> _HoverBox = ModContent.Request<Texture2D>("V2/UI/VoreBestiary/VoreBestiary_GeneralHoverBox");
 
 		public override void OnInitialize()
 		{
@@ -123,14 +123,16 @@ namespace V2.UI.VoreBestiary
 				SpriteEffects.None,
 				0f
 			);
-			void DrawAEMTab(AEMTab tabToDraw, int offX,)
+
+			List<VoreBestiaryTab> tabsList = [.. VoreBestiaryTabHandling.Tabs.OrderBy(x => x.Priority)];
+			tabsList.RemoveAll(x => x.Priority <= 0);
+			for (int i = 0; i < tabsList.Count; i++)
 			{
-				Texture2D tabTexture = (SelectedTab switch {
-					_ => _genericTabInactive
-				}).Value;
+				VoreBestiaryTab tabToDraw = tabsList[i];
+				Texture2D tabTexture = tabToDraw.Texture;
 				spriteBatch.Draw(
 					tabTexture,
-					backdropPos + new Vector2(offX, 20),
+					backdropPos + new Vector2(60 * tabToDraw.Priority, 20),
 					tabTexture.Bounds,
 					Color.White,
 					0f,
@@ -141,14 +143,35 @@ namespace V2.UI.VoreBestiary
 				);
 
 				Rectangle hoverRect = new Rectangle(
-					(int)backdropPos.X + offX,
+					(int)backdropPos.X + (60 * tabToDraw.Priority),
 					(int)backdropPos.Y + 20,
 					tabTexture.Width,
 					tabTexture.Height
 				);
 				if (hoverRect.Contains(Main.MouseScreen.ToPoint()))
 				{
-					string 
+					Color gilded = new Color(255, 204, 0);
+					// this is the most dogshit way to set up this string ever but whatever
+					string titleAndDescOnHover = "\n[c/"
+						+ gilded.Hex3()
+						+ ":"
+						+ Language.GetTextValue(tabToDraw.LocalizeKey + ".Title")
+						+ "]\n[c/"
+						+ Color.CornflowerBlue.Hex3()
+						+ ":"
+						+ Language.GetTextValue(tabToDraw.LocalizeKey + ".TabOverview")
+						+ "]";
+					UISupplementaries.DrawMouseTooltipWithTilesBoundingBox(
+						spriteBatch,
+						_HoverBox.Value,
+						30,
+						Color.White,
+						titleAndDescOnHover,
+						Color.White,
+						new Color(0, 9, 38),
+						500,
+						8
+					);
 				}
 			}
 
@@ -157,6 +180,9 @@ namespace V2.UI.VoreBestiary
 				case AEMTab.DivineIntervention:
 					Vector2 tabGenderPos = backdropPos + new Vector2(128, 128);
 					Vector2 tabTypePos = backdropPos + new Vector2(200, 128);
+					Vector2 switchBasePos = backdropPos + new Vector2(160, 200);
+					int row = 0;
+					int column = 0;
 					switch (SelectedDITab)
 					{
 						case DITab.Gender:
@@ -184,9 +210,6 @@ namespace V2.UI.VoreBestiary
 								0f
 							);
 
-							int row = 0;
-							int column = 0;
-							Vector2 switchBasePos = backdropPos + new Vector2(160, 200);
 							foreach (DISwitch toggle in DISwitchHandling.Switches)
 							{
 								if (toggle.Category != DISwitchCategory.Gender)
@@ -199,10 +222,10 @@ namespace V2.UI.VoreBestiary
 								spriteBatch.Draw(
 									_DISwitch.Value,
 									properSwitchPos,
-									_DISwitch.Value.Bounds,
+									toggle.GetToggleState() ? new Rectangle(16, 0, 16, 16) : new Rectangle(0, 0, 16, 16),
 									Color.White,
 									0f,
-									Vector2.Zero,
+									new Vector2(8, 8),
 									1f,
 									SpriteEffects.None,
 									0f
@@ -210,15 +233,21 @@ namespace V2.UI.VoreBestiary
 
 								toggle.GetTitleAndDescription(out string title, out string stPrommentary);
 
+								Vector2 titleSize = ChatManager.GetStringSize(
+									FontAssets.MouseText.Value,
+									title,
+									Vector2.One
+								);
+
 								ChatManager.DrawColorCodedStringWithShadow(
 									spriteBatch,
 									FontAssets.MouseText.Value,
 									title,
 									properSwitchPos + new Vector2(20, 0),
-									new Color(255, 204, 255),
+									new Color(255, 204, 0),
 									new Color(0, 9, 38),
 									0f,
-									Vector2.Zero,
+									new Vector2(0, titleSize.Y / 2f),
 									Vector2.One
 								);
 
@@ -231,7 +260,22 @@ namespace V2.UI.VoreBestiary
 
 								if (switchHoverBox.Contains(Main.MouseScreen.ToPoint()))
 								{
-									
+									if (Main.mouseLeft & Main.mouseLeftRelease)
+									{
+										Main.mouseLeftRelease = false;
+										toggle.SetToggleState(toggle.GetToggleState());
+									}
+								}
+								switchHoverBox.Width += 20 + (int)Math.Ceiling(titleSize.X);
+								switchHoverBox.Height += (int)Math.Ceiling(titleSize.X);
+
+								if (switchHoverBox.Contains(Main.MouseScreen.ToPoint()))
+								{
+									if (Main.mouseLeft & Main.mouseLeftRelease)
+									{
+										Main.mouseLeftRelease = false;
+										toggle.SetToggleState(toggle.GetToggleState());
+									}
 								}
 								row += 1;
 								if (row >= 7)
@@ -264,8 +308,63 @@ namespace V2.UI.VoreBestiary
 								SpriteEffects.None,
 								0f
 							);
+
+							foreach (DISwitch toggle in DISwitchHandling.Switches)
+							{
+								if (toggle.Category != DISwitchCategory.Type)
+									continue;
+
+								Vector2 properSwitchPos = switchBasePos + new Vector2(
+									row * 40,
+									column * 60
+								);
+								spriteBatch.Draw(
+									_DISwitch.Value,
+									properSwitchPos,
+									_DISwitch.Value.Bounds,
+									Color.White,
+									0f,
+									Vector2.Zero,
+									1f,
+									SpriteEffects.None,
+									0f
+								);
+
+								toggle.GetTitleAndDescription(out string title, out string stPrommentary);
+
+								ChatManager.DrawColorCodedStringWithShadow(
+									spriteBatch,
+									FontAssets.MouseText.Value,
+									title,
+									properSwitchPos + new Vector2(20, 0),
+									new Color(255, 204, 0),
+									new Color(0, 9, 38),
+									0f,
+									Vector2.Zero,
+									Vector2.One
+								);
+
+								Rectangle switchHoverBox = new Rectangle(
+									(int)properSwitchPos.X,
+									(int)properSwitchPos.Y,
+									16,
+									16
+								);
+
+								if (switchHoverBox.Contains(Main.MouseScreen.ToPoint()))
+								{
+
+								}
+								row += 1;
+								if (row >= 7)
+								{
+									row = 0;
+									column += 1;
+								}
+							}
 							break;
 					}
+					// note to self: add case for the AEM to eat the player if all DI toggles are off simultaneously
 					break;
 				case AEMTab.Starter:
 				default:

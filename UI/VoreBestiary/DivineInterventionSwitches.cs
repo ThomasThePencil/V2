@@ -68,7 +68,11 @@ namespace V2.UI.VoreBestiary
 		/// <returns></returns>
 		public bool GetToggleState()
 		{
-			PreyPlayer localFood = Main.LocalPlayer.AsFood();
+			if (!Main.LocalPlayer.TryGetModPlayer(out PreyPlayer localFood))
+				return true;
+			if (localFood.CanBeEatenBy is null)
+				return true;
+
 			localFood.CanBeEatenBy.TryAdd(ToggleStateKey, true);
 			return localFood.CanBeEatenBy[ToggleStateKey];
 		}
@@ -78,7 +82,11 @@ namespace V2.UI.VoreBestiary
 		/// <param name="newState"></param>
 		public void SetToggleState(bool newState)
 		{
-			PreyPlayer localFood = Main.LocalPlayer.AsFood();
+			if (!Main.LocalPlayer.TryGetModPlayer(out PreyPlayer localFood))
+				return;
+			if (localFood.CanBeEatenBy is null)
+				return;
+
 			localFood.CanBeEatenBy.TryAdd(ToggleStateKey, newState);
 			localFood.CanBeEatenBy[ToggleStateKey] = newState;
 		}

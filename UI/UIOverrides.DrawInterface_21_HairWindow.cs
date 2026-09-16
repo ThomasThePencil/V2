@@ -84,6 +84,7 @@ namespace V2.UI
 					Main.player[Main.myPlayer].mouseInterface = true;
 					if (Main.mouseLeftRelease && Main.mouseLeft)
 					{
+						Main.mouseLeftRelease = false;
 						Main.hairStart -= 15;
 						SoundEngine.PlaySound(SoundID.MenuTick);
 					}
@@ -100,6 +101,7 @@ namespace V2.UI
 					Main.player[Main.myPlayer].mouseInterface = true;
 					if (Main.mouseLeftRelease && Main.mouseLeft)
 					{
+						Main.mouseLeftRelease = false;
 						Main.hairStart += 15;
 						SoundEngine.PlaySound(SoundID.MenuTick);
 					}
@@ -419,6 +421,7 @@ namespace V2.UI
 
 			if (Main.mouseLeft && Main.mouseLeftRelease)
 			{
+				Main.mouseLeftRelease = false;
 				if (Main.npcChatFocus1)
 				{
 					if (Main.player[Main.myPlayer].BuyItem(normalCutPrice))

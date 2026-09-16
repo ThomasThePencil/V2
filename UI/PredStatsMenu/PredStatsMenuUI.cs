@@ -309,6 +309,7 @@ namespace V2.UI.PredStatsMenu
 						Main.mouseText = true;
 						if (stageToDraw.Available(Main.LocalPlayer) && Main.mouseLeft && Main.mouseLeftRelease)
 						{
+							Main.mouseLeftRelease = false;
 							SoundEngine.PlaySound(SoundID.MenuTick);
 							SelectedProgressionStage = stageToDraw;
 						}
@@ -409,11 +410,13 @@ namespace V2.UI.PredStatsMenu
 				{
 					if (Main.mouseLeft && Main.mouseLeftRelease)
 					{
+						Main.mouseLeftRelease = false;
 						SortStyle = SortStyle.NextEnum();
 						SoundEngine.PlaySound(SortStyleChange);
 					}
 					if (Main.mouseRight && Main.mouseRightRelease)
 					{
+						Main.mouseLeftRelease = false;
 						SortStyle = SortStyle.PreviousEnum();
 						SoundEngine.PlaySound(SortStyleChange);
 					}
@@ -456,6 +459,7 @@ namespace V2.UI.PredStatsMenu
 					);
 					if (Main.mouseLeft && Main.mouseLeftRelease)
 					{
+						Main.mouseLeftRelease = false;
 						SoundEngine.PlaySound(SoundID.MenuClose);
 						GoalsMenuOpen = false;
 						return;
@@ -507,6 +511,7 @@ namespace V2.UI.PredStatsMenu
 					);
 					if (Main.mouseLeft && Main.mouseLeftRelease)
 					{
+						Main.mouseLeftRelease = false;
 						if (Main.LocalPlayer.AsPred().AvailableStatPoints == 0)
 						{
 							SoundEngine.PlaySound(AllocateFail);
@@ -544,6 +549,7 @@ namespace V2.UI.PredStatsMenu
 					}
 					else if (Main.mouseRight && Main.mouseRightRelease)
 					{
+						Main.mouseRightRelease = false;
 						if (stat.Spent == 0)
 						{
 							SoundEngine.PlaySound(AllocateFail);
@@ -814,6 +820,7 @@ namespace V2.UI.PredStatsMenu
 					UICommon.TooltipMouseText(mouseText);
 					if (Main.LocalPlayer.AsPred().CheatedStatPointsWork && Main.mouseLeft && Main.mouseLeftRelease)
 					{
+						Main.mouseLeftRelease = false;
 						switch (Main.keyState.IsKeyDown(Keys.LeftShift), Main.keyState.IsKeyDown(Keys.LeftControl))
 						{
 							case (false, false):
@@ -882,6 +889,7 @@ namespace V2.UI.PredStatsMenu
 					);
 					if (Main.mouseLeft && Main.mouseLeftRelease)
 					{
+						Main.mouseLeftRelease = false;
 						SoundEngine.PlaySound(SoundID.MenuOpen);
 						GoalsMenuOpen = true;
 						GoalsPage = 1;
@@ -914,6 +922,7 @@ namespace V2.UI.PredStatsMenu
 					);
 					if (Main.mouseLeft && Main.mouseLeftRelease)
 					{
+						Main.mouseLeftRelease = false;
 						PredStatsMenuMouthUI.MouthState = PredStatsMenuMouthState.RegurgitatingCursor;
 						PredStatsMenuMouthUI.CanSkipThisFrame = false;
 					}

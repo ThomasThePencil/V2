@@ -4,6 +4,7 @@ using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
+using V2.Items.Rarities;
 using V2.PlayerHandling;
 using V2.UI.VoreBestiary;
 
@@ -27,13 +28,14 @@ namespace V2.Items.Voraria
 		{
 			Item.maxStack = 1;
 
+			Item.useStyle = ItemUseStyleID.HoldUp;
 			Item.useAnimation = 5;
 			Item.useTime = 5;
 			Item.noUseGraphic = true;
 
 			Item.width = 26;
 			Item.height = 26;
-			Item.rare = ItemRarityID.Red;
+			Item.rare = ModContent.RarityType<DivineRarity>();
 			Item.value = Item.buyPrice(
 				platinum: 0,
 				gold: 15,

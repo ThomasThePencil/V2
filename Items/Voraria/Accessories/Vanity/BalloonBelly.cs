@@ -96,6 +96,7 @@ namespace V2.Items.Voraria.Accessories.Vanity
 		{
 			if (Main.mouseLeft && Main.mouseLeftRelease && InflatedSize < MaximumInflatedSize)
 			{
+				Main.mouseLeftRelease = false;
 				InflatedSize += 1;
 				float inflatePitch = InflatedSize switch
 				{

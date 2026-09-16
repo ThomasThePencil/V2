@@ -167,6 +167,7 @@ namespace V2.UI.PredStatsMenu
 				case PredStatsMenuMouthState.Hovered:
 					if (Main.mouseLeft && Main.mouseLeftRelease)
 					{
+						Main.mouseLeftRelease = false;
 						Main.LocalPlayer.AsPred().InPredStatsMenu = true;
 						if (ModContent.GetInstance<V2ClientConfig>().SkipPredStatMenuAnims)
 						{
@@ -206,6 +207,7 @@ namespace V2.UI.PredStatsMenu
 					Main.LocalPlayer.mouseInterface = true;
 					if (_mawSwallowTime >= 105 || (Main.mouseLeft && Main.mouseLeftRelease && CanSkipThisFrame) || ModContent.GetInstance<V2ClientConfig>().SkipPredStatMenuAnims)
 					{
+						Main.mouseLeftRelease = false;
 						_mawSwallowTime = 105;
 						if (Main.hasFocus)
 							Mouse.SetPosition((int)backdropPos.X + (_predStatsMenuBackground.Value.Width / 2), (int)backdropPos.Y + 40);

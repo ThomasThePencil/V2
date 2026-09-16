@@ -3,7 +3,23 @@ Generic: {
 	AlreadyOnTab: "[c/{$Mods.V2.Colors.Yellow}:You're already on this tab!]"
 }
 
+PersonalStats: {
+	Title: Yourself
+	TabOverview:
+		'''
+		Take a look at yourself and all your stats!]
+		[c/{$Mods.V2.Colors.Grey}:Getting hungry for yourself, are you?
+		'''
+}
+
 Items: {
+	Title: Items, Usable And Edible
+	TabOverview:
+		'''
+		Hungry for your gear and gadgets? Learn more about them here!]
+		[c/{$Mods.V2.Colors.Grey}:And remember: they get hungry, too!
+		'''
+
 	Accessories: {
 		Offensive: {
 			SharkToothNecklace: {
@@ -95,8 +111,23 @@ Items: {
 	}
 }
 
+Projectiles: {
+	Title: Projectiles (And Things That Act Like Them)
+	TabOverview:
+		'''
+		Full of all the ways you and your feisty food can clash!]
+		[c/{$Mods.V2.Colors.Grey}:You might even belch a few up sometimes!
+		'''
+}
+
 NPCs: {
-	TabOverview: Get a sneak peek at your next live lunch
+	Title: Hostile (And Non-Hostile) Mobs And People
+	TabOverview:
+		'''
+		Get a sneak peek at your next live lunch!]
+		[c/{$Mods.V2.Colors.Grey}:Be they friend, foe, or anywhere in between...
+		'''
+
 	Generic: {
 		BehaviorNoteUnlock: " to reveal this note."
 		LootTableUnlock: Defeat or digest a {Title} to reveal possible loot.
@@ -183,8 +214,8 @@ DivineIntervention: {
 	Title: Divine Intergestion
 	TabOverview:
 		'''
-		Request divine protection* from preds you don't like
-		[c/{$Mods.V2.Colors.Grey}:(* - provided and controlled BY the divines)]
+		Request divine protection* from preds you don't like!]
+		[c/{$Mods.V2.Colors.Grey}:(* - Provided and controlled by the divines. Terms and conditions apply. Please speak to a qualified and certified Saint serving a deity, pray at the Sugar Goddess' Sacred Chapelle in Sveetia, or order a Glucoria's Gluttons Gallery waiter/waitress for more information.)
 		'''
 	Overview:
 		'''
