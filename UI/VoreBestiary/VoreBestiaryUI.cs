@@ -46,14 +46,18 @@ namespace V2.UI.VoreBestiary
 		public static bool Visible { get; set; }
 		public static AEMTab SelectedTab { get; set; }
 		public static DITab SelectedDITab { get; set; }
+		public static DISwitch SelectedDISwitch { get; set; }
 
-		public static int YappySnackAngelTalkingTime = 0;
+		public static string StPromYapLocal { get; internal set; }
+		private static bool StPromYapLocalChanged { get; set; }
+		public static int StPromYapDelay => 2;
+		public static int StPromYapTimer { get; internal set; }
+		public static int StPromYapChars { get; internal set; }
+		private static bool StPromYapNewCharDisplayed { get; set; }
 
 		private static readonly Asset<Texture2D> _voreBestiaryBackground = ModContent.Request<Texture2D>("V2/UI/VoreBestiary/VoreBestiary_Main");
 		private static readonly Asset<Texture2D> _actualDescBox = ModContent.Request<Texture2D>("V2/UI/VoreBestiary/VoreBestiary_DescriptionBox");
 		private static readonly Asset<Texture2D> _snackAngelYapBox = ModContent.Request<Texture2D>("V2/UI/VoreBestiary/VoreBestiary_FoodAngelYappingBox");
-		private static readonly Asset<Texture2D> _genericTabActive = ModContent.Request<Texture2D>("V2/UI/VoreBestiary/VoreBestiary_GenericTabActive");
-		private static readonly Asset<Texture2D> _genericTabInactive = ModContent.Request<Texture2D>("V2/UI/VoreBestiary/VoreBestiary_GenericTabInactive");
 		private static readonly Asset<Texture2D> _DITabActive = ModContent.Request<Texture2D>("V2/UI/VoreBestiary/VoreBestiary_DivineInterventionTab");
 		private static readonly Asset<Texture2D> _DITabInactive = ModContent.Request<Texture2D>("V2/UI/VoreBestiary/VoreBestiary_DivineInterventionTabInactive");
 		private static readonly Asset<Texture2D> _DISwitch = ModContent.Request<Texture2D>("V2/UI/VoreBestiary/VoreBestiary_DivineInterventionSwitch");
@@ -75,7 +79,11 @@ namespace V2.UI.VoreBestiary
 			if (player.AsV2Player().LookingAtAEM)
 				Visible = true;
 			else
+			{
 				SelectedTab = AEMTab.Starter;
+				SelectedDITab = DITab.Gender;
+				SelectedDISwitch = null;
+			}
 		}
 
 		public override void Draw(SpriteBatch spriteBatch)
@@ -160,7 +168,8 @@ namespace V2.UI.VoreBestiary
 						+ Color.CornflowerBlue.Hex3()
 						+ ":"
 						+ Language.GetTextValue(tabToDraw.LocalizeKey + ".TabOverview")
-						+ "]";
+						+ "]\n"
+						+ Language.GetTextValue("Mods.V2.AEM.Generic." + (tabToDraw.IsActiveTab ? "AlreadyOnTab" : "OpenTabByClicking"));
 					UISupplementaries.DrawMouseTooltipWithTilesBoundingBox(
 						spriteBatch,
 						_HoverBox.Value,
@@ -172,6 +181,13 @@ namespace V2.UI.VoreBestiary
 						500,
 						8
 					);
+					if (Main.mouseLeft && Main.mouseLeftRelease)
+					{
+						Main.mouseLeftRelease = false;
+						if (!tabToDraw.IsActiveTab)
+							SelectedTab = tabToDraw.Signifier;
+						SoundEngine.PlaySound(SoundID.MenuTick);
+					}
 				}
 			}
 
@@ -183,6 +199,87 @@ namespace V2.UI.VoreBestiary
 					Vector2 switchBasePos = backdropPos + new Vector2(160, 200);
 					int row = 0;
 					int column = 0;
+					void DrawCategoryToggles(DISwitchCategory category)
+					{
+						foreach (DISwitch toggle in DISwitchHandling.Switches)
+						{
+							if (toggle.Category != category)
+								continue;
+							Vector2 properSwitchPos = switchBasePos + new Vector2(
+								row * 40,
+								column * 60
+							);
+							spriteBatch.Draw(
+								_DISwitch.Value,
+								properSwitchPos,
+								toggle.GetToggleState() ? new Rectangle(16, 0, 16, 16) : new Rectangle(0, 0, 16, 16),
+								Color.White,
+								0f,
+								new Vector2(8, 8),
+								1f,
+								SpriteEffects.None,
+								0f
+							);
+
+							toggle.GetTitleAndDescription(out string title, out string stPrommentary);
+
+							Vector2 titleSize = ChatManager.GetStringSize(
+								FontAssets.MouseText.Value,
+								title,
+								Vector2.One
+							);
+
+							ChatManager.DrawColorCodedStringWithShadow(
+								spriteBatch,
+								FontAssets.MouseText.Value,
+								title,
+								properSwitchPos + new Vector2(20, 0),
+								SelectedDISwitch == toggle ? Color.LightGreen : new Color(255, 204, 0),
+								new Color(0, 9, 38),
+								0f,
+								new Vector2(0, titleSize.Y / 2f),
+								Vector2.One
+							);
+
+							Rectangle switchHoverBox = new Rectangle(
+								(int)properSwitchPos.X,
+								(int)properSwitchPos.Y,
+								16,
+								16
+							);
+
+							if (switchHoverBox.Contains(Main.MouseScreen.ToPoint()))
+							{
+								if (Main.mouseLeft & Main.mouseLeftRelease)
+								{
+									Main.mouseLeftRelease = false;
+									toggle.SetToggleState(toggle.GetToggleState());
+									SoundEngine.PlaySound(SoundID.MenuTick);
+								}
+							}
+							switchHoverBox.Width += 20 + (int)Math.Ceiling(titleSize.X);
+							switchHoverBox.Height += (int)Math.Ceiling(titleSize.X);
+
+							if (switchHoverBox.Contains(Main.MouseScreen.ToPoint()))
+							{
+								if (Main.mouseLeft & Main.mouseLeftRelease)
+								{
+									Main.mouseLeftRelease = false;
+									if (SelectedDISwitch == toggle)
+										SelectedDISwitch = null;
+									else
+										SelectedDISwitch = toggle;
+									SoundEngine.PlaySound(SoundID.MenuTick);
+								}
+							}
+							row += 1;
+							if (row >= 7)
+							{
+								row = 0;
+								column += 1;
+							}
+						}
+					}
 					switch (SelectedDITab)
 					{
 						case DITab.Gender:
@@ -210,80 +307,7 @@ namespace V2.UI.VoreBestiary
 								0f
 							);
 
-							foreach (DISwitch toggle in DISwitchHandling.Switches)
-							{
-								if (toggle.Category != DISwitchCategory.Gender)
-									continue;
-
-								Vector2 properSwitchPos = switchBasePos + new Vector2(
-									row * 40,
-									column * 60
-								);
-								spriteBatch.Draw(
-									_DISwitch.Value,
-									properSwitchPos,
-									toggle.GetToggleState() ? new Rectangle(16, 0, 16, 16) : new Rectangle(0, 0, 16, 16),
-									Color.White,
-									0f,
-									new Vector2(8, 8),
-									1f,
-									SpriteEffects.None,
-									0f
-								);
-
-								toggle.GetTitleAndDescription(out string title, out string stPrommentary);
-
-								Vector2 titleSize = ChatManager.GetStringSize(
-									FontAssets.MouseText.Value,
-									title,
-									Vector2.One
-								);
-
-								ChatManager.DrawColorCodedStringWithShadow(
-									spriteBatch,
-									FontAssets.MouseText.Value,
-									title,
-									properSwitchPos + new Vector2(20, 0),
-									new Color(255, 204, 0),
-									new Color(0, 9, 38),
-									0f,
-									new Vector2(0, titleSize.Y / 2f),
-									Vector2.One
-								);
-
-								Rectangle switchHoverBox = new Rectangle(
-									(int)properSwitchPos.X,
-									(int)properSwitchPos.Y,
-									16,
-									16
-								);
-
-								if (switchHoverBox.Contains(Main.MouseScreen.ToPoint()))
-								{
-									if (Main.mouseLeft & Main.mouseLeftRelease)
-									{
-										Main.mouseLeftRelease = false;
-										toggle.SetToggleState(toggle.GetToggleState());
-									}
-								}
-								switchHoverBox.Width += 20 + (int)Math.Ceiling(titleSize.X);
-								switchHoverBox.Height += (int)Math.Ceiling(titleSize.X);
-
-								if (switchHoverBox.Contains(Main.MouseScreen.ToPoint()))
-								{
-									if (Main.mouseLeft & Main.mouseLeftRelease)
-									{
-										Main.mouseLeftRelease = false;
-										toggle.SetToggleState(toggle.GetToggleState());
-									}
-								}
-								row += 1;
-								if (row >= 7)
-								{
-									row = 0;
-									column += 1;
-								}
-							}
+							DrawCategoryToggles(DISwitchCategory.Gender);
 							break;
 						case DITab.Type:
 							spriteBatch.Draw(
@@ -309,59 +333,7 @@ namespace V2.UI.VoreBestiary
 								0f
 							);
 
-							foreach (DISwitch toggle in DISwitchHandling.Switches)
-							{
-								if (toggle.Category != DISwitchCategory.Type)
-									continue;
-
-								Vector2 properSwitchPos = switchBasePos + new Vector2(
-									row * 40,
-									column * 60
-								);
-								spriteBatch.Draw(
-									_DISwitch.Value,
-									properSwitchPos,
-									_DISwitch.Value.Bounds,
-									Color.White,
-									0f,
-									Vector2.Zero,
-									1f,
-									SpriteEffects.None,
-									0f
-								);
-
-								toggle.GetTitleAndDescription(out string title, out string stPrommentary);
-
-								ChatManager.DrawColorCodedStringWithShadow(
-									spriteBatch,
-									FontAssets.MouseText.Value,
-									title,
-									properSwitchPos + new Vector2(20, 0),
-									new Color(255, 204, 0),
-									new Color(0, 9, 38),
-									0f,
-									Vector2.Zero,
-									Vector2.One
-								);
-
-								Rectangle switchHoverBox = new Rectangle(
-									(int)properSwitchPos.X,
-									(int)properSwitchPos.Y,
-									16,
-									16
-								);
-
-								if (switchHoverBox.Contains(Main.MouseScreen.ToPoint()))
-								{
-
-								}
-								row += 1;
-								if (row >= 7)
-								{
-									row = 0;
-									column += 1;
-								}
-							}
+							DrawCategoryToggles(DISwitchCategory.Type);
 							break;
 					}
 					// note to self: add case for the AEM to eat the player if all DI toggles are off simultaneously
@@ -369,6 +341,72 @@ namespace V2.UI.VoreBestiary
 				case AEMTab.Starter:
 				default:
 					break;
+			}
+
+			if (StPromYapLocalChanged)
+			{
+				StPromYapTimer = 0;
+				StPromYapChars = 0;
+			}
+
+			if (StPromYapLocal != "")
+			{
+				StPromYapTimer++;
+				StPromYapNewCharDisplayed = false;
+				if (StPromYapTimer >= StPromYapDelay)
+				{
+					StPromYapTimer = 0;
+					StPromYapChars++;
+					StPromYapNewCharDisplayed = true;
+				}
+
+				List<List<TextSnippet>> parsedSnippets = Utils.WordwrapStringSmart(
+					Language.GetTextValue("Mods.V2.AEM." + StPromYapLocal),
+					Color.White,
+					FontAssets.MouseText.Value,
+					690,
+					10
+				);
+				List<TextSnippet> displayableSnippets = [];
+				int charDisplayTrackerCount = 0;
+				foreach (List<TextSnippet> snippetsBatch in parsedSnippets)
+				{
+					foreach (TextSnippet snippet in snippetsBatch)
+					{
+						foreach (char character in snippet.Text)
+						{
+							TextSnippet charSnippet = new TextSnippet(character.ToString(), snippet.Color, snippet.Scale);
+							displayableSnippets.Add(snippet);
+							charDisplayTrackerCount++;
+							if (charDisplayTrackerCount >= StPromYapChars)
+								break;
+						}
+						if (charDisplayTrackerCount >= StPromYapChars)
+							break;
+					}
+					if (charDisplayTrackerCount >= StPromYapChars)
+						break;
+				}
+				ChatManager.DrawColorCodedStringWithShadow(
+					spriteBatch,
+					FontAssets.MouseText.Value,
+					[.. displayableSnippets],
+					snackAngelYapPos + new Vector2(15, 15),
+					0f,
+					new Color(255, 229, 127),
+					new Color(0, 9, 38),
+					Vector2.Zero,
+					Vector2.One,
+					out _
+				);
+				if (StPromYapNewCharDisplayed)
+				{
+					List<char> skipSoundsForTheseChars = [
+						' '
+					];
+					if (!skipSoundsForTheseChars.Contains(displayableSnippets.Last().Text.Last()))
+						SoundEngine.PlaySound(SoundID.MenuTick);
+				}
 			}
 		}
 	}
