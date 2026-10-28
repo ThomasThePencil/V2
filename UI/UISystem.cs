@@ -4,13 +4,13 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.UI;
-using V2.PlayerHandling;
+using V2.UI.MintWispSummonMeter;
 using V2.UI.PredStatsMenu;
 using V2.UI.SizeScanners;
 using V2.UI.StomachacheMeter;
 using V2.UI.StomachCapacityMeter;
 using V2.UI.StruggleSystem;
-using V2.UI.MintWispSummonMeter;
+using V2.UI.VoreBestiary;
 
 namespace V2.UI
 {
@@ -40,6 +40,9 @@ namespace V2.UI
 		public MealSizeScannerUI MealSizeScannerInterface;
 		public UserInterface PredCapacityScannerInterfaceLayer;
 		public PredCapacityScannerUI PredCapacityScannerInterface;
+
+		public UserInterface VoreBestiaryInterfaceLayer;
+		public VoreBestiaryUI VoreBestiaryInterface;
 
 		public UserInterface MintWispSummonMeterInterfaceLayer;
 		public MintWispSummonMeterUI MintWispSummonMeterInterface;
@@ -88,6 +91,11 @@ namespace V2.UI
 			PredCapacityScannerInterface = new PredCapacityScannerUI();
 			PredCapacityScannerInterface.Activate();
 			PredCapacityScannerInterfaceLayer.SetState(PredCapacityScannerInterface);
+
+			VoreBestiaryInterfaceLayer = new UserInterface();
+			VoreBestiaryInterface = new VoreBestiaryUI();
+			VoreBestiaryInterface.Activate();
+			VoreBestiaryInterfaceLayer.SetState(VoreBestiaryInterface);
 
 			MintWispSummonMeterInterfaceLayer = new UserInterface();
 			MintWispSummonMeterInterface = new MintWispSummonMeterUI();
@@ -167,7 +175,8 @@ namespace V2.UI
 					AddInterfaceLayer(layers, PlayerPredStruggleInterfaceLayer, PlayerPredStruggleInterface, OverriddenHairWindowIndex + 4, "Player Pred Struggles");
 					AddInterfaceLayer(layers, PredStatsMenuInterfaceLayer, PredStatsMenuInterface, OverriddenHairWindowIndex + 5, "Pred Stats Menu");
 					AddInterfaceLayer(layers, PredStatsMenuMouthInterfaceLayer, PredStatsMenuMouthInterface, OverriddenHairWindowIndex + 6, "Rose");
-					AddInterfaceLayer(layers, MintWispSummonMeterInterfaceLayer, MintWispSummonMeterInterface, OverriddenHairWindowIndex + 7, "Mint Wisp Summon Meter");
+					AddInterfaceLayer(layers, VoreBestiaryInterfaceLayer, VoreBestiaryInterface, OverriddenHairWindowIndex + 7, "All-Encompassing Menu");
+					AddInterfaceLayer(layers, MintWispSummonMeterInterfaceLayer, MintWispSummonMeterInterface, OverriddenHairWindowIndex + 8, "Mint Wisp Summon Meter");
 				}
 			}
 			int MouseTextIndex = layers.FindIndex(layer => layer.Name.Equals("Vanilla: Mouse Text"));
