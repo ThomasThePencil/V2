@@ -11,6 +11,7 @@ using Terraria.ModLoader;
 using V2.Core;
 using V2.NPCs;
 using V2.Projectiles;
+using V2.UI.VoreBestiary;
 
 namespace V2.PlayerHandling
 {
@@ -19,6 +20,12 @@ namespace V2.PlayerHandling
 		public static V2Player AsV2Player(this Player player) => player.GetModPlayer<V2Player>();
 		public static PredPlayer AsPred(this Player player) => player.GetModPlayer<PredPlayer>();
 		public static PreyPlayer AsFood(this Player player) => player.GetModPlayer<PreyPlayer>();
+
+		public static void OpenAEM(this Player player)
+		{
+			player.AsV2Player().LookingAtAEM = true;
+			VoreBestiaryUI.SelectedTab = AEMTab.DivineIntervention;
+		}
 
 		public static bool IsFoodFor(this Player player, Entity entity, out bool pastTense)
 		{

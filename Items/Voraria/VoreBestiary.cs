@@ -44,11 +44,9 @@ namespace V2.Items.Voraria
 			);
 		}
 
-		public override bool? UseItem(Player player)
+		public override void UseAnimation(Player player)
 		{
-			player.AsV2Player().LookingAtAEM = true;
-			VoreBestiaryUI.SelectedTab = AEMTab.DivineIntervention;
-			return null;
+			player.OpenAEM();
 		}
 
 		public override void ModifyTooltips(List<TooltipLine> tooltips)

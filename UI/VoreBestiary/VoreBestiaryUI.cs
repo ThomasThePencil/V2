@@ -156,6 +156,7 @@ namespace V2.UI.VoreBestiary
 					tabTexture.Width,
 					tabTexture.Height
 				);
+
 				if (hoverRect.Contains(Main.MouseScreen.ToPoint()))
 				{
 					Color gilded = new Color(255, 204, 0);
