@@ -24,20 +24,22 @@ namespace V2.UI.VoreBestiary
 	}
 	public abstract class VoreBestiaryTab
 	{
+		public static Starter Starter { get; private set; } = new Starter();
+		public static You You { get; private set; } = new You();
 		public static DivineIntervention DivineIntervention { get; private set; } = new DivineIntervention();
 
 		/// <summary>
-		/// A number which signifies the priority this 
+		/// A number which signifies the priority this  All-Encompassing Menu tab has in the listing.
 		/// </summary>
 		public abstract int Priority { get; }
 
 		/// <summary>
-		/// The localization key which this Divine Intergestion toggle uses to fetch its title and commentary.
+		/// The localization key which this All-Encompassing Menu tab uses to fetch its title and commentary.
 		/// </summary>
 		public abstract Texture2D Texture { get; }
 
 		/// <summary>
-		/// The localization key which this Divine Intergestion toggle uses to fetch its title and description.
+		/// The localization key which this All-Encompassing Menu tab uses to fetch its title and description.
 		/// </summary>
 		public abstract string LocalizeKey { get; }
 
@@ -52,7 +54,7 @@ namespace V2.UI.VoreBestiary
 		public override int Priority => 0;
 		public override Texture2D Texture => (IsActiveTab ? ActiveTex : InactiveTex).Value;
 		public override string LocalizeKey => "Starter";
-		public override AEMTab Signifier => AEMTab.DivineIntervention;
+		public override AEMTab Signifier => AEMTab.Starter;
 	}
 
 	public class You : VoreBestiaryTab
@@ -61,8 +63,8 @@ namespace V2.UI.VoreBestiary
 		public static readonly Asset<Texture2D> ActiveTex = ModContent.Request<Texture2D>("V2/UI/VoreBestiary/VoreBestiary_GenericTabActive");
 		public override int Priority => 1;
 		public override Texture2D Texture => (IsActiveTab ? ActiveTex : InactiveTex).Value;
-		public override string LocalizeKey => "Starter";
-		public override AEMTab Signifier => AEMTab.DivineIntervention;
+		public override string LocalizeKey => "PersonalStats";
+		public override AEMTab Signifier => AEMTab.You;
 	}
 
 	public class DivineIntervention : VoreBestiaryTab

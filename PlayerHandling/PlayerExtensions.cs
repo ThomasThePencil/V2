@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Terraria;
+using Terraria.Audio;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -24,7 +25,21 @@ namespace V2.PlayerHandling
 		public static void OpenAEM(this Player player)
 		{
 			player.AsV2Player().LookingAtAEM = true;
-			VoreBestiaryUI.SelectedTab = AEMTab.DivineIntervention;
+			if (player.whoAmI == Main.myPlayer)
+			{
+				VoreBestiaryUI.SelectedTab = AEMTab.DivineIntervention;
+				SoundEngine.PlaySound(SoundID.MenuOpen);
+			}
+		}
+
+		public static void CloseAEM(this Player player)
+		{
+			player.AsV2Player().LookingAtAEM = false;
+			if (player.whoAmI == Main.myPlayer)
+			{
+				VoreBestiaryUI.SelectedTab = AEMTab.Starter;
+				SoundEngine.PlaySound(SoundID.MenuClose);
+			}
 		}
 
 		public static bool IsFoodFor(this Player player, Entity entity, out bool pastTense)

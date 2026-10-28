@@ -51,17 +51,17 @@ namespace V2.UI
 					largestLineSize = lineMeasurement;
 			}
 
-			Vector2 mouseOffset = new Vector2(14, 8);
+			Vector2 mouseOffset = new Vector2(10, 10);
 			int maxWidthInTiles = (int)Math.Ceiling(maxWidth / boundingBoxTileSize);
 			int widthInTiles = Math.Min((int)Math.Ceiling((largestLineSize.X + 20) / boundingBoxTileSize), maxWidthInTiles);
-			float actualProjectedWidth = (float)widthInTiles * boundingBoxTileSize;
-			int screenWidth = Main.screenWidth;
-			int screenHeight = Main.screenHeight;
-			if ((float)mouseOffset.X + Main.MouseScreen.X + (float)actualProjectedWidth > (float)screenWidth)
-				mouseOffset.X = (int)((float)screenWidth - Main.MouseScreen.X - (float)actualProjectedWidth);
+			float actualProjectedWidth = (float)(widthInTiles + 1) * boundingBoxTileSize;
+			float actualProjectedHeight = (float)(smartWrappedText.Count + 1) * boundingBoxTileSize;
 
-			if ((float)mouseOffset.Y + Main.MouseScreen.Y + (float)actualProjectedWidth > (float)screenHeight)
-				mouseOffset.Y = (int)((float)screenHeight - Main.MouseScreen.Y - (float)actualProjectedWidth);
+			if ((float)mouseOffset.X + Main.MouseScreen.X + (float)actualProjectedWidth > Main.screenWidth)
+				mouseOffset.X = (int)(Main.screenWidth - Main.MouseScreen.X - (float)actualProjectedWidth);
+
+			if ((float)mouseOffset.Y + Main.MouseScreen.Y + (float)actualProjectedHeight > Main.screenHeight)
+				mouseOffset.Y = (int)(Main.screenHeight - Main.MouseScreen.Y - (float)actualProjectedHeight);
 
 			for (int y = 0; y <= smartWrappedText.Count; y++)
 			{
@@ -71,9 +71,9 @@ namespace V2.UI
 					int targetSheetTileY = y == 0 ? 0 : (y < smartWrappedText.Count ? 32 : 64);
 					Main.spriteBatch.Draw(
 						boundingBox,
-						Main.MouseScreen + new Vector2(
-							10 + (30 * x),
-							10 + (30 * y)
+						Main.MouseScreen + mouseOffset + new Vector2(
+							30 * x,
+							30 * y
 						),
 						new Rectangle(
 							targetSheetTileX,
@@ -97,7 +97,7 @@ namespace V2.UI
 					spriteBatch,
 					FontAssets.MouseText.Value,
 					[.. line],
-					Main.MouseScreen + new Vector2(12, 12 + (30 * lineBeingDrawn)),
+					Main.MouseScreen + mouseOffset + new Vector2(15, 15 + (30 * lineBeingDrawn)),
 					0f,
 					baseTextColor,
 					baseShadowColor,

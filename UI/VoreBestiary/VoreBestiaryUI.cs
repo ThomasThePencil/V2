@@ -61,7 +61,8 @@ namespace V2.UI.VoreBestiary
 		private static readonly Asset<Texture2D> _DITabActive = ModContent.Request<Texture2D>("V2/UI/VoreBestiary/VoreBestiary_DivineInterventionTab");
 		private static readonly Asset<Texture2D> _DITabInactive = ModContent.Request<Texture2D>("V2/UI/VoreBestiary/VoreBestiary_DivineInterventionTabInactive");
 		private static readonly Asset<Texture2D> _DISwitch = ModContent.Request<Texture2D>("V2/UI/VoreBestiary/VoreBestiary_DivineInterventionSwitch");
-		private static readonly Asset<Texture2D> _HoverBox = ModContent.Request<Texture2D>("V2/UI/VoreBestiary/VoreBestiary_GeneralHoverBox");
+		private static readonly Asset<Texture2D> _hoverBox = ModContent.Request<Texture2D>("V2/UI/VoreBestiary/VoreBestiary_GeneralHoverBox");
+		private static readonly Asset<Texture2D> _closeButton = ModContent.Request<Texture2D>("V2/UI/VoreBestiary/VoreBestiary_CloseMenuButton");
 
 		public override void OnInitialize()
 		{
@@ -83,6 +84,8 @@ namespace V2.UI.VoreBestiary
 				SelectedTab = AEMTab.Starter;
 				SelectedDITab = DITab.Gender;
 				SelectedDISwitch = null;
+				StPromYapLocal = "";
+				StPromYapLocalChanged = false;
 			}
 		}
 
@@ -91,13 +94,17 @@ namespace V2.UI.VoreBestiary
 			if (!Visible)
 				return;
 
-			Main.LocalPlayer.mouseInterface = true;
+			Player player = Main.LocalPlayer;
+			player.mouseInterface = true;
+
+			Color gilded = new Color(255, 204, 0);
+
 			Vector2 backdropPos = new Vector2(
 				(Main.screenWidth - _voreBestiaryBackground.Value.Width) / 2,
 				(Main.screenHeight - _voreBestiaryBackground.Value.Height) / 2
 			);
-			Vector2 descBoxPos = backdropPos + new Vector2(922, 62);
-			Vector2 snackAngelYapPos = backdropPos + new Vector2(922, 502);
+			Vector2 descBoxPos = backdropPos + new Vector2(850, 52);
+			Vector2 snackAngelYapPos = backdropPos + new Vector2(850, 512);
 			spriteBatch.Draw(
 				_voreBestiaryBackground.Value,
 				backdropPos,
@@ -132,212 +139,157 @@ namespace V2.UI.VoreBestiary
 				0f
 			);
 
-			List<VoreBestiaryTab> tabsList = [.. VoreBestiaryTabHandling.Tabs.OrderBy(x => x.Priority)];
-			tabsList.RemoveAll(x => x.Priority <= 0);
-			for (int i = 0; i < tabsList.Count; i++)
+			void DrawTab_DivineIntervention()
 			{
-				VoreBestiaryTab tabToDraw = tabsList[i];
-				Texture2D tabTexture = tabToDraw.Texture;
-				spriteBatch.Draw(
-					tabTexture,
-					backdropPos + new Vector2(60 * tabToDraw.Priority, 20),
-					tabTexture.Bounds,
-					Color.White,
-					0f,
-					tabTexture.Size() / 2f,
-					1f,
-					SpriteEffects.None,
-					0f
-				);
-
-				Rectangle hoverRect = new Rectangle(
-					(int)backdropPos.X + (60 * tabToDraw.Priority),
-					(int)backdropPos.Y + 20,
-					tabTexture.Width,
-					tabTexture.Height
-				);
-
-				if (hoverRect.Contains(Main.MouseScreen.ToPoint()))
+				Vector2 tabGenderPos = backdropPos + new Vector2(128, 128);
+				Vector2 tabTypePos = backdropPos + new Vector2(200, 128);
+				Vector2 switchBasePos = backdropPos + new Vector2(90, 200);
+				int row = 0;
+				int column = 0;
+				void DrawCategoryToggles(DISwitchCategory category)
 				{
-					Color gilded = new Color(255, 204, 0);
-					// this is the most dogshit way to set up this string ever but whatever
-					string titleAndDescOnHover = "\n[c/"
-						+ gilded.Hex3()
-						+ ":"
-						+ Language.GetTextValue(tabToDraw.LocalizeKey + ".Title")
-						+ "]\n[c/"
-						+ Color.CornflowerBlue.Hex3()
-						+ ":"
-						+ Language.GetTextValue(tabToDraw.LocalizeKey + ".TabOverview")
-						+ "]\n"
-						+ Language.GetTextValue("Mods.V2.AEM.Generic." + (tabToDraw.IsActiveTab ? "AlreadyOnTab" : "OpenTabByClicking"));
-					UISupplementaries.DrawMouseTooltipWithTilesBoundingBox(
-						spriteBatch,
-						_HoverBox.Value,
-						30,
-						Color.White,
-						titleAndDescOnHover,
-						Color.White,
-						new Color(0, 9, 38),
-						500,
-						8
-					);
-					if (Main.mouseLeft && Main.mouseLeftRelease)
+					foreach (DISwitch toggle in DISwitchHandling.Switches)
 					{
-						Main.mouseLeftRelease = false;
-						if (!tabToDraw.IsActiveTab)
-							SelectedTab = tabToDraw.Signifier;
-						SoundEngine.PlaySound(SoundID.MenuTick);
+						if (toggle.Category != category)
+							continue;
+						Vector2 properSwitchPos = switchBasePos + new Vector2(
+							row * 100,
+							column * 60
+						);
+						spriteBatch.Draw(
+							_DISwitch.Value,
+							properSwitchPos,
+							toggle.GetToggleState() ? new Rectangle(16, 0, 16, 16) : new Rectangle(0, 0, 16, 16),
+							Color.White,
+							0f,
+							Vector2.Zero,
+							1f,
+							SpriteEffects.None,
+							0f
+						);
+
+						toggle.GetTitleAndDescription(out string title, out string stPrommentary);
+
+						Vector2 titleSize = ChatManager.GetStringSize(
+							FontAssets.MouseText.Value,
+							title,
+							Vector2.One
+						);
+
+						ChatManager.DrawColorCodedStringWithShadow(
+							spriteBatch,
+							FontAssets.MouseText.Value,
+							title,
+							properSwitchPos + new Vector2(24, 0),
+							SelectedDISwitch == toggle ? Color.LightGreen : new Color(255, 204, 0),
+							new Color(0, 9, 38),
+							0f,
+							Vector2.Zero,
+							Vector2.One
+						);
+
+						Rectangle switchHoverBox = new Rectangle(
+							(int)properSwitchPos.X,
+							(int)properSwitchPos.Y,
+							16,
+							16
+						);
+
+						if (switchHoverBox.Contains(Main.MouseScreen.ToPoint()))
+						{
+							if (Main.mouseLeft & Main.mouseLeftRelease)
+							{
+								Main.mouseLeftRelease = false;
+								toggle.SetToggleState(!toggle.GetToggleState());
+								SoundEngine.PlaySound(SoundID.MenuTick);
+							}
+						}
+						switchHoverBox.Width += 20 + (int)Math.Ceiling(titleSize.X);
+						switchHoverBox.Height += (int)Math.Ceiling(titleSize.X);
+
+						if (switchHoverBox.Contains(Main.MouseScreen.ToPoint()))
+						{
+							if (Main.mouseLeft & Main.mouseLeftRelease)
+							{
+								Main.mouseLeftRelease = false;
+								if (SelectedDISwitch == toggle)
+									SelectedDISwitch = null;
+								else
+									SelectedDISwitch = toggle;
+								SoundEngine.PlaySound(SoundID.MenuTick);
+							}
+						}
+						row += 1;
+						if (row >= 7)
+						{
+							row = 0;
+							column += 1;
+						}
 					}
 				}
+				switch (SelectedDITab)
+				{
+					case DITab.Gender:
+					default:
+						spriteBatch.Draw(
+							_DITabActive.Value,
+							tabGenderPos,
+							_DITabActive.Value.Bounds,
+							Color.White,
+							0f,
+							Vector2.Zero,
+							1f,
+							SpriteEffects.None,
+							0f
+						);
+						spriteBatch.Draw(
+							_DITabInactive.Value,
+							tabTypePos,
+							_DITabInactive.Value.Bounds,
+							Color.White,
+							0f,
+							Vector2.Zero,
+							1f,
+							SpriteEffects.None,
+							0f
+						);
+
+						DrawCategoryToggles(DISwitchCategory.Gender);
+						break;
+					case DITab.Type:
+						spriteBatch.Draw(
+							_DITabInactive.Value,
+							tabGenderPos,
+							_DITabInactive.Value.Bounds,
+							Color.White,
+							0f,
+							Vector2.Zero,
+							1f,
+							SpriteEffects.None,
+							0f
+						);
+						spriteBatch.Draw(
+							_DITabActive.Value,
+							tabTypePos,
+							_DITabActive.Value.Bounds,
+							Color.White,
+							0f,
+							Vector2.Zero,
+							1f,
+							SpriteEffects.None,
+							0f
+						);
+
+						DrawCategoryToggles(DISwitchCategory.Type);
+						break;
+				}
+				// note to self: add case for the AEM to eat the player if all DI toggles are off simultaneously}
 			}
 
 			switch (SelectedTab)
 			{
 				case AEMTab.DivineIntervention:
-					Vector2 tabGenderPos = backdropPos + new Vector2(128, 128);
-					Vector2 tabTypePos = backdropPos + new Vector2(200, 128);
-					Vector2 switchBasePos = backdropPos + new Vector2(160, 200);
-					int row = 0;
-					int column = 0;
-					void DrawCategoryToggles(DISwitchCategory category)
-					{
-						foreach (DISwitch toggle in DISwitchHandling.Switches)
-						{
-							if (toggle.Category != category)
-								continue;
-							Vector2 properSwitchPos = switchBasePos + new Vector2(
-								row * 40,
-								column * 60
-							);
-							spriteBatch.Draw(
-								_DISwitch.Value,
-								properSwitchPos,
-								toggle.GetToggleState() ? new Rectangle(16, 0, 16, 16) : new Rectangle(0, 0, 16, 16),
-								Color.White,
-								0f,
-								new Vector2(8, 8),
-								1f,
-								SpriteEffects.None,
-								0f
-							);
-
-							toggle.GetTitleAndDescription(out string title, out string stPrommentary);
-
-							Vector2 titleSize = ChatManager.GetStringSize(
-								FontAssets.MouseText.Value,
-								title,
-								Vector2.One
-							);
-
-							ChatManager.DrawColorCodedStringWithShadow(
-								spriteBatch,
-								FontAssets.MouseText.Value,
-								title,
-								properSwitchPos + new Vector2(20, 0),
-								SelectedDISwitch == toggle ? Color.LightGreen : new Color(255, 204, 0),
-								new Color(0, 9, 38),
-								0f,
-								new Vector2(0, titleSize.Y / 2f),
-								Vector2.One
-							);
-
-							Rectangle switchHoverBox = new Rectangle(
-								(int)properSwitchPos.X,
-								(int)properSwitchPos.Y,
-								16,
-								16
-							);
-
-							if (switchHoverBox.Contains(Main.MouseScreen.ToPoint()))
-							{
-								if (Main.mouseLeft & Main.mouseLeftRelease)
-								{
-									Main.mouseLeftRelease = false;
-									toggle.SetToggleState(toggle.GetToggleState());
-									SoundEngine.PlaySound(SoundID.MenuTick);
-								}
-							}
-							switchHoverBox.Width += 20 + (int)Math.Ceiling(titleSize.X);
-							switchHoverBox.Height += (int)Math.Ceiling(titleSize.X);
-
-							if (switchHoverBox.Contains(Main.MouseScreen.ToPoint()))
-							{
-								if (Main.mouseLeft & Main.mouseLeftRelease)
-								{
-									Main.mouseLeftRelease = false;
-									if (SelectedDISwitch == toggle)
-										SelectedDISwitch = null;
-									else
-										SelectedDISwitch = toggle;
-									SoundEngine.PlaySound(SoundID.MenuTick);
-								}
-							}
-							row += 1;
-							if (row >= 7)
-							{
-								row = 0;
-								column += 1;
-							}
-						}
-					}
-					switch (SelectedDITab)
-					{
-						case DITab.Gender:
-						default:
-							spriteBatch.Draw(
-								_DITabActive.Value,
-								tabGenderPos,
-								_DITabActive.Value.Bounds,
-								Color.White,
-								0f,
-								Vector2.Zero,
-								1f,
-								SpriteEffects.None,
-								0f
-							);
-							spriteBatch.Draw(
-								_DITabInactive.Value,
-								tabTypePos,
-								_DITabInactive.Value.Bounds,
-								Color.White,
-								0f,
-								Vector2.Zero,
-								1f,
-								SpriteEffects.None,
-								0f
-							);
-
-							DrawCategoryToggles(DISwitchCategory.Gender);
-							break;
-						case DITab.Type:
-							spriteBatch.Draw(
-								_DITabInactive.Value,
-								tabGenderPos,
-								_DITabInactive.Value.Bounds,
-								Color.White,
-								0f,
-								Vector2.Zero,
-								1f,
-								SpriteEffects.None,
-								0f
-							);
-							spriteBatch.Draw(
-								_DITabActive.Value,
-								tabTypePos,
-								_DITabActive.Value.Bounds,
-								Color.White,
-								0f,
-								Vector2.Zero,
-								1f,
-								SpriteEffects.None,
-								0f
-							);
-
-							DrawCategoryToggles(DISwitchCategory.Type);
-							break;
-					}
-					// note to self: add case for the AEM to eat the player if all DI toggles are off simultaneously
+					DrawTab_DivineIntervention();
 					break;
 				case AEMTab.Starter:
 				default:
@@ -348,6 +300,7 @@ namespace V2.UI.VoreBestiary
 			{
 				StPromYapTimer = 0;
 				StPromYapChars = 0;
+				StPromYapLocalChanged = false;
 			}
 
 			if (StPromYapLocal != "")
@@ -408,6 +361,111 @@ namespace V2.UI.VoreBestiary
 					if (!skipSoundsForTheseChars.Contains(displayableSnippets.Last().Text.Last()))
 						SoundEngine.PlaySound(SoundID.MenuTick);
 				}
+			}
+
+			List<VoreBestiaryTab> tabsList = [.. VoreBestiaryTabHandling.Tabs.OrderBy(x => x.Priority)];
+			tabsList.RemoveAll(x => x.Priority <= 0);
+			for (int i = 0; i < tabsList.Count; i++)
+			{
+				VoreBestiaryTab tabToDraw = tabsList[i];
+				Texture2D tabTexture = tabToDraw.Texture;
+				spriteBatch.Draw(
+					tabTexture,
+					backdropPos + new Vector2(60 * tabToDraw.Priority, 20),
+					tabTexture.Bounds,
+					Color.White,
+					0f,
+					Vector2.Zero,
+					1f,
+					SpriteEffects.None,
+					0f
+				);
+
+				Rectangle tabHoverRect = new Rectangle(
+					(int)backdropPos.X + (60 * tabToDraw.Priority),
+					(int)backdropPos.Y + 20,
+					tabTexture.Width,
+					tabTexture.Height
+				);
+
+				if (tabHoverRect.Contains(Main.MouseScreen.ToPoint()))
+				{
+					// this is the most dogshit way to set up this string ever but whatever
+					string titleAndDescOnHover = "[c/"
+						+ gilded.Hex3()
+						+ ":"
+						+ Language.GetTextValue("Mods.V2.AEM." + tabToDraw.LocalizeKey + ".Title")
+						+ "]\n[c/"
+						+ Color.CornflowerBlue.Hex3()
+						+ ":"
+						+ Language.GetTextValue("Mods.V2.AEM." + tabToDraw.LocalizeKey + ".TabOverview")
+						+ "]\n"
+						+ Language.GetTextValue("Mods.V2.AEM.Generic." + (tabToDraw.IsActiveTab ? "AlreadyOnTab" : "OpenTabByClicking"));
+					UISupplementaries.DrawMouseTooltipWithTilesBoundingBox(
+						spriteBatch,
+						_hoverBox.Value,
+						30,
+						Color.White,
+						titleAndDescOnHover,
+						Color.White,
+						new Color(0, 9, 38),
+						500,
+						8
+					);
+					if (Main.mouseLeft && Main.mouseLeftRelease)
+					{
+						Main.mouseLeftRelease = false;
+						if (!tabToDraw.IsActiveTab)
+							SelectedTab = tabToDraw.Signifier;
+						SoundEngine.PlaySound(SoundID.MenuTick);
+					}
+				}
+			}
+
+			spriteBatch.Draw(
+				_closeButton.Value,
+				backdropPos + new Vector2(762, 862),
+				_closeButton.Value.Bounds,
+				Color.White,
+				0f,
+				Vector2.Zero,
+				1f,
+				SpriteEffects.None,
+				0f
+			);
+
+			Rectangle closeHoverRect = new Rectangle(
+				(int)backdropPos.X + 762,
+				(int)backdropPos.Y + 862,
+				_closeButton.Value.Width,
+				_closeButton.Value.Height
+			);
+
+			if (closeHoverRect.Contains(Main.MouseScreen.ToPoint()))
+			{
+				// this is the most dogshit way to set up this string ever but whatever
+				string titleAndDescOnHover = "[c/"
+					+ gilded.Hex3()
+					+ ":"
+					+ Language.GetTextValue("Mods.V2.AEM.Generic.CloseAEMTitle")
+					+ "]\n[c/"
+					+ Color.CornflowerBlue.Hex3()
+					+ ":"
+					+ Language.GetTextValue("Mods.V2.AEM.Generic.CloseAEMDesc")
+					+ "]";
+				UISupplementaries.DrawMouseTooltipWithTilesBoundingBox(
+					spriteBatch,
+					_hoverBox.Value,
+					30,
+					Color.White,
+					titleAndDescOnHover,
+					Color.White,
+					new Color(0, 9, 38),
+					500,
+					8
+				);
+				if (Main.mouseLeft && Main.mouseLeftRelease)
+					player.CloseAEM();
 			}
 		}
 	}

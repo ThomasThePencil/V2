@@ -1,6 +1,8 @@
 Generic: {
 	OpenTabByClicking: "[c/{$Mods.V2.Colors.Action}:Click to switch to this tab!]"
 	AlreadyOnTab: "[c/{$Mods.V2.Colors.Yellow}:You're already on this tab!]"
+	CloseAEMTitle: Close The All-Encompassing Menu
+	CloseAEMDesc: Done looking through the world's meatiest meals? Picked out your entrée of choice? Well, then, get going to grab it and gobble it up!
 }
 
 PersonalStats: {
@@ -8,7 +10,7 @@ PersonalStats: {
 	TabOverview:
 		'''
 		Take a look at yourself and all your stats!]
-		[c/{$Mods.V2.Colors.Grey}:Getting hungry for yourself, are you?
+		[c/{$Mods.V2.Colors.LightGray}:Getting hungry for yourself, are you?
 		'''
 }
 
@@ -17,7 +19,7 @@ Items: {
 	TabOverview:
 		'''
 		Hungry for your gear and gadgets? Learn more about them here!]
-		[c/{$Mods.V2.Colors.Grey}:And remember: they get hungry, too!
+		[c/{$Mods.V2.Colors.LightGray}:And remember: they get hungry, too!
 		'''
 
 	Accessories: {
@@ -54,7 +56,7 @@ Items: {
 					Can be worn in accessory slots.
 					While worn, confers the following effects:
 					> The health regeneration reductions from [c/{$Mods.V2.Colors.DarkRed}:Bleeding], [c/{$Mods.V2.Colors.DarkRed}:Heavy Bleeding], and [c/{$Mods.V2.Colors.DarkRed}:Fatal Bleeding] are [c/{$Mods.V2.Colors.Green}:reduced by {AdhesiveBandageBleedRegenReducReduc].
-					> The health loss per attack from [c/{$Mods.V2.Colors.DarkRed}:Bleeding], [c/{$Mods.V2.Colors.DarkRed}:Heavy Bleeding], and [c/{$Mods.V2.Colors.DarkRed}:Fatal Bleeding] is [c/{$Mods.V2.Colors.Green}:reduced by {AdhesiveBandageBleedAttackHealthLossReduc}]. [c/{$Mods.V2.Colors.DarkGrey}:(Rounds down.)]
+					> The health loss per attack from [c/{$Mods.V2.Colors.DarkRed}:Bleeding], [c/{$Mods.V2.Colors.DarkRed}:Heavy Bleeding], and [c/{$Mods.V2.Colors.DarkRed}:Fatal Bleeding] is [c/{$Mods.V2.Colors.Green}:reduced by {AdhesiveBandageBleedAttackHealthLossReduc}]. [c/{$Mods.V2.Colors.DarkGray}:(Rounds down.)]
 					> [c/{$Mods.V2.Colors.DarkGreen}:Softened] requires [c/{$Mods.V2.Colors.Yellow}:+{AdhesiveBandageSoftenedDMG} more digestion damage taken] to gain a stack.
 					[c/{$Mods.V2.Colors.Red}:Destroyed] when durability is depleted by digestion damage.
 					'''
@@ -67,7 +69,7 @@ Items: {
 					Can be worn in accessory slots.
 					While worn, confers the following effects:
 					> The health regeneration reductions from [c/{$Mods.V2.Colors.DarkRed}:Bleeding], [c/{$Mods.V2.Colors.DarkRed}:Heavy Bleeding], and [c/{$Mods.V2.Colors.DarkRed}:Fatal Bleeding] are [c/{$Mods.V2.Colors.Green}:reduced by {MedicatedBandageBleedRegenReducReduc].
-					> The health loss per attack from [c/{$Mods.V2.Colors.DarkRed}:Bleeding], [c/{$Mods.V2.Colors.DarkRed}:Heavy Bleeding], and [c/{$Mods.V2.Colors.DarkRed}:Fatal Bleeding] is [c/{$Mods.V2.Colors.Green}:reduced by {MedicatedBandageBleedAttackHealthLossReduc}]. [c/{$Mods.V2.Colors.DarkGrey}:(Rounds down.)]
+					> The health loss per attack from [c/{$Mods.V2.Colors.DarkRed}:Bleeding], [c/{$Mods.V2.Colors.DarkRed}:Heavy Bleeding], and [c/{$Mods.V2.Colors.DarkRed}:Fatal Bleeding] is [c/{$Mods.V2.Colors.Green}:reduced by {MedicatedBandageBleedAttackHealthLossReduc}]. [c/{$Mods.V2.Colors.DarkGray}:(Rounds down.)]
 					> [c/{$Mods.V2.Colors.DarkGreen}:Softened] requires [c/{$Mods.V2.Colors.Yellow}:+{MedicatedBandageSoftenedDMG} more digestion damage taken] to gain a stack.
 					> Grants [c/{$Mods.V2.Colors.Green}:immunity] to [c/{$Mods.V2.Colors.Green}:Poisoned].
 					[c/{$Mods.V2.Colors.Red}:Destroyed] when durability is depleted by digestion damage.
@@ -116,7 +118,7 @@ Projectiles: {
 	TabOverview:
 		'''
 		Full of all the ways you and your feisty food can clash!]
-		[c/{$Mods.V2.Colors.Grey}:You might even belch a few up sometimes!
+		[c/{$Mods.V2.Colors.LightGray}:You might even belch a few up sometimes!
 		'''
 }
 
@@ -125,7 +127,7 @@ NPCs: {
 	TabOverview:
 		'''
 		Get a sneak peek at your next live lunch!]
-		[c/{$Mods.V2.Colors.Grey}:Be they friend, foe, or anywhere in between...
+		[c/{$Mods.V2.Colors.LightGray}:Be they friend, foe, or anywhere in between...
 		'''
 
 	Generic: {
@@ -215,7 +217,7 @@ DivineIntervention: {
 	TabOverview:
 		'''
 		Request divine protection* from preds you don't like!]
-		[c/{$Mods.V2.Colors.Grey}:(* - Provided and controlled by the divines. Terms and conditions apply. Please speak to a qualified and certified Saint serving a deity, pray at the Sugar Goddess' Sacred Chapelle in Sveetia, or order a Glucoria's Gluttons Gallery waiter/waitress for more information.)
+		[c/{$Mods.V2.Colors.LightGray}:(* - Provided and controlled by the divines. Terms and conditions apply. Please speak to a qualified and certified Saint serving a deity, pray at the Sugar Goddess' Sacred Chapelle in Sveetia, or order a Glucoria's Gluttons Gallery waiter/waitress for more information.)
 		'''
 	Overview:
 		'''
